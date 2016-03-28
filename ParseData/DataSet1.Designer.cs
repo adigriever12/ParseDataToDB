@@ -963,7 +963,9 @@ namespace ParseData {
             
             private global::System.Data.DataColumn columnAddress;
             
-            private global::System.Data.DataColumn columnCity;
+            private global::System.Data.DataColumn columnlat;
+            
+            private global::System.Data.DataColumn columnlng;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1016,9 +1018,17 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CityColumn {
+            public global::System.Data.DataColumn latColumn {
                 get {
-                    return this.columnCity;
+                    return this.columnlat;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn lngColumn {
+                get {
+                    return this.columnlng;
                 }
             }
             
@@ -1059,12 +1069,13 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LocationsRow AddLocationsRow(string Address, string City) {
+            public LocationsRow AddLocationsRow(string Address, string lat, string lng) {
                 LocationsRow rowLocationsRow = ((LocationsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Address,
-                        City};
+                        lat,
+                        lng};
                 rowLocationsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowLocationsRow);
                 return rowLocationsRow;
@@ -1096,7 +1107,8 @@ namespace ParseData {
             internal void InitVars() {
                 this.columnLocationId = base.Columns["LocationId"];
                 this.columnAddress = base.Columns["Address"];
-                this.columnCity = base.Columns["City"];
+                this.columnlat = base.Columns["lat"];
+                this.columnlng = base.Columns["lng"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1106,8 +1118,10 @@ namespace ParseData {
                 base.Columns.Add(this.columnLocationId);
                 this.columnAddress = new global::System.Data.DataColumn("Address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAddress);
-                this.columnCity = new global::System.Data.DataColumn("City", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCity);
+                this.columnlat = new global::System.Data.DataColumn("lat", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlat);
+                this.columnlng = new global::System.Data.DataColumn("lng", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlng);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnLocationId}, true));
                 this.columnLocationId.AutoIncrement = true;
@@ -1117,7 +1131,8 @@ namespace ParseData {
                 this.columnLocationId.ReadOnly = true;
                 this.columnLocationId.Unique = true;
                 this.columnAddress.MaxLength = 2147483647;
-                this.columnCity.MaxLength = 2147483647;
+                this.columnlat.MaxLength = 2147483647;
+                this.columnlng.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1834,17 +1849,33 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string City {
+            public string lat {
                 get {
                     try {
-                        return ((string)(this[this.tableLocations.CityColumn]));
+                        return ((string)(this[this.tableLocations.latColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'City\' in table \'Locations\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'lat\' in table \'Locations\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableLocations.CityColumn] = value;
+                    this[this.tableLocations.latColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string lng {
+                get {
+                    try {
+                        return ((string)(this[this.tableLocations.lngColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'lng\' in table \'Locations\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLocations.lngColumn] = value;
                 }
             }
             
@@ -1862,14 +1893,26 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCityNull() {
-                return this.IsNull(this.tableLocations.CityColumn);
+            public bool IslatNull() {
+                return this.IsNull(this.tableLocations.latColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCityNull() {
-                this[this.tableLocations.CityColumn] = global::System.Convert.DBNull;
+            public void SetlatNull() {
+                this[this.tableLocations.latColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IslngNull() {
+                return this.IsNull(this.tableLocations.lngColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetlngNull() {
+                this[this.tableLocations.lngColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3074,7 +3117,8 @@ namespace ParseData.DataSet1TableAdapters {
             tableMapping.DataSetTable = "Locations";
             tableMapping.ColumnMappings.Add("LocationId", "LocationId");
             tableMapping.ColumnMappings.Add("Address", "Address");
-            tableMapping.ColumnMappings.Add("City", "City");
+            tableMapping.ColumnMappings.Add("lat", "lat");
+            tableMapping.ColumnMappings.Add("lng", "lng");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -3083,20 +3127,22 @@ namespace ParseData.DataSet1TableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LocationId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Locations] ([Address], [City]) VALUES (@Address, @City);\r\nSELE" +
-                "CT LocationId, Address, City FROM Locations WHERE (LocationId = SCOPE_IDENTITY()" +
-                ")";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Locations] ([Address], [lat], [lng]) VALUES (@Address, @lat, @" +
+                "lng);\r\nSELECT LocationId, Address, lat, lng FROM Locations WHERE (LocationId = S" +
+                "COPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@City", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lat", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "lat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lng", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "lng", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Locations] SET [Address] = @Address, [City] = @City WHERE (([Locati" +
-                "onId] = @Original_LocationId));\r\nSELECT LocationId, Address, City FROM Locations" +
-                " WHERE (LocationId = @LocationId)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Locations] SET [Address] = @Address, [lat] = @lat, [lng] = @lng WHE" +
+                "RE (([LocationId] = @Original_LocationId));\r\nSELECT LocationId, Address, lat, ln" +
+                "g FROM Locations WHERE (LocationId = @LocationId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@City", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lat", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "lat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lng", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "lng", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LocationId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LocationId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "LocationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -3114,7 +3160,7 @@ namespace ParseData.DataSet1TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT LocationId, Address, City FROM dbo.Locations";
+            this._commandCollection[0].CommandText = "SELECT LocationId, Address, lat, lng FROM dbo.Locations";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3197,18 +3243,24 @@ namespace ParseData.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Address, string City) {
+        public virtual int Insert(string Address, string lat, string lng) {
             if ((Address == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Address));
             }
-            if ((City == null)) {
+            if ((lat == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(City));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(lat));
+            }
+            if ((lng == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(lng));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3230,21 +3282,27 @@ namespace ParseData.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Address, string City, int Original_LocationId, int LocationId) {
+        public virtual int Update(string Address, string lat, string lng, int Original_LocationId, int LocationId) {
             if ((Address == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Address));
             }
-            if ((City == null)) {
+            if ((lat == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(City));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(lat));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_LocationId));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(LocationId));
+            if ((lng == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(lng));
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_LocationId));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(LocationId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3265,8 +3323,8 @@ namespace ParseData.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Address, string City, int Original_LocationId) {
-            return this.Update(Address, City, Original_LocationId, Original_LocationId);
+        public virtual int Update(string Address, string lat, string lng, int Original_LocationId) {
+            return this.Update(Address, lat, lng, Original_LocationId, Original_LocationId);
         }
     }
     

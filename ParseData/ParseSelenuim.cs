@@ -12,6 +12,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using ParseData.DataSet1TableAdapters;
 using Selenium;
+using System.Xml.Linq;
 
 namespace ParseData
 {
@@ -32,9 +33,10 @@ namespace ParseData
             RestuarantsTableAdapter restuarantsAdapter = new RestuarantsTableAdapter();
 
             WebClient client = new WebClient();
-
+            int count = 0;
             foreach (IWebElement webRow in table)
             {
+                Console.WriteLine((count++) / table.Count + "%");
                 var currentRow = webRow.FindElements(By.TagName("td"));
 
                 #region ExtractRowData
@@ -79,7 +81,7 @@ namespace ParseData
                     categoryRow.Name = category;
                     categoriesDataTable.Rows.Add(categoryRow);
                     categoriesAdapter.Update(categoriesDataTable);
-                    
+
                 }
                 else
                 {
@@ -105,7 +107,8 @@ namespace ParseData
                 #endregion
                 
                 var addressRow = locationsDataTable.NewLocationsRow();
-                addressRow.Address = address;
+                addressRow.Address = address.Replace("\r", "");
+                ExtractGeoLocation(addressRow, addressRow.Address); // changes addressRow properties
                 locationsDataTable.Rows.Add(addressRow);
                 locationsAdapter.Update(locationsDataTable);
                 
@@ -132,13 +135,46 @@ namespace ParseData
                 
                 restuarantsDataTable.Rows.Add(resturant);
 
-
-                restuarantsAdapter.Update(restuarantsDataTable);
+                restuarantsAdapter.Update(restuarantsDataTable); // TODO move outside loop
             }
+
+            //categoriesAdapter.Update(categoriesDataTable);
+            //cuisineAadapter.Update(cuisinesDataTable);
+            //locationsAdapter.Update(locationsDataTable);
+            //restuarantsAdapter.Update(restuarantsDataTable);
 
             client.Dispose();
         }
 
+
+        public void ExtractGeoLocation(DataSet1.LocationsRow addressRow, string address)
+        {
+            var requestUri = string.Format("http://maps.googleapis.com/maps/api/geocode/xml?address={0}&sensor=false", Uri.EscapeDataString(address));
+            var request = WebRequest.Create(requestUri);
+            var response = request.GetResponse();
+            var xdoc = XDocument.Load(response.GetResponseStream());
+            while (xdoc.Element("GeocodeResponse").Element("status").Value == "OVER_QUERY_LIMIT")
+            {
+                requestUri = string.Format("http://maps.googleapis.com/maps/api/geocode/xml?address={0}&sensor=false", Uri.EscapeDataString(address));
+                request = WebRequest.Create(requestUri);
+                response = request.GetResponse();
+                xdoc = XDocument.Load(response.GetResponseStream());
+            }
+            if (xdoc.Element("GeocodeResponse").Element("status").Value == "OK")
+            {
+                var result = xdoc.Element("GeocodeResponse").Element("result");
+                var locationElement = result.Element("geometry").Element("location");
+                var lat = locationElement.Element("lat");
+                var lng = locationElement.Element("lng");
+                
+                addressRow.lat = lat.Value;
+                addressRow.lng = lng.Value;
+            }
+            else if (xdoc.Element("GeocodeResponse").Element("status").Value == "ZERO_RESULTS")
+            {
+                //error in address - TODO
+            }
+        }
 
         public ReadOnlyCollection<IWebElement> GetDataRowsTable()
         {
@@ -160,6 +196,9 @@ namespace ParseData
 
             var heverteamimButton = driver.FindElementsByCssSelector(".sidebar_ul li")[2];
             heverteamimButton.Click();
+
+            Thread.Sleep(2000);
+
             return driver.FindElementsByCssSelector("#branch-table tbody tr");
         } 
         
