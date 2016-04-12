@@ -1288,6 +1288,8 @@ namespace ParseData {
             
             private global::System.Data.DataColumn columnImage;
             
+            private global::System.Data.DataColumn columnScore;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RestuarantsDataTable() {
@@ -1411,6 +1413,14 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ScoreColumn {
+                get {
+                    return this.columnScore;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1446,7 +1456,7 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RestuarantsRow AddRestuarantsRow(string Name, string Description, string Kosher, string Phone, bool HandicapAccessibility, string OpeningHours, CategoriesRow _parentCategoriesRowByFK_dbo_Restuarants_dbo_Categories_Category_CategoryId, CuisinesRow _parentCuisinesRowByFK_dbo_Restuarants_dbo_Cuisines_Cuisine_CuisineId, LocationsRow _parentLocationsRowByFK_dbo_Restuarants_dbo_Locations_Location_LocationId, byte[] Image) {
+            public RestuarantsRow AddRestuarantsRow(string Name, string Description, string Kosher, string Phone, bool HandicapAccessibility, string OpeningHours, CategoriesRow _parentCategoriesRowByFK_dbo_Restuarants_dbo_Categories_Category_CategoryId, CuisinesRow _parentCuisinesRowByFK_dbo_Restuarants_dbo_Cuisines_Cuisine_CuisineId, LocationsRow _parentLocationsRowByFK_dbo_Restuarants_dbo_Locations_Location_LocationId, byte[] Image, int Score) {
                 RestuarantsRow rowRestuarantsRow = ((RestuarantsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1459,7 +1469,8 @@ namespace ParseData {
                         null,
                         null,
                         null,
-                        Image};
+                        Image,
+                        Score};
                 if ((_parentCategoriesRowByFK_dbo_Restuarants_dbo_Categories_Category_CategoryId != null)) {
                     columnValuesArray[7] = _parentCategoriesRowByFK_dbo_Restuarants_dbo_Categories_Category_CategoryId[0];
                 }
@@ -1509,6 +1520,7 @@ namespace ParseData {
                 this.columnCuisine_CuisineId = base.Columns["Cuisine_CuisineId"];
                 this.columnLocation_LocationId = base.Columns["Location_LocationId"];
                 this.columnImage = base.Columns["Image"];
+                this.columnScore = base.Columns["Score"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1536,6 +1548,8 @@ namespace ParseData {
                 base.Columns.Add(this.columnLocation_LocationId);
                 this.columnImage = new global::System.Data.DataColumn("Image", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnImage);
+                this.columnScore = new global::System.Data.DataColumn("Score", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnScore);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRestuarantId}, true));
                 this.columnRestuarantId.AutoIncrement = true;
@@ -1550,6 +1564,7 @@ namespace ParseData {
                 this.columnPhone.MaxLength = 2147483647;
                 this.columnHandicapAccessibility.AllowDBNull = false;
                 this.columnOpeningHours.MaxLength = 2147483647;
+                this.columnScore.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2104,6 +2119,17 @@ namespace ParseData {
                 }
                 set {
                     this[this.tableRestuarants.ImageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Score {
+                get {
+                    return ((int)(this[this.tableRestuarants.ScoreColumn]));
+                }
+                set {
+                    this[this.tableRestuarants.ScoreColumn] = value;
                 }
             }
             
@@ -3460,10 +3486,11 @@ namespace ParseData.DataSet1TableAdapters {
             tableMapping.ColumnMappings.Add("Cuisine_CuisineId", "Cuisine_CuisineId");
             tableMapping.ColumnMappings.Add("Location_LocationId", "Location_LocationId");
             tableMapping.ColumnMappings.Add("Image", "Image");
+            tableMapping.ColumnMappings.Add("Score", "Score");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Restuarants] WHERE (([RestuarantId] = @Original_RestuarantId) AND ([HandicapAccessibility] = @Original_HandicapAccessibility) AND ((@IsNull_Category_CategoryId = 1 AND [Category_CategoryId] IS NULL) OR ([Category_CategoryId] = @Original_Category_CategoryId)) AND ((@IsNull_Cuisine_CuisineId = 1 AND [Cuisine_CuisineId] IS NULL) OR ([Cuisine_CuisineId] = @Original_Cuisine_CuisineId)) AND ((@IsNull_Location_LocationId = 1 AND [Location_LocationId] IS NULL) OR ([Location_LocationId] = @Original_Location_LocationId)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Restuarants] WHERE (([RestuarantId] = @Original_RestuarantId) AND ([HandicapAccessibility] = @Original_HandicapAccessibility) AND ((@IsNull_Category_CategoryId = 1 AND [Category_CategoryId] IS NULL) OR ([Category_CategoryId] = @Original_Category_CategoryId)) AND ((@IsNull_Cuisine_CuisineId = 1 AND [Cuisine_CuisineId] IS NULL) OR ([Cuisine_CuisineId] = @Original_Cuisine_CuisineId)) AND ((@IsNull_Location_LocationId = 1 AND [Location_LocationId] IS NULL) OR ([Location_LocationId] = @Original_Location_LocationId)) AND ([Score] = @Original_Score))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RestuarantId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RestuarantId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HandicapAccessibility", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HandicapAccessibility", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -3473,10 +3500,11 @@ namespace ParseData.DataSet1TableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cuisine_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cuisine_CuisineId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Score", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Score", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Restuarants] ([Name], [Description], [Kosher], [Phone], [HandicapAccessibility], [OpeningHours], [Category_CategoryId], [Cuisine_CuisineId], [Location_LocationId], [Image]) VALUES (@Name, @Description, @Kosher, @Phone, @HandicapAccessibility, @OpeningHours, @Category_CategoryId, @Cuisine_CuisineId, @Location_LocationId, @Image);
-SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, OpeningHours, Category_CategoryId, Cuisine_CuisineId, Location_LocationId, Image FROM Restuarants WHERE (RestuarantId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Restuarants] ([Name], [Description], [Kosher], [Phone], [HandicapAccessibility], [OpeningHours], [Category_CategoryId], [Cuisine_CuisineId], [Location_LocationId], [Image], [Score]) VALUES (@Name, @Description, @Kosher, @Phone, @HandicapAccessibility, @OpeningHours, @Category_CategoryId, @Cuisine_CuisineId, @Location_LocationId, @Image, @Score);
+SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, OpeningHours, Category_CategoryId, Cuisine_CuisineId, Location_LocationId, Image, Score FROM Restuarants WHERE (RestuarantId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3488,10 +3516,11 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cuisine_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cuisine_CuisineId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Score", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Score", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Restuarants] SET [Name] = @Name, [Description] = @Description, [Kosher] = @Kosher, [Phone] = @Phone, [HandicapAccessibility] = @HandicapAccessibility, [OpeningHours] = @OpeningHours, [Category_CategoryId] = @Category_CategoryId, [Cuisine_CuisineId] = @Cuisine_CuisineId, [Location_LocationId] = @Location_LocationId, [Image] = @Image WHERE (([RestuarantId] = @Original_RestuarantId) AND ([HandicapAccessibility] = @Original_HandicapAccessibility) AND ((@IsNull_Category_CategoryId = 1 AND [Category_CategoryId] IS NULL) OR ([Category_CategoryId] = @Original_Category_CategoryId)) AND ((@IsNull_Cuisine_CuisineId = 1 AND [Cuisine_CuisineId] IS NULL) OR ([Cuisine_CuisineId] = @Original_Cuisine_CuisineId)) AND ((@IsNull_Location_LocationId = 1 AND [Location_LocationId] IS NULL) OR ([Location_LocationId] = @Original_Location_LocationId)));
-SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, OpeningHours, Category_CategoryId, Cuisine_CuisineId, Location_LocationId, Image FROM Restuarants WHERE (RestuarantId = @RestuarantId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Restuarants] SET [Name] = @Name, [Description] = @Description, [Kosher] = @Kosher, [Phone] = @Phone, [HandicapAccessibility] = @HandicapAccessibility, [OpeningHours] = @OpeningHours, [Category_CategoryId] = @Category_CategoryId, [Cuisine_CuisineId] = @Cuisine_CuisineId, [Location_LocationId] = @Location_LocationId, [Image] = @Image, [Score] = @Score WHERE (([RestuarantId] = @Original_RestuarantId) AND ([HandicapAccessibility] = @Original_HandicapAccessibility) AND ((@IsNull_Category_CategoryId = 1 AND [Category_CategoryId] IS NULL) OR ([Category_CategoryId] = @Original_Category_CategoryId)) AND ((@IsNull_Cuisine_CuisineId = 1 AND [Cuisine_CuisineId] IS NULL) OR ([Cuisine_CuisineId] = @Original_Cuisine_CuisineId)) AND ((@IsNull_Location_LocationId = 1 AND [Location_LocationId] IS NULL) OR ([Location_LocationId] = @Original_Location_LocationId)) AND ([Score] = @Original_Score));
+SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, OpeningHours, Category_CategoryId, Cuisine_CuisineId, Location_LocationId, Image, Score FROM Restuarants WHERE (RestuarantId = @RestuarantId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3503,6 +3532,7 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cuisine_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cuisine_CuisineId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Score", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Score", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RestuarantId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RestuarantId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HandicapAccessibility", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HandicapAccessibility", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -3511,6 +3541,7 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cuisine_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cuisine_CuisineId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Score", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Score", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RestuarantId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RestuarantId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -3528,8 +3559,8 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Ope" +
-                "ningHours, Category_CategoryId, Cuisine_CuisineId, Location_LocationId, Image FR" +
-                "OM dbo.Restuarants";
+                "ningHours, Category_CategoryId, Cuisine_CuisineId, Location_LocationId, Image, S" +
+                "core FROM dbo.Restuarants";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3590,7 +3621,7 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_RestuarantId, bool Original_HandicapAccessibility, global::System.Nullable<int> Original_Category_CategoryId, global::System.Nullable<int> Original_Cuisine_CuisineId, global::System.Nullable<int> Original_Location_LocationId) {
+        public virtual int Delete(int Original_RestuarantId, bool Original_HandicapAccessibility, global::System.Nullable<int> Original_Category_CategoryId, global::System.Nullable<int> Original_Cuisine_CuisineId, global::System.Nullable<int> Original_Location_LocationId, int Original_Score) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_RestuarantId));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((bool)(Original_HandicapAccessibility));
             if ((Original_Category_CategoryId.HasValue == true)) {
@@ -3617,6 +3648,7 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_Score));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3637,7 +3669,7 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Name, string Description, string Kosher, string Phone, bool HandicapAccessibility, string OpeningHours, global::System.Nullable<int> Category_CategoryId, global::System.Nullable<int> Cuisine_CuisineId, global::System.Nullable<int> Location_LocationId, byte[] Image) {
+        public virtual int Insert(string Name, string Description, string Kosher, string Phone, bool HandicapAccessibility, string OpeningHours, global::System.Nullable<int> Category_CategoryId, global::System.Nullable<int> Cuisine_CuisineId, global::System.Nullable<int> Location_LocationId, byte[] Image, int Score) {
             if ((Name == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -3693,6 +3725,7 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = ((byte[])(Image));
             }
+            this.Adapter.InsertCommand.Parameters[10].Value = ((int)(Score));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3724,11 +3757,13 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
                     global::System.Nullable<int> Cuisine_CuisineId, 
                     global::System.Nullable<int> Location_LocationId, 
                     byte[] Image, 
+                    int Score, 
                     int Original_RestuarantId, 
                     bool Original_HandicapAccessibility, 
                     global::System.Nullable<int> Original_Category_CategoryId, 
                     global::System.Nullable<int> Original_Cuisine_CuisineId, 
                     global::System.Nullable<int> Original_Location_LocationId, 
+                    int Original_Score, 
                     int RestuarantId) {
             if ((Name == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -3785,33 +3820,35 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((byte[])(Image));
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_RestuarantId));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((bool)(Original_HandicapAccessibility));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Score));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_RestuarantId));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((bool)(Original_HandicapAccessibility));
             if ((Original_Category_CategoryId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_Category_CategoryId.Value));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_Category_CategoryId.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             if ((Original_Cuisine_CuisineId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_Cuisine_CuisineId.Value));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_Cuisine_CuisineId.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             if ((Original_Location_LocationId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_Location_LocationId.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_Location_LocationId.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(RestuarantId));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_Score));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(RestuarantId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3832,8 +3869,25 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Description, string Kosher, string Phone, bool HandicapAccessibility, string OpeningHours, global::System.Nullable<int> Category_CategoryId, global::System.Nullable<int> Cuisine_CuisineId, global::System.Nullable<int> Location_LocationId, byte[] Image, int Original_RestuarantId, bool Original_HandicapAccessibility, global::System.Nullable<int> Original_Category_CategoryId, global::System.Nullable<int> Original_Cuisine_CuisineId, global::System.Nullable<int> Original_Location_LocationId) {
-            return this.Update(Name, Description, Kosher, Phone, HandicapAccessibility, OpeningHours, Category_CategoryId, Cuisine_CuisineId, Location_LocationId, Image, Original_RestuarantId, Original_HandicapAccessibility, Original_Category_CategoryId, Original_Cuisine_CuisineId, Original_Location_LocationId, Original_RestuarantId);
+        public virtual int Update(
+                    string Name, 
+                    string Description, 
+                    string Kosher, 
+                    string Phone, 
+                    bool HandicapAccessibility, 
+                    string OpeningHours, 
+                    global::System.Nullable<int> Category_CategoryId, 
+                    global::System.Nullable<int> Cuisine_CuisineId, 
+                    global::System.Nullable<int> Location_LocationId, 
+                    byte[] Image, 
+                    int Score, 
+                    int Original_RestuarantId, 
+                    bool Original_HandicapAccessibility, 
+                    global::System.Nullable<int> Original_Category_CategoryId, 
+                    global::System.Nullable<int> Original_Cuisine_CuisineId, 
+                    global::System.Nullable<int> Original_Location_LocationId, 
+                    int Original_Score) {
+            return this.Update(Name, Description, Kosher, Phone, HandicapAccessibility, OpeningHours, Category_CategoryId, Cuisine_CuisineId, Location_LocationId, Image, Score, Original_RestuarantId, Original_HandicapAccessibility, Original_Category_CategoryId, Original_Cuisine_CuisineId, Original_Location_LocationId, Original_Score, Original_RestuarantId);
         }
     }
     

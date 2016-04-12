@@ -15,23 +15,11 @@ namespace ParseData
         {
             var driver = new ChromeDriver(@"..\..\..\");
 
-            driver.Navigate().GoToUrl("https://www.hvr.co.il/signin.aspx");
+            driver.Navigate().GoToUrl("https://www.groupon.co.il/browse/tel-aviv-iw?category=food-and-drink");
 
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
-            var idnumber = driver.FindElementById("tz");
-            var password = driver.FindElementById("password");
-            var submitButton = driver.FindElementById("sgLoginButton").FindElement(By.TagName("a"));
-
-            idnumber.SendKeys("308334721");
-            password.SendKeys("135246");
-            submitButton.Click();
-
-            Thread.Sleep(2000);
-
-            var heverteamimButton = driver.FindElementsByCssSelector(".sidebar_ul li")[2];
-            heverteamimButton.Click();
-            var v = driver.FindElementsByCssSelector("#branch-table tbody tr");
+            //var v = driver.FindElementByCssSelector("ul li.refinement ul.children-list")
         }
     }
 }

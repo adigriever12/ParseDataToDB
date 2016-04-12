@@ -34,9 +34,11 @@ namespace ParseData
 
             WebClient client = new WebClient();
             int count = 0;
+
+            Random rnd = new Random();
             foreach (IWebElement webRow in table)
             {
-                Console.WriteLine((count++) / table.Count + "%");
+                Console.WriteLine((double)((count++) * 100) / (double)table.Count + "%");
                 var currentRow = webRow.FindElements(By.TagName("td"));
 
                 #region ExtractRowData
@@ -63,7 +65,7 @@ namespace ParseData
 
                 string kosher = currentRow[5].Text;
 
-                bool accesability = currentRow[6].Text != "";
+                bool accesability = currentRow[6].FindElements(By.TagName("div")).Count != 0;
 
                 string imgPath = currentRow[7].FindElement(By.TagName("img")).GetAttribute("src");
 
@@ -123,6 +125,7 @@ namespace ParseData
                 resturant.HandicapAccessibility = accesability;
                 resturant.OpeningHours = openingHours;
                 resturant.Phone = phoneNumber;
+                resturant.Score = rnd.Next(1, 7);
 
                 try
                 {
