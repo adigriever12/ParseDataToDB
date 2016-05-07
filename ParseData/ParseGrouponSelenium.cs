@@ -34,8 +34,6 @@ namespace ParseData
 
             var driver = new ChromeDriver(@"..\..\..\");
 
-            driver.Navigate().GoToUrl("https://www.groupon.co.il/browse/tel-aviv-iw?category=food-and-drink");
-
             driver.Navigate().GoToUrl("https://www.groupon.co.il/browse/tel-aviv-iw?category=food-and-drink&category2=restaurants");
 
             Thread.Sleep(1000);
@@ -205,7 +203,7 @@ namespace ParseData
             RestuarantsTableAdapter restuarantsAdapter = new RestuarantsTableAdapter();
         }
 
-        public bool ExtractGeoLocation(DataSet1.LocationsRow addressRow, List<string> addresses)
+        public static bool ExtractGeoLocation(DataSet1.LocationsRow addressRow, List<string> addresses)
         {
             string address = string.Join(" ", addresses);
             bool success = false;

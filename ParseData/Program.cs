@@ -10,7 +10,7 @@ namespace ParseData
     {
         static void Main(string[] args)
         {
-            ParseGrouponSelenium s = new ParseGrouponSelenium();
+            ParseLaumi s = new ParseLaumi();
         }
     }
 }

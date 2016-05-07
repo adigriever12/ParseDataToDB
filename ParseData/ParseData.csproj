@@ -69,6 +69,7 @@
     </Compile>
     <Compile Include="ParseGrouponSelenium.cs" />
     <Compile Include="ParseHeverTeamim.cs" />
+    <Compile Include="ParseLaumi.cs" />
     <Compile Include="ParseSelenuim.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
