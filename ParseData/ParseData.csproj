@@ -67,11 +67,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ggg.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ggg.xsd</DependentUpon>
-    </Compile>
     <Compile Include="ParseGrouponSelenium.cs" />
     <Compile Include="ParseHeverTeamim.cs" />
     <Compile Include="ParseSelenuim.cs" />
@@ -95,17 +90,6 @@
     </None>
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="ggg.xsc">
-      <DependentUpon>ggg.xsd</DependentUpon>
-    </None>
-    <None Include="ggg.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ggg.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="ggg.xss">
-      <DependentUpon>ggg.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
