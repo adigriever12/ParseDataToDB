@@ -59,15 +59,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DataSet2.Designer.cs">
+    <Compile Include="ggg.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet2.xsd</DependentUpon>
+      <DependentUpon>ggg.xsd</DependentUpon>
     </Compile>
     <Compile Include="ParseGrouponSelenium.cs" />
     <Compile Include="ParseHeverTeamim.cs" />
@@ -93,16 +96,16 @@
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
-    <None Include="DataSet2.xsc">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
+    <None Include="ggg.xsc">
+      <DependentUpon>ggg.xsd</DependentUpon>
     </None>
-    <None Include="DataSet2.xsd">
+    <None Include="ggg.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
+      <LastGenOutput>ggg.Designer.cs</LastGenOutput>
     </None>
-    <None Include="DataSet2.xss">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
+    <None Include="ggg.xss">
+      <DependentUpon>ggg.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

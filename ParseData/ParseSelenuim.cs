@@ -74,21 +74,25 @@ namespace ParseData
 
                 #region Get Old Rows Data
 
-                DataRow[] categoryDataRows = categoriesDataTable.Select(string.Format("Name = '{0}'", category));
-                DataSet1.CategoriesRow categoryRow;
+                DataSet1.CategoriesRow categoryRow = AddCategory(category, categoriesDataTable, categoriesAdapter);
+                categoriesAdapter.Update(categoriesDataTable);
+                #region old version
 
-                if (categoryDataRows.Length == 0)
-                {
-                    categoryRow = categoriesDataTable.NewCategoriesRow();
-                    categoryRow.Name = category;
-                    categoriesDataTable.Rows.Add(categoryRow);
-                    categoriesAdapter.Update(categoriesDataTable);
+                //DataRow[] categoryDataRows = categoriesDataTable.Select(string.Format("Name = '{0}'", category));
+                //if (categoryDataRows.Length == 0)
+                //{
+                //    categoryRow = categoriesDataTable.NewCategoriesRow();
+                //    categoryRow.Name = category;
+                //    categoriesDataTable.Rows.Add(categoryRow);
+                //    categoriesAdapter.Update(categoriesDataTable);
 
-                }
-                else
-                {
-                    categoryRow = (DataSet1.CategoriesRow) categoryDataRows[0];
-                }
+                //}
+                //else
+                //{
+                //    categoryRow = (DataSet1.CategoriesRow) categoryDataRows[0];
+                //} 
+
+                #endregion
 
                 DataRow[] cuisinesDataRows = cuisinesDataTable.Select(string.Format("Name = '{0}'", cuisine));
                 DataSet1.CuisinesRow cuisineRow;
@@ -149,6 +153,29 @@ namespace ParseData
             client.Dispose();
         }
 
+        public static DataSet1.CategoriesRow AddCategory(
+            string category,
+            DataSet1.CategoriesDataTable categoriesDataTable,
+            CategoriesTableAdapter categoriesAdapter)
+        {
+            DataRow[] categoryDataRows = categoriesDataTable.Select(string.Format("Name = '{0}'", category.Replace("'", "")));
+            DataSet1.CategoriesRow categoryRow;
+
+            if (categoryDataRows.Length == 0)
+            {
+                categoryRow = categoriesDataTable.NewCategoriesRow();
+                categoryRow.Name = category;
+                categoriesDataTable.Rows.Add(categoryRow);
+                //categoriesAdapter.Update(categoriesDataTable);
+
+            }
+            else
+            {
+                categoryRow = (DataSet1.CategoriesRow)categoryDataRows[0];
+            }
+
+            return categoryRow;
+        }
 
         public void ExtractGeoLocation(DataSet1.LocationsRow addressRow, string address)
         {
@@ -176,6 +203,7 @@ namespace ParseData
             else if (xdoc.Element("GeocodeResponse").Element("status").Value == "ZERO_RESULTS")
             {
                 //error in address - TODO
+                var check = "";
             }
         }
 
