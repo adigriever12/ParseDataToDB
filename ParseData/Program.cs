@@ -10,7 +10,7 @@ namespace ParseData
     {
         static void Main(string[] args)
         {
-            ParseSelenuim s = new ParseSelenuim();
+            ParseAmerican s = new ParseAmerican();
         }
     }
 }
