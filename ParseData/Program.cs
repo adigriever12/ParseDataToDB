@@ -10,7 +10,7 @@ namespace ParseData
     {
         static void Main(string[] args)
         {
-            ParseLaumi s = new ParseLaumi();
+            ParseSelenuim s = new ParseSelenuim();
         }
     }
 }

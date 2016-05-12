@@ -10,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using ParseData.DataSet1TableAdapters;
+using ParseData.CloudTableAdapters;
 using Selenium;
 using System.Xml.Linq;
 
@@ -22,10 +22,10 @@ namespace ParseData
         {
             ReadOnlyCollection<IWebElement> table = GetDataRowsTable();
 
-            DataSet1.CategoriesDataTable categoriesDataTable = new DataSet1.CategoriesDataTable();
-            DataSet1.CuisinesDataTable cuisinesDataTable = new DataSet1.CuisinesDataTable();
-            DataSet1.LocationsDataTable locationsDataTable = new DataSet1.LocationsDataTable();
-            DataSet1.RestuarantsDataTable restuarantsDataTable = new DataSet1.RestuarantsDataTable();
+            Cloud.CategoriesDataTable categoriesDataTable = new Cloud.CategoriesDataTable();
+            Cloud.CuisinesDataTable cuisinesDataTable = new Cloud.CuisinesDataTable();
+            Cloud.LocationsDataTable locationsDataTable = new Cloud.LocationsDataTable();
+            Cloud.RestuarantsDataTable restuarantsDataTable = new Cloud.RestuarantsDataTable();
 
             CategoriesTableAdapter categoriesAdapter = new CategoriesTableAdapter();
             CuisinesTableAdapter cuisineAadapter = new CuisinesTableAdapter();
@@ -40,6 +40,12 @@ namespace ParseData
             {
                 Console.WriteLine((double)((count++) * 100) / (double)table.Count + "%");
                 var currentRow = webRow.FindElements(By.TagName("td"));
+
+
+                if (count > 100)
+                {
+                    var a = "";
+                }
 
                 #region ExtractRowData
 
@@ -74,7 +80,7 @@ namespace ParseData
 
                 #region Get Old Rows Data
 
-                DataSet1.CategoriesRow categoryRow = AddCategory(category, categoriesDataTable, categoriesAdapter);
+                Cloud.CategoriesRow categoryRow = AddCategory(category, categoriesDataTable, categoriesAdapter);
                 categoriesAdapter.Update(categoriesDataTable);
                 #region old version
 
@@ -95,7 +101,7 @@ namespace ParseData
                 #endregion
 
                 DataRow[] cuisinesDataRows = cuisinesDataTable.Select(string.Format("Name = '{0}'", cuisine));
-                DataSet1.CuisinesRow cuisineRow;
+                Cloud.CuisinesRow cuisineRow;
 
                 if (cuisinesDataRows.Length == 0)
                 {
@@ -107,14 +113,21 @@ namespace ParseData
                 }
                 else
                 {
-                    cuisineRow = (DataSet1.CuisinesRow)cuisinesDataRows[0];
+                    cuisineRow = (Cloud.CuisinesRow)cuisinesDataRows[0];
                 }
 
                 #endregion
                 
                 var addressRow = locationsDataTable.NewLocationsRow();
                 addressRow.Address = address.Replace("\r", "");
-                ExtractGeoLocation(addressRow, addressRow.Address); // changes addressRow properties
+
+                if (!ExtractGeoLocation(addressRow, addressRow.Address.Split(',').ToList()))
+                {
+                    continue;
+                }
+
+                //ExtractGeoLocation(addressRow, addressRow.Address); // changes addressRow properties
+
                 locationsDataTable.Rows.Add(addressRow);
                 locationsAdapter.Update(locationsDataTable);
                 
@@ -153,13 +166,13 @@ namespace ParseData
             client.Dispose();
         }
 
-        public static DataSet1.CategoriesRow AddCategory(
+        public static Cloud.CategoriesRow AddCategory(
             string category,
-            DataSet1.CategoriesDataTable categoriesDataTable,
+            Cloud.CategoriesDataTable categoriesDataTable,
             CategoriesTableAdapter categoriesAdapter)
         {
             DataRow[] categoryDataRows = categoriesDataTable.Select(string.Format("Name = '{0}'", category.Replace("'", "")));
-            DataSet1.CategoriesRow categoryRow;
+            Cloud.CategoriesRow categoryRow;
 
             if (categoryDataRows.Length == 0)
             {
@@ -171,40 +184,59 @@ namespace ParseData
             }
             else
             {
-                categoryRow = (DataSet1.CategoriesRow)categoryDataRows[0];
+                categoryRow = (Cloud.CategoriesRow)categoryDataRows[0];
             }
 
             return categoryRow;
         }
 
-        public void ExtractGeoLocation(DataSet1.LocationsRow addressRow, string address)
+        public bool ExtractGeoLocation(Cloud.LocationsRow addressRow, List<string> addresses)
         {
-            var requestUri = string.Format("http://maps.googleapis.com/maps/api/geocode/xml?address={0}&sensor=false", Uri.EscapeDataString(address));
-            var request = WebRequest.Create(requestUri);
-            var response = request.GetResponse();
-            var xdoc = XDocument.Load(response.GetResponseStream());
-            while (xdoc.Element("GeocodeResponse").Element("status").Value == "OVER_QUERY_LIMIT")
+            string address = string.Join(" ", addresses);
+            bool success = false;
+
+            while (!success)
             {
-                requestUri = string.Format("http://maps.googleapis.com/maps/api/geocode/xml?address={0}&sensor=false", Uri.EscapeDataString(address));
-                request = WebRequest.Create(requestUri);
-                response = request.GetResponse();
-                xdoc = XDocument.Load(response.GetResponseStream());
+
+                var requestUri = string.Format("http://maps.googleapis.com/maps/api/geocode/xml?address={0}&sensor=false", Uri.EscapeDataString(address));
+                var request = WebRequest.Create(requestUri);
+                var response = request.GetResponse();
+                var xdoc = XDocument.Load(response.GetResponseStream());
+                while (xdoc.Element("GeocodeResponse").Element("status").Value == "OVER_QUERY_LIMIT")
+                {
+                    requestUri = string.Format("http://maps.googleapis.com/maps/api/geocode/xml?address={0}&sensor=false", Uri.EscapeDataString(address));
+                    request = WebRequest.Create(requestUri);
+                    response = request.GetResponse();
+                    xdoc = XDocument.Load(response.GetResponseStream());
+                }
+                if (xdoc.Element("GeocodeResponse").Element("status").Value == "OK")
+                {
+                    var result = xdoc.Element("GeocodeResponse").Element("result");
+                    var locationElement = result.Element("geometry").Element("location");
+                    var lat = locationElement.Element("lat");
+                    var lng = locationElement.Element("lng");
+
+                    addressRow.lat = lat.Value;
+                    addressRow.lng = lng.Value;
+
+                    success = true;
+                }
+                else if (xdoc.Element("GeocodeResponse").Element("status").Value == "ZERO_RESULTS")
+                {
+                    //error in address - TODO
+                    if (addresses.Count == 1)
+                    {
+                        return false;
+                    }
+
+                    addresses.RemoveAt(addresses.Count - 1);
+
+                    address = string.Join(" ", addresses);
+
+                }
             }
-            if (xdoc.Element("GeocodeResponse").Element("status").Value == "OK")
-            {
-                var result = xdoc.Element("GeocodeResponse").Element("result");
-                var locationElement = result.Element("geometry").Element("location");
-                var lat = locationElement.Element("lat");
-                var lng = locationElement.Element("lng");
-                
-                addressRow.lat = lat.Value;
-                addressRow.lng = lng.Value;
-            }
-            else if (xdoc.Element("GeocodeResponse").Element("status").Value == "ZERO_RESULTS")
-            {
-                //error in address - TODO
-                var check = "";
-            }
+
+            return success;
         }
 
         public ReadOnlyCollection<IWebElement> GetDataRowsTable()

@@ -10,5 +10,21 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=aspnet-MyCards-20160227033058;Integrated Security=True;Connect Timeout=30</Value>
     </Setting>
+    <Setting Name="FoodTrackerDBConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=db.cs.colman.ac.il;Initial Catalog=FoodTrackerDB;Persist Security Info=True;User ID=foodtracker;Password=cs@@4122&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=db.cs.colman.ac.il;Initial Catalog=FoodTrackerDB;Persist Security Info=True;User ID=foodtracker;Password=cs@@4122</Value>
+    </Setting>
+    <Setting Name="FoodTrackerDBConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=lqgifm91m2.database.windows.net;Initial Catalog=FoodTrackerDB;User ID=foodtracker;Password=cs@@4122;Connect Timeout=60&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=lqgifm91m2.database.windows.net;Initial Catalog=FoodTrackerDB;User ID=foodtracker;Password=cs@@4122;Connect Timeout=60</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -33,5 +33,27 @@ namespace ParseData.Properties {
                 return ((string)(this["aspnet_MyCards_20160227033058ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=db.cs.colman.ac.il;Initial Catalog=FoodTrackerDB;Persist Security Inf" +
+            "o=True;User ID=foodtracker;Password=cs@@4122")]
+        public string FoodTrackerDBConnectionString {
+            get {
+                return ((string)(this["FoodTrackerDBConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=lqgifm91m2.database.windows.net;Initial Catalog=FoodTrackerDB;User ID" +
+            "=foodtracker;Password=cs@@4122;Connect Timeout=60")]
+        public string FoodTrackerDBConnectionString1 {
+            get {
+                return ((string)(this["FoodTrackerDBConnectionString1"]));
+            }
+        }
     }
 }

@@ -59,6 +59,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cloud.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cloud.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
@@ -67,10 +72,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ParseAmerican.cs" />
     <Compile Include="ParseGrouponSelenium.cs" />
-    <Compile Include="ParseHeverTeamim.cs" />
     <Compile Include="ParseLaumi.cs" />
     <Compile Include="ParseSelenuim.cs" />
+    <Compile Include="PROD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PROD.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -81,6 +91,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Cloud.xsc">
+      <DependentUpon>Cloud.xsd</DependentUpon>
+    </None>
+    <None Include="Cloud.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Cloud.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Cloud.xss">
+      <DependentUpon>Cloud.xsd</DependentUpon>
+    </None>
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -93,6 +114,17 @@
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="PROD.xsc">
+      <DependentUpon>PROD.xsd</DependentUpon>
+    </None>
+    <None Include="PROD.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PROD.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PROD.xss">
+      <DependentUpon>PROD.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
