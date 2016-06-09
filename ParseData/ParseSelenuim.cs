@@ -10,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using ParseData.CloudTableAdapters;
+using ParseData.DataSet1TableAdapters;
 using Selenium;
 using System.Xml.Linq;
 
@@ -22,10 +22,10 @@ namespace ParseData
         {
             ReadOnlyCollection<IWebElement> table = GetDataRowsTable();
 
-            Cloud.CategoriesDataTable categoriesDataTable = new Cloud.CategoriesDataTable();
-            Cloud.CuisinesDataTable cuisinesDataTable = new Cloud.CuisinesDataTable();
-            Cloud.LocationsDataTable locationsDataTable = new Cloud.LocationsDataTable();
-            Cloud.RestuarantsDataTable restuarantsDataTable = new Cloud.RestuarantsDataTable();
+            DataSet1.CategoriesDataTable categoriesDataTable = new DataSet1.CategoriesDataTable();
+            DataSet1.CuisinesDataTable cuisinesDataTable = new DataSet1.CuisinesDataTable();
+            DataSet1.LocationsDataTable locationsDataTable = new DataSet1.LocationsDataTable();
+            DataSet1.RestuarantsDataTable restuarantsDataTable = new DataSet1.RestuarantsDataTable();
 
             CategoriesTableAdapter categoriesAdapter = new CategoriesTableAdapter();
             CuisinesTableAdapter cuisineAadapter = new CuisinesTableAdapter();
@@ -80,7 +80,7 @@ namespace ParseData
 
                 #region Get Old Rows Data
 
-                Cloud.CategoriesRow categoryRow = AddCategory(category, categoriesDataTable, categoriesAdapter);
+                DataSet1.CategoriesRow categoryRow = AddCategory(category, categoriesDataTable, categoriesAdapter);
                 categoriesAdapter.Update(categoriesDataTable);
                 #region old version
 
@@ -101,7 +101,7 @@ namespace ParseData
                 #endregion
 
                 DataRow[] cuisinesDataRows = cuisinesDataTable.Select(string.Format("Name = '{0}'", cuisine));
-                Cloud.CuisinesRow cuisineRow;
+                DataSet1.CuisinesRow cuisineRow;
 
                 if (cuisinesDataRows.Length == 0)
                 {
@@ -113,7 +113,7 @@ namespace ParseData
                 }
                 else
                 {
-                    cuisineRow = (Cloud.CuisinesRow)cuisinesDataRows[0];
+                    cuisineRow = (DataSet1.CuisinesRow)cuisinesDataRows[0];
                 }
 
                 #endregion
@@ -142,7 +142,9 @@ namespace ParseData
                 resturant.HandicapAccessibility = accesability;
                 resturant.OpeningHours = openingHours;
                 resturant.Phone = phoneNumber;
-                resturant.Score = rnd.Next(1, 7);
+                //resturant.Score = 0;// rnd.Next(1, 7);
+                resturant.RankingsSum = 0;
+                resturant.RankningUsersSum = 0;
 
                 try
                 {
@@ -166,13 +168,13 @@ namespace ParseData
             client.Dispose();
         }
 
-        public static Cloud.CategoriesRow AddCategory(
+        public static DataSet1.CategoriesRow AddCategory(
             string category,
-            Cloud.CategoriesDataTable categoriesDataTable,
+            DataSet1.CategoriesDataTable categoriesDataTable,
             CategoriesTableAdapter categoriesAdapter)
         {
             DataRow[] categoryDataRows = categoriesDataTable.Select(string.Format("Name = '{0}'", category.Replace("'", "")));
-            Cloud.CategoriesRow categoryRow;
+            DataSet1.CategoriesRow categoryRow;
 
             if (categoryDataRows.Length == 0)
             {
@@ -184,13 +186,13 @@ namespace ParseData
             }
             else
             {
-                categoryRow = (Cloud.CategoriesRow)categoryDataRows[0];
+                categoryRow = (DataSet1.CategoriesRow)categoryDataRows[0];
             }
 
             return categoryRow;
         }
 
-        public bool ExtractGeoLocation(Cloud.LocationsRow addressRow, List<string> addresses)
+        public bool ExtractGeoLocation(DataSet1.LocationsRow addressRow, List<string> addresses)
         {
             string address = string.Join(" ", addresses);
             bool success = false;

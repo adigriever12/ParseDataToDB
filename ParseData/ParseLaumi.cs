@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using ParseData.CloudTableAdapters;
+using ParseData.DataSet1TableAdapters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +14,8 @@ namespace ParseData
     {
         public ParseLaumi()
         {
-            Cloud.LocationsDataTable locationsDataTable = new Cloud.LocationsDataTable();
-            Cloud.Laumi_RestuarantDataTable laumiRrestuarantsDataTable = new Cloud.Laumi_RestuarantDataTable();
+            DataSet1.LocationsDataTable locationsDataTable = new DataSet1.LocationsDataTable();
+            DataSet1.Laumi_RestuarantDataTable laumiRrestuarantsDataTable = new DataSet1.Laumi_RestuarantDataTable();
             
             LocationsTableAdapter locationsAdapter = new LocationsTableAdapter();
             Laumi_RestuarantTableAdapter laumiRestuarantsAdapter = new Laumi_RestuarantTableAdapter();
@@ -100,7 +100,7 @@ namespace ParseData
 
                 // DB
                 // location
-                Cloud.LocationsRow addressRow = locationsDataTable.NewLocationsRow();
+                DataSet1.LocationsRow addressRow = locationsDataTable.NewLocationsRow();
                 addressRow.Address = String.Join(" ", onlyLocation);
 
                 if (!ParseGrouponSelenium.ExtractGeoLocation(addressRow, onlyLocation))
@@ -111,7 +111,7 @@ namespace ParseData
                 locationsDataTable.Rows.Add(addressRow);
                 locationsAdapter.Update(locationsDataTable);
 
-                Cloud.Laumi_RestuarantRow resRow = laumiRrestuarantsDataTable.NewLaumi_RestuarantRow();
+                DataSet1.Laumi_RestuarantRow resRow = laumiRrestuarantsDataTable.NewLaumi_RestuarantRow();
 
                 resRow.Name = name;
                 resRow.Location_LocationId = addressRow.LocationId;
@@ -119,6 +119,8 @@ namespace ParseData
                 resRow.Image = client.DownloadData(imageSrc);
                 resRow.Phone = phone;
                 resRow.Perks = perks;
+                resRow.RankningUsersSum = 0;
+                resRow.RankingsSum = 0;
 
                 laumiRrestuarantsDataTable.Rows.Add(resRow);
                 laumiRestuarantsAdapter.Update(laumiRrestuarantsDataTable);

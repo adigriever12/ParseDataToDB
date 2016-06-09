@@ -24,21 +24,25 @@ namespace ParseData {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class DataSet1 : global::System.Data.DataSet {
         
-        private CuisinesDataTable tableCuisines;
-        
         private CategoriesDataTable tableCategories;
+        
+        private CuisinesDataTable tableCuisines;
         
         private Groupun_RestuarantDataTable tableGroupun_Restuarant;
         
-        private RestuarantsDataTable tableRestuarants;
+        private Laumi_RestuarantDataTable tableLaumi_Restuarant;
         
         private LocationsDataTable tableLocations;
         
-        private Laumi_RestuarantDataTable tableLaumi_Restuarant;
+        private RestuarantsDataTable tableRestuarants;
+        
+        private American_RestuarantDataTable tableAmerican_Restuarant;
         
         private global::System.Data.DataRelation _relationFK_dbo_Groupun_Restuarant_dbo_Categories_Category_CategoryId;
         
         private global::System.Data.DataRelation _relationFK_dbo_Groupun_Restuarant_dbo_Locations_Location_LocationId;
+        
+        private global::System.Data.DataRelation _relationFK_dbo_Laumi_Restuarant_dbo_Locations_Location_LocationId;
         
         private global::System.Data.DataRelation _relationFK_dbo_Restuarants_dbo_Categories_Category_CategoryId;
         
@@ -46,7 +50,7 @@ namespace ParseData {
         
         private global::System.Data.DataRelation _relationFK_dbo_Restuarants_dbo_Locations_Location_LocationId;
         
-        private global::System.Data.DataRelation _relationFK_dbo_Laumi_Restuarant_dbo_Locations_Location_LocationId;
+        private global::System.Data.DataRelation _relationFK_dbo_American_Restuarant_dbo_Locations_Location_LocationId;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -76,23 +80,26 @@ namespace ParseData {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Cuisines"] != null)) {
-                    base.Tables.Add(new CuisinesDataTable(ds.Tables["Cuisines"]));
-                }
                 if ((ds.Tables["Categories"] != null)) {
                     base.Tables.Add(new CategoriesDataTable(ds.Tables["Categories"]));
+                }
+                if ((ds.Tables["Cuisines"] != null)) {
+                    base.Tables.Add(new CuisinesDataTable(ds.Tables["Cuisines"]));
                 }
                 if ((ds.Tables["Groupun_Restuarant"] != null)) {
                     base.Tables.Add(new Groupun_RestuarantDataTable(ds.Tables["Groupun_Restuarant"]));
                 }
-                if ((ds.Tables["Restuarants"] != null)) {
-                    base.Tables.Add(new RestuarantsDataTable(ds.Tables["Restuarants"]));
+                if ((ds.Tables["Laumi_Restuarant"] != null)) {
+                    base.Tables.Add(new Laumi_RestuarantDataTable(ds.Tables["Laumi_Restuarant"]));
                 }
                 if ((ds.Tables["Locations"] != null)) {
                     base.Tables.Add(new LocationsDataTable(ds.Tables["Locations"]));
                 }
-                if ((ds.Tables["Laumi_Restuarant"] != null)) {
-                    base.Tables.Add(new Laumi_RestuarantDataTable(ds.Tables["Laumi_Restuarant"]));
+                if ((ds.Tables["Restuarants"] != null)) {
+                    base.Tables.Add(new RestuarantsDataTable(ds.Tables["Restuarants"]));
+                }
+                if ((ds.Tables["American_Restuarant"] != null)) {
+                    base.Tables.Add(new American_RestuarantDataTable(ds.Tables["American_Restuarant"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -116,9 +123,9 @@ namespace ParseData {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public CuisinesDataTable Cuisines {
+        public CategoriesDataTable Categories {
             get {
-                return this.tableCuisines;
+                return this.tableCategories;
             }
         }
         
@@ -126,9 +133,9 @@ namespace ParseData {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public CategoriesDataTable Categories {
+        public CuisinesDataTable Cuisines {
             get {
-                return this.tableCategories;
+                return this.tableCuisines;
             }
         }
         
@@ -146,9 +153,9 @@ namespace ParseData {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public RestuarantsDataTable Restuarants {
+        public Laumi_RestuarantDataTable Laumi_Restuarant {
             get {
-                return this.tableRestuarants;
+                return this.tableLaumi_Restuarant;
             }
         }
         
@@ -166,9 +173,19 @@ namespace ParseData {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Laumi_RestuarantDataTable Laumi_Restuarant {
+        public RestuarantsDataTable Restuarants {
             get {
-                return this.tableLaumi_Restuarant;
+                return this.tableRestuarants;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public American_RestuarantDataTable American_Restuarant {
+            get {
+                return this.tableAmerican_Restuarant;
             }
         }
         
@@ -239,23 +256,26 @@ namespace ParseData {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Cuisines"] != null)) {
-                    base.Tables.Add(new CuisinesDataTable(ds.Tables["Cuisines"]));
-                }
                 if ((ds.Tables["Categories"] != null)) {
                     base.Tables.Add(new CategoriesDataTable(ds.Tables["Categories"]));
+                }
+                if ((ds.Tables["Cuisines"] != null)) {
+                    base.Tables.Add(new CuisinesDataTable(ds.Tables["Cuisines"]));
                 }
                 if ((ds.Tables["Groupun_Restuarant"] != null)) {
                     base.Tables.Add(new Groupun_RestuarantDataTable(ds.Tables["Groupun_Restuarant"]));
                 }
-                if ((ds.Tables["Restuarants"] != null)) {
-                    base.Tables.Add(new RestuarantsDataTable(ds.Tables["Restuarants"]));
+                if ((ds.Tables["Laumi_Restuarant"] != null)) {
+                    base.Tables.Add(new Laumi_RestuarantDataTable(ds.Tables["Laumi_Restuarant"]));
                 }
                 if ((ds.Tables["Locations"] != null)) {
                     base.Tables.Add(new LocationsDataTable(ds.Tables["Locations"]));
                 }
-                if ((ds.Tables["Laumi_Restuarant"] != null)) {
-                    base.Tables.Add(new Laumi_RestuarantDataTable(ds.Tables["Laumi_Restuarant"]));
+                if ((ds.Tables["Restuarants"] != null)) {
+                    base.Tables.Add(new RestuarantsDataTable(ds.Tables["Restuarants"]));
+                }
+                if ((ds.Tables["American_Restuarant"] != null)) {
+                    base.Tables.Add(new American_RestuarantDataTable(ds.Tables["American_Restuarant"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -290,16 +310,16 @@ namespace ParseData {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableCuisines = ((CuisinesDataTable)(base.Tables["Cuisines"]));
-            if ((initTable == true)) {
-                if ((this.tableCuisines != null)) {
-                    this.tableCuisines.InitVars();
-                }
-            }
             this.tableCategories = ((CategoriesDataTable)(base.Tables["Categories"]));
             if ((initTable == true)) {
                 if ((this.tableCategories != null)) {
                     this.tableCategories.InitVars();
+                }
+            }
+            this.tableCuisines = ((CuisinesDataTable)(base.Tables["Cuisines"]));
+            if ((initTable == true)) {
+                if ((this.tableCuisines != null)) {
+                    this.tableCuisines.InitVars();
                 }
             }
             this.tableGroupun_Restuarant = ((Groupun_RestuarantDataTable)(base.Tables["Groupun_Restuarant"]));
@@ -308,10 +328,10 @@ namespace ParseData {
                     this.tableGroupun_Restuarant.InitVars();
                 }
             }
-            this.tableRestuarants = ((RestuarantsDataTable)(base.Tables["Restuarants"]));
+            this.tableLaumi_Restuarant = ((Laumi_RestuarantDataTable)(base.Tables["Laumi_Restuarant"]));
             if ((initTable == true)) {
-                if ((this.tableRestuarants != null)) {
-                    this.tableRestuarants.InitVars();
+                if ((this.tableLaumi_Restuarant != null)) {
+                    this.tableLaumi_Restuarant.InitVars();
                 }
             }
             this.tableLocations = ((LocationsDataTable)(base.Tables["Locations"]));
@@ -320,18 +340,25 @@ namespace ParseData {
                     this.tableLocations.InitVars();
                 }
             }
-            this.tableLaumi_Restuarant = ((Laumi_RestuarantDataTable)(base.Tables["Laumi_Restuarant"]));
+            this.tableRestuarants = ((RestuarantsDataTable)(base.Tables["Restuarants"]));
             if ((initTable == true)) {
-                if ((this.tableLaumi_Restuarant != null)) {
-                    this.tableLaumi_Restuarant.InitVars();
+                if ((this.tableRestuarants != null)) {
+                    this.tableRestuarants.InitVars();
+                }
+            }
+            this.tableAmerican_Restuarant = ((American_RestuarantDataTable)(base.Tables["American_Restuarant"]));
+            if ((initTable == true)) {
+                if ((this.tableAmerican_Restuarant != null)) {
+                    this.tableAmerican_Restuarant.InitVars();
                 }
             }
             this._relationFK_dbo_Groupun_Restuarant_dbo_Categories_Category_CategoryId = this.Relations["FK_dbo.Groupun_Restuarant_dbo.Categories_Category_CategoryId"];
             this._relationFK_dbo_Groupun_Restuarant_dbo_Locations_Location_LocationId = this.Relations["FK_dbo.Groupun_Restuarant_dbo.Locations_Location_LocationId"];
+            this._relationFK_dbo_Laumi_Restuarant_dbo_Locations_Location_LocationId = this.Relations["FK_dbo.Laumi_Restuarant_dbo.Locations_Location_LocationId"];
             this._relationFK_dbo_Restuarants_dbo_Categories_Category_CategoryId = this.Relations["FK_dbo.Restuarants_dbo.Categories_Category_CategoryId"];
             this._relationFK_dbo_Restuarants_dbo_Cuisines_Cuisine_CuisineId = this.Relations["FK_dbo.Restuarants_dbo.Cuisines_Cuisine_CuisineId"];
             this._relationFK_dbo_Restuarants_dbo_Locations_Location_LocationId = this.Relations["FK_dbo.Restuarants_dbo.Locations_Location_LocationId"];
-            this._relationFK_dbo_Laumi_Restuarant_dbo_Locations_Location_LocationId = this.Relations["FK_dbo.Laumi_Restuarant_dbo.Locations_Location_LocationId"];
+            this._relationFK_dbo_American_Restuarant_dbo_Locations_Location_LocationId = this.Relations["FK_dbo.American_Restuarant_dbo.Locations_Location_LocationId"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -342,18 +369,20 @@ namespace ParseData {
             this.Namespace = "http://tempuri.org/DataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableCuisines = new CuisinesDataTable();
-            base.Tables.Add(this.tableCuisines);
             this.tableCategories = new CategoriesDataTable();
             base.Tables.Add(this.tableCategories);
+            this.tableCuisines = new CuisinesDataTable();
+            base.Tables.Add(this.tableCuisines);
             this.tableGroupun_Restuarant = new Groupun_RestuarantDataTable();
             base.Tables.Add(this.tableGroupun_Restuarant);
-            this.tableRestuarants = new RestuarantsDataTable();
-            base.Tables.Add(this.tableRestuarants);
-            this.tableLocations = new LocationsDataTable();
-            base.Tables.Add(this.tableLocations);
             this.tableLaumi_Restuarant = new Laumi_RestuarantDataTable();
             base.Tables.Add(this.tableLaumi_Restuarant);
+            this.tableLocations = new LocationsDataTable();
+            base.Tables.Add(this.tableLocations);
+            this.tableRestuarants = new RestuarantsDataTable();
+            base.Tables.Add(this.tableRestuarants);
+            this.tableAmerican_Restuarant = new American_RestuarantDataTable();
+            base.Tables.Add(this.tableAmerican_Restuarant);
             this._relationFK_dbo_Groupun_Restuarant_dbo_Categories_Category_CategoryId = new global::System.Data.DataRelation("FK_dbo.Groupun_Restuarant_dbo.Categories_Category_CategoryId", new global::System.Data.DataColumn[] {
                         this.tableCategories.CategoryIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableGroupun_Restuarant.Category_CategoryIdColumn}, false);
@@ -362,6 +391,10 @@ namespace ParseData {
                         this.tableLocations.LocationIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableGroupun_Restuarant.Location_LocationIdColumn}, false);
             this.Relations.Add(this._relationFK_dbo_Groupun_Restuarant_dbo_Locations_Location_LocationId);
+            this._relationFK_dbo_Laumi_Restuarant_dbo_Locations_Location_LocationId = new global::System.Data.DataRelation("FK_dbo.Laumi_Restuarant_dbo.Locations_Location_LocationId", new global::System.Data.DataColumn[] {
+                        this.tableLocations.LocationIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableLaumi_Restuarant.Location_LocationIdColumn}, false);
+            this.Relations.Add(this._relationFK_dbo_Laumi_Restuarant_dbo_Locations_Location_LocationId);
             this._relationFK_dbo_Restuarants_dbo_Categories_Category_CategoryId = new global::System.Data.DataRelation("FK_dbo.Restuarants_dbo.Categories_Category_CategoryId", new global::System.Data.DataColumn[] {
                         this.tableCategories.CategoryIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableRestuarants.Category_CategoryIdColumn}, false);
@@ -374,21 +407,21 @@ namespace ParseData {
                         this.tableLocations.LocationIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableRestuarants.Location_LocationIdColumn}, false);
             this.Relations.Add(this._relationFK_dbo_Restuarants_dbo_Locations_Location_LocationId);
-            this._relationFK_dbo_Laumi_Restuarant_dbo_Locations_Location_LocationId = new global::System.Data.DataRelation("FK_dbo.Laumi_Restuarant_dbo.Locations_Location_LocationId", new global::System.Data.DataColumn[] {
+            this._relationFK_dbo_American_Restuarant_dbo_Locations_Location_LocationId = new global::System.Data.DataRelation("FK_dbo.American_Restuarant_dbo.Locations_Location_LocationId", new global::System.Data.DataColumn[] {
                         this.tableLocations.LocationIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableLaumi_Restuarant.Location_LocationIdColumn}, false);
-            this.Relations.Add(this._relationFK_dbo_Laumi_Restuarant_dbo_Locations_Location_LocationId);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeCuisines() {
-            return false;
+                        this.tableAmerican_Restuarant.Location_LocationIdColumn}, false);
+            this.Relations.Add(this._relationFK_dbo_American_Restuarant_dbo_Locations_Location_LocationId);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeCategories() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeCuisines() {
             return false;
         }
         
@@ -400,7 +433,7 @@ namespace ParseData {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeRestuarants() {
+        private bool ShouldSerializeLaumi_Restuarant() {
             return false;
         }
         
@@ -412,7 +445,13 @@ namespace ParseData {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeLaumi_Restuarant() {
+        private bool ShouldSerializeRestuarants() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeAmerican_Restuarant() {
             return false;
         }
         
@@ -472,299 +511,25 @@ namespace ParseData {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void CuisinesRowChangeEventHandler(object sender, CuisinesRowChangeEvent e);
+        public delegate void CategoriesRowChangeEventHandler(object sender, CategoriesRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void CategoriesRowChangeEventHandler(object sender, CategoriesRowChangeEvent e);
+        public delegate void CuisinesRowChangeEventHandler(object sender, CuisinesRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void Groupun_RestuarantRowChangeEventHandler(object sender, Groupun_RestuarantRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void RestuarantsRowChangeEventHandler(object sender, RestuarantsRowChangeEvent e);
+        public delegate void Laumi_RestuarantRowChangeEventHandler(object sender, Laumi_RestuarantRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void LocationsRowChangeEventHandler(object sender, LocationsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void Laumi_RestuarantRowChangeEventHandler(object sender, Laumi_RestuarantRowChangeEvent e);
+        public delegate void RestuarantsRowChangeEventHandler(object sender, RestuarantsRowChangeEvent e);
         
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class CuisinesDataTable : global::System.Data.TypedTableBase<CuisinesRow> {
-            
-            private global::System.Data.DataColumn columnCuisineId;
-            
-            private global::System.Data.DataColumn columnName;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CuisinesDataTable() {
-                this.TableName = "Cuisines";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal CuisinesDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected CuisinesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CuisineIdColumn {
-                get {
-                    return this.columnCuisineId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NameColumn {
-                get {
-                    return this.columnName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CuisinesRow this[int index] {
-                get {
-                    return ((CuisinesRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event CuisinesRowChangeEventHandler CuisinesRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event CuisinesRowChangeEventHandler CuisinesRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event CuisinesRowChangeEventHandler CuisinesRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event CuisinesRowChangeEventHandler CuisinesRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddCuisinesRow(CuisinesRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CuisinesRow AddCuisinesRow(string Name) {
-                CuisinesRow rowCuisinesRow = ((CuisinesRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        Name};
-                rowCuisinesRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowCuisinesRow);
-                return rowCuisinesRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CuisinesRow FindByCuisineId(int CuisineId) {
-                return ((CuisinesRow)(this.Rows.Find(new object[] {
-                            CuisineId})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                CuisinesDataTable cln = ((CuisinesDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new CuisinesDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnCuisineId = base.Columns["CuisineId"];
-                this.columnName = base.Columns["Name"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnCuisineId = new global::System.Data.DataColumn("CuisineId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCuisineId);
-                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnName);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnCuisineId}, true));
-                this.columnCuisineId.AutoIncrement = true;
-                this.columnCuisineId.AutoIncrementSeed = -1;
-                this.columnCuisineId.AutoIncrementStep = -1;
-                this.columnCuisineId.AllowDBNull = false;
-                this.columnCuisineId.ReadOnly = true;
-                this.columnCuisineId.Unique = true;
-                this.columnName.MaxLength = 2147483647;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CuisinesRow NewCuisinesRow() {
-                return ((CuisinesRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new CuisinesRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(CuisinesRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.CuisinesRowChanged != null)) {
-                    this.CuisinesRowChanged(this, new CuisinesRowChangeEvent(((CuisinesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.CuisinesRowChanging != null)) {
-                    this.CuisinesRowChanging(this, new CuisinesRowChangeEvent(((CuisinesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.CuisinesRowDeleted != null)) {
-                    this.CuisinesRowDeleted(this, new CuisinesRowChangeEvent(((CuisinesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.CuisinesRowDeleting != null)) {
-                    this.CuisinesRowDeleting(this, new CuisinesRowChangeEvent(((CuisinesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveCuisinesRow(CuisinesRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSet1 ds = new DataSet1();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "CuisinesDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void American_RestuarantRowChangeEventHandler(object sender, American_RestuarantRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1048,6 +813,283 @@ namespace ParseData {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class CuisinesDataTable : global::System.Data.TypedTableBase<CuisinesRow> {
+            
+            private global::System.Data.DataColumn columnCuisineId;
+            
+            private global::System.Data.DataColumn columnName;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CuisinesDataTable() {
+                this.TableName = "Cuisines";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal CuisinesDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected CuisinesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CuisineIdColumn {
+                get {
+                    return this.columnCuisineId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NameColumn {
+                get {
+                    return this.columnName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CuisinesRow this[int index] {
+                get {
+                    return ((CuisinesRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CuisinesRowChangeEventHandler CuisinesRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CuisinesRowChangeEventHandler CuisinesRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CuisinesRowChangeEventHandler CuisinesRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CuisinesRowChangeEventHandler CuisinesRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddCuisinesRow(CuisinesRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CuisinesRow AddCuisinesRow(string Name) {
+                CuisinesRow rowCuisinesRow = ((CuisinesRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Name};
+                rowCuisinesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCuisinesRow);
+                return rowCuisinesRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CuisinesRow FindByCuisineId(int CuisineId) {
+                return ((CuisinesRow)(this.Rows.Find(new object[] {
+                            CuisineId})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                CuisinesDataTable cln = ((CuisinesDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new CuisinesDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnCuisineId = base.Columns["CuisineId"];
+                this.columnName = base.Columns["Name"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnCuisineId = new global::System.Data.DataColumn("CuisineId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCuisineId);
+                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnName);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnCuisineId}, true));
+                this.columnCuisineId.AutoIncrement = true;
+                this.columnCuisineId.AutoIncrementSeed = -1;
+                this.columnCuisineId.AutoIncrementStep = -1;
+                this.columnCuisineId.AllowDBNull = false;
+                this.columnCuisineId.ReadOnly = true;
+                this.columnCuisineId.Unique = true;
+                this.columnName.MaxLength = 2147483647;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CuisinesRow NewCuisinesRow() {
+                return ((CuisinesRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new CuisinesRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(CuisinesRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.CuisinesRowChanged != null)) {
+                    this.CuisinesRowChanged(this, new CuisinesRowChangeEvent(((CuisinesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.CuisinesRowChanging != null)) {
+                    this.CuisinesRowChanging(this, new CuisinesRowChangeEvent(((CuisinesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.CuisinesRowDeleted != null)) {
+                    this.CuisinesRowDeleted(this, new CuisinesRowChangeEvent(((CuisinesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.CuisinesRowDeleting != null)) {
+                    this.CuisinesRowDeleting(this, new CuisinesRowChangeEvent(((CuisinesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveCuisinesRow(CuisinesRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSet1 ds = new DataSet1();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "CuisinesDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class Groupun_RestuarantDataTable : global::System.Data.TypedTableBase<Groupun_RestuarantRow> {
             
             private global::System.Data.DataColumn columnGroupun_RestuarantId;
@@ -1067,6 +1109,10 @@ namespace ParseData {
             private global::System.Data.DataColumn columnPhoneAndContent;
             
             private global::System.Data.DataColumn columnImage;
+            
+            private global::System.Data.DataColumn columnRankingsSum;
+            
+            private global::System.Data.DataColumn columnRankningUsersSum;
             
             private global::System.Data.DataColumn columnCategory_CategoryId;
             
@@ -1179,6 +1225,22 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RankingsSumColumn {
+                get {
+                    return this.columnRankingsSum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RankningUsersSumColumn {
+                get {
+                    return this.columnRankningUsersSum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Category_CategoryIdColumn {
                 get {
                     return this.columnCategory_CategoryId;
@@ -1230,7 +1292,7 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Groupun_RestuarantRow AddGroupun_RestuarantRow(string Name, string Description, string CopunDescription, string Kosher, string Expiration, string Hours, string PhoneAndContent, byte[] Image, CategoriesRow _parentCategoriesRowByFK_dbo_Groupun_Restuarant_dbo_Categories_Category_CategoryId, LocationsRow _parentLocationsRowByFK_dbo_Groupun_Restuarant_dbo_Locations_Location_LocationId) {
+            public Groupun_RestuarantRow AddGroupun_RestuarantRow(string Name, string Description, string CopunDescription, string Kosher, string Expiration, string Hours, string PhoneAndContent, byte[] Image, int RankingsSum, int RankningUsersSum, CategoriesRow _parentCategoriesRowByFK_dbo_Groupun_Restuarant_dbo_Categories_Category_CategoryId, LocationsRow _parentLocationsRowByFK_dbo_Groupun_Restuarant_dbo_Locations_Location_LocationId) {
                 Groupun_RestuarantRow rowGroupun_RestuarantRow = ((Groupun_RestuarantRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1242,13 +1304,15 @@ namespace ParseData {
                         Hours,
                         PhoneAndContent,
                         Image,
+                        RankingsSum,
+                        RankningUsersSum,
                         null,
                         null};
                 if ((_parentCategoriesRowByFK_dbo_Groupun_Restuarant_dbo_Categories_Category_CategoryId != null)) {
-                    columnValuesArray[9] = _parentCategoriesRowByFK_dbo_Groupun_Restuarant_dbo_Categories_Category_CategoryId[0];
+                    columnValuesArray[11] = _parentCategoriesRowByFK_dbo_Groupun_Restuarant_dbo_Categories_Category_CategoryId[0];
                 }
                 if ((_parentLocationsRowByFK_dbo_Groupun_Restuarant_dbo_Locations_Location_LocationId != null)) {
-                    columnValuesArray[10] = _parentLocationsRowByFK_dbo_Groupun_Restuarant_dbo_Locations_Location_LocationId[0];
+                    columnValuesArray[12] = _parentLocationsRowByFK_dbo_Groupun_Restuarant_dbo_Locations_Location_LocationId[0];
                 }
                 rowGroupun_RestuarantRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGroupun_RestuarantRow);
@@ -1288,6 +1352,8 @@ namespace ParseData {
                 this.columnHours = base.Columns["Hours"];
                 this.columnPhoneAndContent = base.Columns["PhoneAndContent"];
                 this.columnImage = base.Columns["Image"];
+                this.columnRankingsSum = base.Columns["RankingsSum"];
+                this.columnRankningUsersSum = base.Columns["RankningUsersSum"];
                 this.columnCategory_CategoryId = base.Columns["Category_CategoryId"];
                 this.columnLocation_LocationId = base.Columns["Location_LocationId"];
             }
@@ -1313,6 +1379,10 @@ namespace ParseData {
                 base.Columns.Add(this.columnPhoneAndContent);
                 this.columnImage = new global::System.Data.DataColumn("Image", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnImage);
+                this.columnRankingsSum = new global::System.Data.DataColumn("RankingsSum", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRankingsSum);
+                this.columnRankningUsersSum = new global::System.Data.DataColumn("RankningUsersSum", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRankningUsersSum);
                 this.columnCategory_CategoryId = new global::System.Data.DataColumn("Category_CategoryId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCategory_CategoryId);
                 this.columnLocation_LocationId = new global::System.Data.DataColumn("Location_LocationId", typeof(int), null, global::System.Data.MappingType.Element);
@@ -1332,6 +1402,8 @@ namespace ParseData {
                 this.columnExpiration.MaxLength = 2147483647;
                 this.columnHours.MaxLength = 2147483647;
                 this.columnPhoneAndContent.MaxLength = 2147483647;
+                this.columnRankingsSum.AllowDBNull = false;
+                this.columnRankningUsersSum.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1463,36 +1535,30 @@ namespace ParseData {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class RestuarantsDataTable : global::System.Data.TypedTableBase<RestuarantsRow> {
+        public partial class Laumi_RestuarantDataTable : global::System.Data.TypedTableBase<Laumi_RestuarantRow> {
             
-            private global::System.Data.DataColumn columnRestuarantId;
+            private global::System.Data.DataColumn columnLaumi_RestuarantId;
             
             private global::System.Data.DataColumn columnName;
             
             private global::System.Data.DataColumn columnDescription;
             
-            private global::System.Data.DataColumn columnKosher;
+            private global::System.Data.DataColumn columnPerks;
             
             private global::System.Data.DataColumn columnPhone;
             
-            private global::System.Data.DataColumn columnHandicapAccessibility;
+            private global::System.Data.DataColumn columnImage;
             
-            private global::System.Data.DataColumn columnOpeningHours;
+            private global::System.Data.DataColumn columnRankingsSum;
             
-            private global::System.Data.DataColumn columnCategory_CategoryId;
-            
-            private global::System.Data.DataColumn columnCuisine_CuisineId;
+            private global::System.Data.DataColumn columnRankningUsersSum;
             
             private global::System.Data.DataColumn columnLocation_LocationId;
             
-            private global::System.Data.DataColumn columnImage;
-            
-            private global::System.Data.DataColumn columnScore;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RestuarantsDataTable() {
-                this.TableName = "Restuarants";
+            public Laumi_RestuarantDataTable() {
+                this.TableName = "Laumi_Restuarant";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1500,7 +1566,7 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal RestuarantsDataTable(global::System.Data.DataTable table) {
+            internal Laumi_RestuarantDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1517,16 +1583,16 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected RestuarantsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected Laumi_RestuarantDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RestuarantIdColumn {
+            public global::System.Data.DataColumn Laumi_RestuarantIdColumn {
                 get {
-                    return this.columnRestuarantId;
+                    return this.columnLaumi_RestuarantId;
                 }
             }
             
@@ -1548,9 +1614,9 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn KosherColumn {
+            public global::System.Data.DataColumn PerksColumn {
                 get {
-                    return this.columnKosher;
+                    return this.columnPerks;
                 }
             }
             
@@ -1564,46 +1630,6 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn HandicapAccessibilityColumn {
-                get {
-                    return this.columnHandicapAccessibility;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn OpeningHoursColumn {
-                get {
-                    return this.columnOpeningHours;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Category_CategoryIdColumn {
-                get {
-                    return this.columnCategory_CategoryId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Cuisine_CuisineIdColumn {
-                get {
-                    return this.columnCuisine_CuisineId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Location_LocationIdColumn {
-                get {
-                    return this.columnLocation_LocationId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn ImageColumn {
                 get {
                     return this.columnImage;
@@ -1612,9 +1638,25 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ScoreColumn {
+            public global::System.Data.DataColumn RankingsSumColumn {
                 get {
-                    return this.columnScore;
+                    return this.columnRankingsSum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RankningUsersSumColumn {
+                get {
+                    return this.columnRankningUsersSum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Location_LocationIdColumn {
+                get {
+                    return this.columnLocation_LocationId;
                 }
             }
             
@@ -1629,72 +1671,63 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RestuarantsRow this[int index] {
+            public Laumi_RestuarantRow this[int index] {
                 get {
-                    return ((RestuarantsRow)(this.Rows[index]));
+                    return ((Laumi_RestuarantRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RestuarantsRowChangeEventHandler RestuarantsRowChanging;
+            public event Laumi_RestuarantRowChangeEventHandler Laumi_RestuarantRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RestuarantsRowChangeEventHandler RestuarantsRowChanged;
+            public event Laumi_RestuarantRowChangeEventHandler Laumi_RestuarantRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RestuarantsRowChangeEventHandler RestuarantsRowDeleting;
+            public event Laumi_RestuarantRowChangeEventHandler Laumi_RestuarantRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RestuarantsRowChangeEventHandler RestuarantsRowDeleted;
+            public event Laumi_RestuarantRowChangeEventHandler Laumi_RestuarantRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddRestuarantsRow(RestuarantsRow row) {
+            public void AddLaumi_RestuarantRow(Laumi_RestuarantRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RestuarantsRow AddRestuarantsRow(string Name, string Description, string Kosher, string Phone, bool HandicapAccessibility, string OpeningHours, CategoriesRow _parentCategoriesRowByFK_dbo_Restuarants_dbo_Categories_Category_CategoryId, CuisinesRow _parentCuisinesRowByFK_dbo_Restuarants_dbo_Cuisines_Cuisine_CuisineId, LocationsRow _parentLocationsRowByFK_dbo_Restuarants_dbo_Locations_Location_LocationId, byte[] Image, int Score) {
-                RestuarantsRow rowRestuarantsRow = ((RestuarantsRow)(this.NewRow()));
+            public Laumi_RestuarantRow AddLaumi_RestuarantRow(string Name, string Description, string Perks, string Phone, byte[] Image, int RankingsSum, int RankningUsersSum, LocationsRow _parentLocationsRowByFK_dbo_Laumi_Restuarant_dbo_Locations_Location_LocationId) {
+                Laumi_RestuarantRow rowLaumi_RestuarantRow = ((Laumi_RestuarantRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Name,
                         Description,
-                        Kosher,
+                        Perks,
                         Phone,
-                        HandicapAccessibility,
-                        OpeningHours,
-                        null,
-                        null,
-                        null,
                         Image,
-                        Score};
-                if ((_parentCategoriesRowByFK_dbo_Restuarants_dbo_Categories_Category_CategoryId != null)) {
-                    columnValuesArray[7] = _parentCategoriesRowByFK_dbo_Restuarants_dbo_Categories_Category_CategoryId[0];
+                        RankingsSum,
+                        RankningUsersSum,
+                        null};
+                if ((_parentLocationsRowByFK_dbo_Laumi_Restuarant_dbo_Locations_Location_LocationId != null)) {
+                    columnValuesArray[8] = _parentLocationsRowByFK_dbo_Laumi_Restuarant_dbo_Locations_Location_LocationId[0];
                 }
-                if ((_parentCuisinesRowByFK_dbo_Restuarants_dbo_Cuisines_Cuisine_CuisineId != null)) {
-                    columnValuesArray[8] = _parentCuisinesRowByFK_dbo_Restuarants_dbo_Cuisines_Cuisine_CuisineId[0];
-                }
-                if ((_parentLocationsRowByFK_dbo_Restuarants_dbo_Locations_Location_LocationId != null)) {
-                    columnValuesArray[9] = _parentLocationsRowByFK_dbo_Restuarants_dbo_Locations_Location_LocationId[0];
-                }
-                rowRestuarantsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowRestuarantsRow);
-                return rowRestuarantsRow;
+                rowLaumi_RestuarantRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowLaumi_RestuarantRow);
+                return rowLaumi_RestuarantRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RestuarantsRow FindByRestuarantId(int RestuarantId) {
-                return ((RestuarantsRow)(this.Rows.Find(new object[] {
-                            RestuarantId})));
+            public Laumi_RestuarantRow FindByLaumi_RestuarantId(int Laumi_RestuarantId) {
+                return ((Laumi_RestuarantRow)(this.Rows.Find(new object[] {
+                            Laumi_RestuarantId})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                RestuarantsDataTable cln = ((RestuarantsDataTable)(base.Clone()));
+                Laumi_RestuarantDataTable cln = ((Laumi_RestuarantDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1702,94 +1735,84 @@ namespace ParseData {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new RestuarantsDataTable();
+                return new Laumi_RestuarantDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnRestuarantId = base.Columns["RestuarantId"];
+                this.columnLaumi_RestuarantId = base.Columns["Laumi_RestuarantId"];
                 this.columnName = base.Columns["Name"];
                 this.columnDescription = base.Columns["Description"];
-                this.columnKosher = base.Columns["Kosher"];
+                this.columnPerks = base.Columns["Perks"];
                 this.columnPhone = base.Columns["Phone"];
-                this.columnHandicapAccessibility = base.Columns["HandicapAccessibility"];
-                this.columnOpeningHours = base.Columns["OpeningHours"];
-                this.columnCategory_CategoryId = base.Columns["Category_CategoryId"];
-                this.columnCuisine_CuisineId = base.Columns["Cuisine_CuisineId"];
-                this.columnLocation_LocationId = base.Columns["Location_LocationId"];
                 this.columnImage = base.Columns["Image"];
-                this.columnScore = base.Columns["Score"];
+                this.columnRankingsSum = base.Columns["RankingsSum"];
+                this.columnRankningUsersSum = base.Columns["RankningUsersSum"];
+                this.columnLocation_LocationId = base.Columns["Location_LocationId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnRestuarantId = new global::System.Data.DataColumn("RestuarantId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRestuarantId);
+                this.columnLaumi_RestuarantId = new global::System.Data.DataColumn("Laumi_RestuarantId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLaumi_RestuarantId);
                 this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnName);
                 this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescription);
-                this.columnKosher = new global::System.Data.DataColumn("Kosher", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKosher);
+                this.columnPerks = new global::System.Data.DataColumn("Perks", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPerks);
                 this.columnPhone = new global::System.Data.DataColumn("Phone", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPhone);
-                this.columnHandicapAccessibility = new global::System.Data.DataColumn("HandicapAccessibility", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHandicapAccessibility);
-                this.columnOpeningHours = new global::System.Data.DataColumn("OpeningHours", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOpeningHours);
-                this.columnCategory_CategoryId = new global::System.Data.DataColumn("Category_CategoryId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCategory_CategoryId);
-                this.columnCuisine_CuisineId = new global::System.Data.DataColumn("Cuisine_CuisineId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCuisine_CuisineId);
-                this.columnLocation_LocationId = new global::System.Data.DataColumn("Location_LocationId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLocation_LocationId);
                 this.columnImage = new global::System.Data.DataColumn("Image", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnImage);
-                this.columnScore = new global::System.Data.DataColumn("Score", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnScore);
+                this.columnRankingsSum = new global::System.Data.DataColumn("RankingsSum", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRankingsSum);
+                this.columnRankningUsersSum = new global::System.Data.DataColumn("RankningUsersSum", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRankningUsersSum);
+                this.columnLocation_LocationId = new global::System.Data.DataColumn("Location_LocationId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLocation_LocationId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnRestuarantId}, true));
-                this.columnRestuarantId.AutoIncrement = true;
-                this.columnRestuarantId.AutoIncrementSeed = -1;
-                this.columnRestuarantId.AutoIncrementStep = -1;
-                this.columnRestuarantId.AllowDBNull = false;
-                this.columnRestuarantId.ReadOnly = true;
-                this.columnRestuarantId.Unique = true;
+                                this.columnLaumi_RestuarantId}, true));
+                this.columnLaumi_RestuarantId.AutoIncrement = true;
+                this.columnLaumi_RestuarantId.AutoIncrementSeed = -1;
+                this.columnLaumi_RestuarantId.AutoIncrementStep = -1;
+                this.columnLaumi_RestuarantId.AllowDBNull = false;
+                this.columnLaumi_RestuarantId.ReadOnly = true;
+                this.columnLaumi_RestuarantId.Unique = true;
                 this.columnName.MaxLength = 2147483647;
                 this.columnDescription.MaxLength = 2147483647;
-                this.columnKosher.MaxLength = 2147483647;
+                this.columnPerks.MaxLength = 2147483647;
                 this.columnPhone.MaxLength = 2147483647;
-                this.columnHandicapAccessibility.AllowDBNull = false;
-                this.columnOpeningHours.MaxLength = 2147483647;
-                this.columnScore.AllowDBNull = false;
+                this.columnRankingsSum.AllowDBNull = false;
+                this.columnRankningUsersSum.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RestuarantsRow NewRestuarantsRow() {
-                return ((RestuarantsRow)(this.NewRow()));
+            public Laumi_RestuarantRow NewLaumi_RestuarantRow() {
+                return ((Laumi_RestuarantRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new RestuarantsRow(builder);
+                return new Laumi_RestuarantRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(RestuarantsRow);
+                return typeof(Laumi_RestuarantRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.RestuarantsRowChanged != null)) {
-                    this.RestuarantsRowChanged(this, new RestuarantsRowChangeEvent(((RestuarantsRow)(e.Row)), e.Action));
+                if ((this.Laumi_RestuarantRowChanged != null)) {
+                    this.Laumi_RestuarantRowChanged(this, new Laumi_RestuarantRowChangeEvent(((Laumi_RestuarantRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1797,8 +1820,8 @@ namespace ParseData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.RestuarantsRowChanging != null)) {
-                    this.RestuarantsRowChanging(this, new RestuarantsRowChangeEvent(((RestuarantsRow)(e.Row)), e.Action));
+                if ((this.Laumi_RestuarantRowChanging != null)) {
+                    this.Laumi_RestuarantRowChanging(this, new Laumi_RestuarantRowChangeEvent(((Laumi_RestuarantRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1806,8 +1829,8 @@ namespace ParseData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.RestuarantsRowDeleted != null)) {
-                    this.RestuarantsRowDeleted(this, new RestuarantsRowChangeEvent(((RestuarantsRow)(e.Row)), e.Action));
+                if ((this.Laumi_RestuarantRowDeleted != null)) {
+                    this.Laumi_RestuarantRowDeleted(this, new Laumi_RestuarantRowChangeEvent(((Laumi_RestuarantRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1815,14 +1838,14 @@ namespace ParseData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.RestuarantsRowDeleting != null)) {
-                    this.RestuarantsRowDeleting(this, new RestuarantsRowChangeEvent(((RestuarantsRow)(e.Row)), e.Action));
+                if ((this.Laumi_RestuarantRowDeleting != null)) {
+                    this.Laumi_RestuarantRowDeleting(this, new Laumi_RestuarantRowChangeEvent(((Laumi_RestuarantRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveRestuarantsRow(RestuarantsRow row) {
+            public void RemoveLaumi_RestuarantRow(Laumi_RestuarantRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1849,7 +1872,7 @@ namespace ParseData {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "RestuarantsDataTable";
+                attribute2.FixedValue = "Laumi_RestuarantDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2202,26 +2225,38 @@ namespace ParseData {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Laumi_RestuarantDataTable : global::System.Data.TypedTableBase<Laumi_RestuarantRow> {
+        public partial class RestuarantsDataTable : global::System.Data.TypedTableBase<RestuarantsRow> {
             
-            private global::System.Data.DataColumn columnLaumi_RestuarantId;
+            private global::System.Data.DataColumn columnRestuarantId;
             
             private global::System.Data.DataColumn columnName;
             
             private global::System.Data.DataColumn columnDescription;
             
-            private global::System.Data.DataColumn columnPerks;
+            private global::System.Data.DataColumn columnRankingsSum;
+            
+            private global::System.Data.DataColumn columnRankningUsersSum;
+            
+            private global::System.Data.DataColumn columnKosher;
             
             private global::System.Data.DataColumn columnPhone;
             
+            private global::System.Data.DataColumn columnHandicapAccessibility;
+            
             private global::System.Data.DataColumn columnImage;
+            
+            private global::System.Data.DataColumn columnOpeningHours;
+            
+            private global::System.Data.DataColumn columnCategory_CategoryId;
+            
+            private global::System.Data.DataColumn columnCuisine_CuisineId;
             
             private global::System.Data.DataColumn columnLocation_LocationId;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Laumi_RestuarantDataTable() {
-                this.TableName = "Laumi_Restuarant";
+            public RestuarantsDataTable() {
+                this.TableName = "Restuarants";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -2229,7 +2264,7 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal Laumi_RestuarantDataTable(global::System.Data.DataTable table) {
+            internal RestuarantsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -2246,16 +2281,16 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected Laumi_RestuarantDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected RestuarantsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Laumi_RestuarantIdColumn {
+            public global::System.Data.DataColumn RestuarantIdColumn {
                 get {
-                    return this.columnLaumi_RestuarantId;
+                    return this.columnRestuarantId;
                 }
             }
             
@@ -2277,9 +2312,25 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PerksColumn {
+            public global::System.Data.DataColumn RankingsSumColumn {
                 get {
-                    return this.columnPerks;
+                    return this.columnRankingsSum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RankningUsersSumColumn {
+                get {
+                    return this.columnRankningUsersSum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn KosherColumn {
+                get {
+                    return this.columnKosher;
                 }
             }
             
@@ -2293,9 +2344,41 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HandicapAccessibilityColumn {
+                get {
+                    return this.columnHandicapAccessibility;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn ImageColumn {
                 get {
                     return this.columnImage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OpeningHoursColumn {
+                get {
+                    return this.columnOpeningHours;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Category_CategoryIdColumn {
+                get {
+                    return this.columnCategory_CategoryId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cuisine_CuisineIdColumn {
+                get {
+                    return this.columnCuisine_CuisineId;
                 }
             }
             
@@ -2318,61 +2401,73 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Laumi_RestuarantRow this[int index] {
+            public RestuarantsRow this[int index] {
                 get {
-                    return ((Laumi_RestuarantRow)(this.Rows[index]));
+                    return ((RestuarantsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Laumi_RestuarantRowChangeEventHandler Laumi_RestuarantRowChanging;
+            public event RestuarantsRowChangeEventHandler RestuarantsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Laumi_RestuarantRowChangeEventHandler Laumi_RestuarantRowChanged;
+            public event RestuarantsRowChangeEventHandler RestuarantsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Laumi_RestuarantRowChangeEventHandler Laumi_RestuarantRowDeleting;
+            public event RestuarantsRowChangeEventHandler RestuarantsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Laumi_RestuarantRowChangeEventHandler Laumi_RestuarantRowDeleted;
+            public event RestuarantsRowChangeEventHandler RestuarantsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddLaumi_RestuarantRow(Laumi_RestuarantRow row) {
+            public void AddRestuarantsRow(RestuarantsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Laumi_RestuarantRow AddLaumi_RestuarantRow(string Name, string Description, string Perks, string Phone, byte[] Image, LocationsRow _parentLocationsRowByFK_dbo_Laumi_Restuarant_dbo_Locations_Location_LocationId) {
-                Laumi_RestuarantRow rowLaumi_RestuarantRow = ((Laumi_RestuarantRow)(this.NewRow()));
+            public RestuarantsRow AddRestuarantsRow(string Name, string Description, int RankingsSum, int RankningUsersSum, string Kosher, string Phone, bool HandicapAccessibility, byte[] Image, string OpeningHours, CategoriesRow _parentCategoriesRowByFK_dbo_Restuarants_dbo_Categories_Category_CategoryId, CuisinesRow _parentCuisinesRowByFK_dbo_Restuarants_dbo_Cuisines_Cuisine_CuisineId, LocationsRow _parentLocationsRowByFK_dbo_Restuarants_dbo_Locations_Location_LocationId) {
+                RestuarantsRow rowRestuarantsRow = ((RestuarantsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Name,
                         Description,
-                        Perks,
+                        RankingsSum,
+                        RankningUsersSum,
+                        Kosher,
                         Phone,
+                        HandicapAccessibility,
                         Image,
+                        OpeningHours,
+                        null,
+                        null,
                         null};
-                if ((_parentLocationsRowByFK_dbo_Laumi_Restuarant_dbo_Locations_Location_LocationId != null)) {
-                    columnValuesArray[6] = _parentLocationsRowByFK_dbo_Laumi_Restuarant_dbo_Locations_Location_LocationId[0];
+                if ((_parentCategoriesRowByFK_dbo_Restuarants_dbo_Categories_Category_CategoryId != null)) {
+                    columnValuesArray[10] = _parentCategoriesRowByFK_dbo_Restuarants_dbo_Categories_Category_CategoryId[0];
                 }
-                rowLaumi_RestuarantRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowLaumi_RestuarantRow);
-                return rowLaumi_RestuarantRow;
+                if ((_parentCuisinesRowByFK_dbo_Restuarants_dbo_Cuisines_Cuisine_CuisineId != null)) {
+                    columnValuesArray[11] = _parentCuisinesRowByFK_dbo_Restuarants_dbo_Cuisines_Cuisine_CuisineId[0];
+                }
+                if ((_parentLocationsRowByFK_dbo_Restuarants_dbo_Locations_Location_LocationId != null)) {
+                    columnValuesArray[12] = _parentLocationsRowByFK_dbo_Restuarants_dbo_Locations_Location_LocationId[0];
+                }
+                rowRestuarantsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowRestuarantsRow);
+                return rowRestuarantsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Laumi_RestuarantRow FindByLaumi_RestuarantId(int Laumi_RestuarantId) {
-                return ((Laumi_RestuarantRow)(this.Rows.Find(new object[] {
-                            Laumi_RestuarantId})));
+            public RestuarantsRow FindByRestuarantId(int RestuarantId) {
+                return ((RestuarantsRow)(this.Rows.Find(new object[] {
+                            RestuarantId})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                Laumi_RestuarantDataTable cln = ((Laumi_RestuarantDataTable)(base.Clone()));
+                RestuarantsDataTable cln = ((RestuarantsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -2380,76 +2475,98 @@ namespace ParseData {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new Laumi_RestuarantDataTable();
+                return new RestuarantsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnLaumi_RestuarantId = base.Columns["Laumi_RestuarantId"];
+                this.columnRestuarantId = base.Columns["RestuarantId"];
                 this.columnName = base.Columns["Name"];
                 this.columnDescription = base.Columns["Description"];
-                this.columnPerks = base.Columns["Perks"];
+                this.columnRankingsSum = base.Columns["RankingsSum"];
+                this.columnRankningUsersSum = base.Columns["RankningUsersSum"];
+                this.columnKosher = base.Columns["Kosher"];
                 this.columnPhone = base.Columns["Phone"];
+                this.columnHandicapAccessibility = base.Columns["HandicapAccessibility"];
                 this.columnImage = base.Columns["Image"];
+                this.columnOpeningHours = base.Columns["OpeningHours"];
+                this.columnCategory_CategoryId = base.Columns["Category_CategoryId"];
+                this.columnCuisine_CuisineId = base.Columns["Cuisine_CuisineId"];
                 this.columnLocation_LocationId = base.Columns["Location_LocationId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnLaumi_RestuarantId = new global::System.Data.DataColumn("Laumi_RestuarantId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLaumi_RestuarantId);
+                this.columnRestuarantId = new global::System.Data.DataColumn("RestuarantId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRestuarantId);
                 this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnName);
                 this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescription);
-                this.columnPerks = new global::System.Data.DataColumn("Perks", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPerks);
+                this.columnRankingsSum = new global::System.Data.DataColumn("RankingsSum", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRankingsSum);
+                this.columnRankningUsersSum = new global::System.Data.DataColumn("RankningUsersSum", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRankningUsersSum);
+                this.columnKosher = new global::System.Data.DataColumn("Kosher", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKosher);
                 this.columnPhone = new global::System.Data.DataColumn("Phone", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPhone);
+                this.columnHandicapAccessibility = new global::System.Data.DataColumn("HandicapAccessibility", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHandicapAccessibility);
                 this.columnImage = new global::System.Data.DataColumn("Image", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnImage);
+                this.columnOpeningHours = new global::System.Data.DataColumn("OpeningHours", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOpeningHours);
+                this.columnCategory_CategoryId = new global::System.Data.DataColumn("Category_CategoryId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCategory_CategoryId);
+                this.columnCuisine_CuisineId = new global::System.Data.DataColumn("Cuisine_CuisineId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCuisine_CuisineId);
                 this.columnLocation_LocationId = new global::System.Data.DataColumn("Location_LocationId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLocation_LocationId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnLaumi_RestuarantId}, true));
-                this.columnLaumi_RestuarantId.AutoIncrement = true;
-                this.columnLaumi_RestuarantId.AutoIncrementSeed = -1;
-                this.columnLaumi_RestuarantId.AutoIncrementStep = -1;
-                this.columnLaumi_RestuarantId.AllowDBNull = false;
-                this.columnLaumi_RestuarantId.ReadOnly = true;
-                this.columnLaumi_RestuarantId.Unique = true;
+                                this.columnRestuarantId}, true));
+                this.columnRestuarantId.AutoIncrement = true;
+                this.columnRestuarantId.AutoIncrementSeed = -1;
+                this.columnRestuarantId.AutoIncrementStep = -1;
+                this.columnRestuarantId.AllowDBNull = false;
+                this.columnRestuarantId.ReadOnly = true;
+                this.columnRestuarantId.Unique = true;
                 this.columnName.MaxLength = 2147483647;
                 this.columnDescription.MaxLength = 2147483647;
-                this.columnPerks.MaxLength = 2147483647;
+                this.columnRankingsSum.AllowDBNull = false;
+                this.columnRankningUsersSum.AllowDBNull = false;
+                this.columnKosher.MaxLength = 2147483647;
                 this.columnPhone.MaxLength = 2147483647;
+                this.columnHandicapAccessibility.AllowDBNull = false;
+                this.columnOpeningHours.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Laumi_RestuarantRow NewLaumi_RestuarantRow() {
-                return ((Laumi_RestuarantRow)(this.NewRow()));
+            public RestuarantsRow NewRestuarantsRow() {
+                return ((RestuarantsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Laumi_RestuarantRow(builder);
+                return new RestuarantsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(Laumi_RestuarantRow);
+                return typeof(RestuarantsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.Laumi_RestuarantRowChanged != null)) {
-                    this.Laumi_RestuarantRowChanged(this, new Laumi_RestuarantRowChangeEvent(((Laumi_RestuarantRow)(e.Row)), e.Action));
+                if ((this.RestuarantsRowChanged != null)) {
+                    this.RestuarantsRowChanged(this, new RestuarantsRowChangeEvent(((RestuarantsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2457,8 +2574,8 @@ namespace ParseData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.Laumi_RestuarantRowChanging != null)) {
-                    this.Laumi_RestuarantRowChanging(this, new Laumi_RestuarantRowChangeEvent(((Laumi_RestuarantRow)(e.Row)), e.Action));
+                if ((this.RestuarantsRowChanging != null)) {
+                    this.RestuarantsRowChanging(this, new RestuarantsRowChangeEvent(((RestuarantsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2466,8 +2583,8 @@ namespace ParseData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.Laumi_RestuarantRowDeleted != null)) {
-                    this.Laumi_RestuarantRowDeleted(this, new Laumi_RestuarantRowChangeEvent(((Laumi_RestuarantRow)(e.Row)), e.Action));
+                if ((this.RestuarantsRowDeleted != null)) {
+                    this.RestuarantsRowDeleted(this, new RestuarantsRowChangeEvent(((RestuarantsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2475,14 +2592,14 @@ namespace ParseData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.Laumi_RestuarantRowDeleting != null)) {
-                    this.Laumi_RestuarantRowDeleting(this, new Laumi_RestuarantRowChangeEvent(((Laumi_RestuarantRow)(e.Row)), e.Action));
+                if ((this.RestuarantsRowDeleting != null)) {
+                    this.RestuarantsRowDeleting(this, new RestuarantsRowChangeEvent(((RestuarantsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveLaumi_RestuarantRow(Laumi_RestuarantRow row) {
+            public void RemoveRestuarantsRow(RestuarantsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -2509,7 +2626,7 @@ namespace ParseData {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Laumi_RestuarantDataTable";
+                attribute2.FixedValue = "RestuarantsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2551,67 +2668,400 @@ namespace ParseData {
         }
         
         /// <summary>
-        ///Represents strongly named DataRow class.
+        ///Represents the strongly named DataTable class.
         ///</summary>
-        public partial class CuisinesRow : global::System.Data.DataRow {
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class American_RestuarantDataTable : global::System.Data.TypedTableBase<American_RestuarantRow> {
             
-            private CuisinesDataTable tableCuisines;
+            private global::System.Data.DataColumn columnAmerican_RestuarantId;
+            
+            private global::System.Data.DataColumn columnName;
+            
+            private global::System.Data.DataColumn columnDescription;
+            
+            private global::System.Data.DataColumn columnPerks;
+            
+            private global::System.Data.DataColumn columnPhone;
+            
+            private global::System.Data.DataColumn columnExpiration;
+            
+            private global::System.Data.DataColumn columnImage;
+            
+            private global::System.Data.DataColumn columnRankingsSum;
+            
+            private global::System.Data.DataColumn columnRankningUsersSum;
+            
+            private global::System.Data.DataColumn columnLocation_LocationId;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal CuisinesRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableCuisines = ((CuisinesDataTable)(this.Table));
+            public American_RestuarantDataTable() {
+                this.TableName = "American_Restuarant";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int CuisineId {
-                get {
-                    return ((int)(this[this.tableCuisines.CuisineIdColumn]));
+            internal American_RestuarantDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
                 }
-                set {
-                    this[this.tableCuisines.CuisineIdColumn] = value;
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected American_RestuarantDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn American_RestuarantIdColumn {
+                get {
+                    return this.columnAmerican_RestuarantId;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Name {
+            public global::System.Data.DataColumn NameColumn {
                 get {
+                    return this.columnName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DescriptionColumn {
+                get {
+                    return this.columnDescription;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PerksColumn {
+                get {
+                    return this.columnPerks;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PhoneColumn {
+                get {
+                    return this.columnPhone;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ExpirationColumn {
+                get {
+                    return this.columnExpiration;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ImageColumn {
+                get {
+                    return this.columnImage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RankingsSumColumn {
+                get {
+                    return this.columnRankingsSum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RankningUsersSumColumn {
+                get {
+                    return this.columnRankningUsersSum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Location_LocationIdColumn {
+                get {
+                    return this.columnLocation_LocationId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public American_RestuarantRow this[int index] {
+                get {
+                    return ((American_RestuarantRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event American_RestuarantRowChangeEventHandler American_RestuarantRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event American_RestuarantRowChangeEventHandler American_RestuarantRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event American_RestuarantRowChangeEventHandler American_RestuarantRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event American_RestuarantRowChangeEventHandler American_RestuarantRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddAmerican_RestuarantRow(American_RestuarantRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public American_RestuarantRow AddAmerican_RestuarantRow(string Name, string Description, string Perks, string Phone, string Expiration, byte[] Image, int RankingsSum, int RankningUsersSum, LocationsRow _parentLocationsRowByFK_dbo_American_Restuarant_dbo_Locations_Location_LocationId) {
+                American_RestuarantRow rowAmerican_RestuarantRow = ((American_RestuarantRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Name,
+                        Description,
+                        Perks,
+                        Phone,
+                        Expiration,
+                        Image,
+                        RankingsSum,
+                        RankningUsersSum,
+                        null};
+                if ((_parentLocationsRowByFK_dbo_American_Restuarant_dbo_Locations_Location_LocationId != null)) {
+                    columnValuesArray[9] = _parentLocationsRowByFK_dbo_American_Restuarant_dbo_Locations_Location_LocationId[0];
+                }
+                rowAmerican_RestuarantRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowAmerican_RestuarantRow);
+                return rowAmerican_RestuarantRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public American_RestuarantRow FindByAmerican_RestuarantId(int American_RestuarantId) {
+                return ((American_RestuarantRow)(this.Rows.Find(new object[] {
+                            American_RestuarantId})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                American_RestuarantDataTable cln = ((American_RestuarantDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new American_RestuarantDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnAmerican_RestuarantId = base.Columns["American_RestuarantId"];
+                this.columnName = base.Columns["Name"];
+                this.columnDescription = base.Columns["Description"];
+                this.columnPerks = base.Columns["Perks"];
+                this.columnPhone = base.Columns["Phone"];
+                this.columnExpiration = base.Columns["Expiration"];
+                this.columnImage = base.Columns["Image"];
+                this.columnRankingsSum = base.Columns["RankingsSum"];
+                this.columnRankningUsersSum = base.Columns["RankningUsersSum"];
+                this.columnLocation_LocationId = base.Columns["Location_LocationId"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnAmerican_RestuarantId = new global::System.Data.DataColumn("American_RestuarantId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAmerican_RestuarantId);
+                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnName);
+                this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescription);
+                this.columnPerks = new global::System.Data.DataColumn("Perks", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPerks);
+                this.columnPhone = new global::System.Data.DataColumn("Phone", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPhone);
+                this.columnExpiration = new global::System.Data.DataColumn("Expiration", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnExpiration);
+                this.columnImage = new global::System.Data.DataColumn("Image", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImage);
+                this.columnRankingsSum = new global::System.Data.DataColumn("RankingsSum", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRankingsSum);
+                this.columnRankningUsersSum = new global::System.Data.DataColumn("RankningUsersSum", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRankningUsersSum);
+                this.columnLocation_LocationId = new global::System.Data.DataColumn("Location_LocationId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLocation_LocationId);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnAmerican_RestuarantId}, true));
+                this.columnAmerican_RestuarantId.AutoIncrement = true;
+                this.columnAmerican_RestuarantId.AutoIncrementSeed = -1;
+                this.columnAmerican_RestuarantId.AutoIncrementStep = -1;
+                this.columnAmerican_RestuarantId.AllowDBNull = false;
+                this.columnAmerican_RestuarantId.ReadOnly = true;
+                this.columnAmerican_RestuarantId.Unique = true;
+                this.columnName.MaxLength = 2147483647;
+                this.columnDescription.MaxLength = 2147483647;
+                this.columnPerks.MaxLength = 2147483647;
+                this.columnPhone.MaxLength = 2147483647;
+                this.columnExpiration.MaxLength = 2147483647;
+                this.columnRankingsSum.AllowDBNull = false;
+                this.columnRankningUsersSum.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public American_RestuarantRow NewAmerican_RestuarantRow() {
+                return ((American_RestuarantRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new American_RestuarantRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(American_RestuarantRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.American_RestuarantRowChanged != null)) {
+                    this.American_RestuarantRowChanged(this, new American_RestuarantRowChangeEvent(((American_RestuarantRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.American_RestuarantRowChanging != null)) {
+                    this.American_RestuarantRowChanging(this, new American_RestuarantRowChangeEvent(((American_RestuarantRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.American_RestuarantRowDeleted != null)) {
+                    this.American_RestuarantRowDeleted(this, new American_RestuarantRowChangeEvent(((American_RestuarantRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.American_RestuarantRowDeleting != null)) {
+                    this.American_RestuarantRowDeleting(this, new American_RestuarantRowChangeEvent(((American_RestuarantRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveAmerican_RestuarantRow(American_RestuarantRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSet1 ds = new DataSet1();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "American_RestuarantDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
                     try {
-                        return ((string)(this[this.tableCuisines.NameColumn]));
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'Cuisines\' is DBNull.", e);
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
                     }
                 }
-                set {
-                    this[this.tableCuisines.NameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNameNull() {
-                return this.IsNull(this.tableCuisines.NameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNameNull() {
-                this[this.tableCuisines.NameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RestuarantsRow[] GetRestuarantsRows() {
-                if ((this.Table.ChildRelations["FK_dbo.Restuarants_dbo.Cuisines_Cuisine_CuisineId"] == null)) {
-                    return new RestuarantsRow[0];
-                }
-                else {
-                    return ((RestuarantsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.Restuarants_dbo.Cuisines_Cuisine_CuisineId"])));
-                }
+                xs.Add(dsSchema);
+                return type;
             }
         }
         
@@ -2687,6 +3137,71 @@ namespace ParseData {
                 }
                 else {
                     return ((RestuarantsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.Restuarants_dbo.Categories_Category_CategoryId"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class CuisinesRow : global::System.Data.DataRow {
+            
+            private CuisinesDataTable tableCuisines;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal CuisinesRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableCuisines = ((CuisinesDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int CuisineId {
+                get {
+                    return ((int)(this[this.tableCuisines.CuisineIdColumn]));
+                }
+                set {
+                    this[this.tableCuisines.CuisineIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableCuisines.NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'Cuisines\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCuisines.NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNameNull() {
+                return this.IsNull(this.tableCuisines.NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNameNull() {
+                this[this.tableCuisines.NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RestuarantsRow[] GetRestuarantsRows() {
+                if ((this.Table.ChildRelations["FK_dbo.Restuarants_dbo.Cuisines_Cuisine_CuisineId"] == null)) {
+                    return new RestuarantsRow[0];
+                }
+                else {
+                    return ((RestuarantsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.Restuarants_dbo.Cuisines_Cuisine_CuisineId"])));
                 }
             }
         }
@@ -2841,6 +3356,28 @@ namespace ParseData {
                 }
                 set {
                     this[this.tableGroupun_Restuarant.ImageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int RankingsSum {
+                get {
+                    return ((int)(this[this.tableGroupun_Restuarant.RankingsSumColumn]));
+                }
+                set {
+                    this[this.tableGroupun_Restuarant.RankingsSumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int RankningUsersSum {
+                get {
+                    return ((int)(this[this.tableGroupun_Restuarant.RankningUsersSumColumn]));
+                }
+                set {
+                    this[this.tableGroupun_Restuarant.RankningUsersSumColumn] = value;
                 }
             }
             
@@ -3024,25 +3561,25 @@ namespace ParseData {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class RestuarantsRow : global::System.Data.DataRow {
+        public partial class Laumi_RestuarantRow : global::System.Data.DataRow {
             
-            private RestuarantsDataTable tableRestuarants;
+            private Laumi_RestuarantDataTable tableLaumi_Restuarant;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal RestuarantsRow(global::System.Data.DataRowBuilder rb) : 
+            internal Laumi_RestuarantRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableRestuarants = ((RestuarantsDataTable)(this.Table));
+                this.tableLaumi_Restuarant = ((Laumi_RestuarantDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int RestuarantId {
+            public int Laumi_RestuarantId {
                 get {
-                    return ((int)(this[this.tableRestuarants.RestuarantIdColumn]));
+                    return ((int)(this[this.tableLaumi_Restuarant.Laumi_RestuarantIdColumn]));
                 }
                 set {
-                    this[this.tableRestuarants.RestuarantIdColumn] = value;
+                    this[this.tableLaumi_Restuarant.Laumi_RestuarantIdColumn] = value;
                 }
             }
             
@@ -3051,14 +3588,14 @@ namespace ParseData {
             public string Name {
                 get {
                     try {
-                        return ((string)(this[this.tableRestuarants.NameColumn]));
+                        return ((string)(this[this.tableLaumi_Restuarant.NameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'Restuarants\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'Laumi_Restuarant\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRestuarants.NameColumn] = value;
+                    this[this.tableLaumi_Restuarant.NameColumn] = value;
                 }
             }
             
@@ -3067,30 +3604,30 @@ namespace ParseData {
             public string Description {
                 get {
                     try {
-                        return ((string)(this[this.tableRestuarants.DescriptionColumn]));
+                        return ((string)(this[this.tableLaumi_Restuarant.DescriptionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'Restuarants\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'Laumi_Restuarant\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRestuarants.DescriptionColumn] = value;
+                    this[this.tableLaumi_Restuarant.DescriptionColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Kosher {
+            public string Perks {
                 get {
                     try {
-                        return ((string)(this[this.tableRestuarants.KosherColumn]));
+                        return ((string)(this[this.tableLaumi_Restuarant.PerksColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kosher\' in table \'Restuarants\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Perks\' in table \'Laumi_Restuarant\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRestuarants.KosherColumn] = value;
+                    this[this.tableLaumi_Restuarant.PerksColumn] = value;
                 }
             }
             
@@ -3099,89 +3636,14 @@ namespace ParseData {
             public string Phone {
                 get {
                     try {
-                        return ((string)(this[this.tableRestuarants.PhoneColumn]));
+                        return ((string)(this[this.tableLaumi_Restuarant.PhoneColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Phone\' in table \'Restuarants\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Phone\' in table \'Laumi_Restuarant\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRestuarants.PhoneColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool HandicapAccessibility {
-                get {
-                    return ((bool)(this[this.tableRestuarants.HandicapAccessibilityColumn]));
-                }
-                set {
-                    this[this.tableRestuarants.HandicapAccessibilityColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string OpeningHours {
-                get {
-                    try {
-                        return ((string)(this[this.tableRestuarants.OpeningHoursColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'OpeningHours\' in table \'Restuarants\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableRestuarants.OpeningHoursColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Category_CategoryId {
-                get {
-                    try {
-                        return ((int)(this[this.tableRestuarants.Category_CategoryIdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Category_CategoryId\' in table \'Restuarants\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableRestuarants.Category_CategoryIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Cuisine_CuisineId {
-                get {
-                    try {
-                        return ((int)(this[this.tableRestuarants.Cuisine_CuisineIdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cuisine_CuisineId\' in table \'Restuarants\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableRestuarants.Cuisine_CuisineIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Location_LocationId {
-                get {
-                    try {
-                        return ((int)(this[this.tableRestuarants.Location_LocationIdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Location_LocationId\' in table \'Restuarants\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableRestuarants.Location_LocationIdColumn] = value;
+                    this[this.tableLaumi_Restuarant.PhoneColumn] = value;
                 }
             }
             
@@ -3190,47 +3652,53 @@ namespace ParseData {
             public byte[] Image {
                 get {
                     try {
-                        return ((byte[])(this[this.tableRestuarants.ImageColumn]));
+                        return ((byte[])(this[this.tableLaumi_Restuarant.ImageColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Image\' in table \'Restuarants\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Image\' in table \'Laumi_Restuarant\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRestuarants.ImageColumn] = value;
+                    this[this.tableLaumi_Restuarant.ImageColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Score {
+            public int RankingsSum {
                 get {
-                    return ((int)(this[this.tableRestuarants.ScoreColumn]));
+                    return ((int)(this[this.tableLaumi_Restuarant.RankingsSumColumn]));
                 }
                 set {
-                    this[this.tableRestuarants.ScoreColumn] = value;
+                    this[this.tableLaumi_Restuarant.RankingsSumColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CategoriesRow CategoriesRow {
+            public int RankningUsersSum {
                 get {
-                    return ((CategoriesRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.Restuarants_dbo.Categories_Category_CategoryId"])));
+                    return ((int)(this[this.tableLaumi_Restuarant.RankningUsersSumColumn]));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.Restuarants_dbo.Categories_Category_CategoryId"]);
+                    this[this.tableLaumi_Restuarant.RankningUsersSumColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CuisinesRow CuisinesRow {
+            public int Location_LocationId {
                 get {
-                    return ((CuisinesRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.Restuarants_dbo.Cuisines_Cuisine_CuisineId"])));
+                    try {
+                        return ((int)(this[this.tableLaumi_Restuarant.Location_LocationIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Location_LocationId\' in table \'Laumi_Restuarant\' is DBNull." +
+                                "", e);
+                    }
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.Restuarants_dbo.Cuisines_Cuisine_CuisineId"]);
+                    this[this.tableLaumi_Restuarant.Location_LocationIdColumn] = value;
                 }
             }
             
@@ -3238,119 +3706,83 @@ namespace ParseData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public LocationsRow LocationsRow {
                 get {
-                    return ((LocationsRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.Restuarants_dbo.Locations_Location_LocationId"])));
+                    return ((LocationsRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.Laumi_Restuarant_dbo.Locations_Location_LocationId"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.Restuarants_dbo.Locations_Location_LocationId"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.Laumi_Restuarant_dbo.Locations_Location_LocationId"]);
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNameNull() {
-                return this.IsNull(this.tableRestuarants.NameColumn);
+                return this.IsNull(this.tableLaumi_Restuarant.NameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetNameNull() {
-                this[this.tableRestuarants.NameColumn] = global::System.Convert.DBNull;
+                this[this.tableLaumi_Restuarant.NameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsDescriptionNull() {
-                return this.IsNull(this.tableRestuarants.DescriptionColumn);
+                return this.IsNull(this.tableLaumi_Restuarant.DescriptionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDescriptionNull() {
-                this[this.tableRestuarants.DescriptionColumn] = global::System.Convert.DBNull;
+                this[this.tableLaumi_Restuarant.DescriptionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsKosherNull() {
-                return this.IsNull(this.tableRestuarants.KosherColumn);
+            public bool IsPerksNull() {
+                return this.IsNull(this.tableLaumi_Restuarant.PerksColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetKosherNull() {
-                this[this.tableRestuarants.KosherColumn] = global::System.Convert.DBNull;
+            public void SetPerksNull() {
+                this[this.tableLaumi_Restuarant.PerksColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPhoneNull() {
-                return this.IsNull(this.tableRestuarants.PhoneColumn);
+                return this.IsNull(this.tableLaumi_Restuarant.PhoneColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPhoneNull() {
-                this[this.tableRestuarants.PhoneColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsOpeningHoursNull() {
-                return this.IsNull(this.tableRestuarants.OpeningHoursColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetOpeningHoursNull() {
-                this[this.tableRestuarants.OpeningHoursColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCategory_CategoryIdNull() {
-                return this.IsNull(this.tableRestuarants.Category_CategoryIdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCategory_CategoryIdNull() {
-                this[this.tableRestuarants.Category_CategoryIdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCuisine_CuisineIdNull() {
-                return this.IsNull(this.tableRestuarants.Cuisine_CuisineIdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCuisine_CuisineIdNull() {
-                this[this.tableRestuarants.Cuisine_CuisineIdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLocation_LocationIdNull() {
-                return this.IsNull(this.tableRestuarants.Location_LocationIdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLocation_LocationIdNull() {
-                this[this.tableRestuarants.Location_LocationIdColumn] = global::System.Convert.DBNull;
+                this[this.tableLaumi_Restuarant.PhoneColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsImageNull() {
-                return this.IsNull(this.tableRestuarants.ImageColumn);
+                return this.IsNull(this.tableLaumi_Restuarant.ImageColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetImageNull() {
-                this[this.tableRestuarants.ImageColumn] = global::System.Convert.DBNull;
+                this[this.tableLaumi_Restuarant.ImageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLocation_LocationIdNull() {
+                return this.IsNull(this.tableLaumi_Restuarant.Location_LocationIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLocation_LocationIdNull() {
+                this[this.tableLaumi_Restuarant.Location_LocationIdColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3476,6 +3908,17 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Laumi_RestuarantRow[] GetLaumi_RestuarantRows() {
+                if ((this.Table.ChildRelations["FK_dbo.Laumi_Restuarant_dbo.Locations_Location_LocationId"] == null)) {
+                    return new Laumi_RestuarantRow[0];
+                }
+                else {
+                    return ((Laumi_RestuarantRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.Laumi_Restuarant_dbo.Locations_Location_LocationId"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RestuarantsRow[] GetRestuarantsRows() {
                 if ((this.Table.ChildRelations["FK_dbo.Restuarants_dbo.Locations_Location_LocationId"] == null)) {
                     return new RestuarantsRow[0];
@@ -3487,12 +3930,12 @@ namespace ParseData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Laumi_RestuarantRow[] GetLaumi_RestuarantRows() {
-                if ((this.Table.ChildRelations["FK_dbo.Laumi_Restuarant_dbo.Locations_Location_LocationId"] == null)) {
-                    return new Laumi_RestuarantRow[0];
+            public American_RestuarantRow[] GetAmerican_RestuarantRows() {
+                if ((this.Table.ChildRelations["FK_dbo.American_Restuarant_dbo.Locations_Location_LocationId"] == null)) {
+                    return new American_RestuarantRow[0];
                 }
                 else {
-                    return ((Laumi_RestuarantRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.Laumi_Restuarant_dbo.Locations_Location_LocationId"])));
+                    return ((American_RestuarantRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.American_Restuarant_dbo.Locations_Location_LocationId"])));
                 }
             }
         }
@@ -3500,25 +3943,25 @@ namespace ParseData {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class Laumi_RestuarantRow : global::System.Data.DataRow {
+        public partial class RestuarantsRow : global::System.Data.DataRow {
             
-            private Laumi_RestuarantDataTable tableLaumi_Restuarant;
+            private RestuarantsDataTable tableRestuarants;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal Laumi_RestuarantRow(global::System.Data.DataRowBuilder rb) : 
+            internal RestuarantsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableLaumi_Restuarant = ((Laumi_RestuarantDataTable)(this.Table));
+                this.tableRestuarants = ((RestuarantsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Laumi_RestuarantId {
+            public int RestuarantId {
                 get {
-                    return ((int)(this[this.tableLaumi_Restuarant.Laumi_RestuarantIdColumn]));
+                    return ((int)(this[this.tableRestuarants.RestuarantIdColumn]));
                 }
                 set {
-                    this[this.tableLaumi_Restuarant.Laumi_RestuarantIdColumn] = value;
+                    this[this.tableRestuarants.RestuarantIdColumn] = value;
                 }
             }
             
@@ -3527,14 +3970,14 @@ namespace ParseData {
             public string Name {
                 get {
                     try {
-                        return ((string)(this[this.tableLaumi_Restuarant.NameColumn]));
+                        return ((string)(this[this.tableRestuarants.NameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'Laumi_Restuarant\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'Restuarants\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableLaumi_Restuarant.NameColumn] = value;
+                    this[this.tableRestuarants.NameColumn] = value;
                 }
             }
             
@@ -3543,30 +3986,52 @@ namespace ParseData {
             public string Description {
                 get {
                     try {
-                        return ((string)(this[this.tableLaumi_Restuarant.DescriptionColumn]));
+                        return ((string)(this[this.tableRestuarants.DescriptionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'Laumi_Restuarant\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'Restuarants\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableLaumi_Restuarant.DescriptionColumn] = value;
+                    this[this.tableRestuarants.DescriptionColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Perks {
+            public int RankingsSum {
+                get {
+                    return ((int)(this[this.tableRestuarants.RankingsSumColumn]));
+                }
+                set {
+                    this[this.tableRestuarants.RankingsSumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int RankningUsersSum {
+                get {
+                    return ((int)(this[this.tableRestuarants.RankningUsersSumColumn]));
+                }
+                set {
+                    this[this.tableRestuarants.RankningUsersSumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Kosher {
                 get {
                     try {
-                        return ((string)(this[this.tableLaumi_Restuarant.PerksColumn]));
+                        return ((string)(this[this.tableRestuarants.KosherColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Perks\' in table \'Laumi_Restuarant\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kosher\' in table \'Restuarants\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableLaumi_Restuarant.PerksColumn] = value;
+                    this[this.tableRestuarants.KosherColumn] = value;
                 }
             }
             
@@ -3575,14 +4040,25 @@ namespace ParseData {
             public string Phone {
                 get {
                     try {
-                        return ((string)(this[this.tableLaumi_Restuarant.PhoneColumn]));
+                        return ((string)(this[this.tableRestuarants.PhoneColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Phone\' in table \'Laumi_Restuarant\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Phone\' in table \'Restuarants\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableLaumi_Restuarant.PhoneColumn] = value;
+                    this[this.tableRestuarants.PhoneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool HandicapAccessibility {
+                get {
+                    return ((bool)(this[this.tableRestuarants.HandicapAccessibilityColumn]));
+                }
+                set {
+                    this[this.tableRestuarants.HandicapAccessibilityColumn] = value;
                 }
             }
             
@@ -3591,14 +4067,62 @@ namespace ParseData {
             public byte[] Image {
                 get {
                     try {
-                        return ((byte[])(this[this.tableLaumi_Restuarant.ImageColumn]));
+                        return ((byte[])(this[this.tableRestuarants.ImageColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Image\' in table \'Laumi_Restuarant\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Image\' in table \'Restuarants\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableLaumi_Restuarant.ImageColumn] = value;
+                    this[this.tableRestuarants.ImageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string OpeningHours {
+                get {
+                    try {
+                        return ((string)(this[this.tableRestuarants.OpeningHoursColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'OpeningHours\' in table \'Restuarants\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRestuarants.OpeningHoursColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Category_CategoryId {
+                get {
+                    try {
+                        return ((int)(this[this.tableRestuarants.Category_CategoryIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Category_CategoryId\' in table \'Restuarants\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRestuarants.Category_CategoryIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Cuisine_CuisineId {
+                get {
+                    try {
+                        return ((int)(this[this.tableRestuarants.Cuisine_CuisineIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cuisine_CuisineId\' in table \'Restuarants\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRestuarants.Cuisine_CuisineIdColumn] = value;
                 }
             }
             
@@ -3607,15 +4131,36 @@ namespace ParseData {
             public int Location_LocationId {
                 get {
                     try {
-                        return ((int)(this[this.tableLaumi_Restuarant.Location_LocationIdColumn]));
+                        return ((int)(this[this.tableRestuarants.Location_LocationIdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Location_LocationId\' in table \'Laumi_Restuarant\' is DBNull." +
-                                "", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Location_LocationId\' in table \'Restuarants\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableLaumi_Restuarant.Location_LocationIdColumn] = value;
+                    this[this.tableRestuarants.Location_LocationIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CategoriesRow CategoriesRow {
+                get {
+                    return ((CategoriesRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.Restuarants_dbo.Categories_Category_CategoryId"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.Restuarants_dbo.Categories_Category_CategoryId"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CuisinesRow CuisinesRow {
+                get {
+                    return ((CuisinesRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.Restuarants_dbo.Cuisines_Cuisine_CuisineId"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.Restuarants_dbo.Cuisines_Cuisine_CuisineId"]);
                 }
             }
             
@@ -3623,117 +4168,375 @@ namespace ParseData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public LocationsRow LocationsRow {
                 get {
-                    return ((LocationsRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.Laumi_Restuarant_dbo.Locations_Location_LocationId"])));
+                    return ((LocationsRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.Restuarants_dbo.Locations_Location_LocationId"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.Laumi_Restuarant_dbo.Locations_Location_LocationId"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.Restuarants_dbo.Locations_Location_LocationId"]);
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNameNull() {
-                return this.IsNull(this.tableLaumi_Restuarant.NameColumn);
+                return this.IsNull(this.tableRestuarants.NameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetNameNull() {
-                this[this.tableLaumi_Restuarant.NameColumn] = global::System.Convert.DBNull;
+                this[this.tableRestuarants.NameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsDescriptionNull() {
-                return this.IsNull(this.tableLaumi_Restuarant.DescriptionColumn);
+                return this.IsNull(this.tableRestuarants.DescriptionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDescriptionNull() {
-                this[this.tableLaumi_Restuarant.DescriptionColumn] = global::System.Convert.DBNull;
+                this[this.tableRestuarants.DescriptionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPerksNull() {
-                return this.IsNull(this.tableLaumi_Restuarant.PerksColumn);
+            public bool IsKosherNull() {
+                return this.IsNull(this.tableRestuarants.KosherColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPerksNull() {
-                this[this.tableLaumi_Restuarant.PerksColumn] = global::System.Convert.DBNull;
+            public void SetKosherNull() {
+                this[this.tableRestuarants.KosherColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPhoneNull() {
-                return this.IsNull(this.tableLaumi_Restuarant.PhoneColumn);
+                return this.IsNull(this.tableRestuarants.PhoneColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPhoneNull() {
-                this[this.tableLaumi_Restuarant.PhoneColumn] = global::System.Convert.DBNull;
+                this[this.tableRestuarants.PhoneColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsImageNull() {
-                return this.IsNull(this.tableLaumi_Restuarant.ImageColumn);
+                return this.IsNull(this.tableRestuarants.ImageColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetImageNull() {
-                this[this.tableLaumi_Restuarant.ImageColumn] = global::System.Convert.DBNull;
+                this[this.tableRestuarants.ImageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOpeningHoursNull() {
+                return this.IsNull(this.tableRestuarants.OpeningHoursColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOpeningHoursNull() {
+                this[this.tableRestuarants.OpeningHoursColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCategory_CategoryIdNull() {
+                return this.IsNull(this.tableRestuarants.Category_CategoryIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCategory_CategoryIdNull() {
+                this[this.tableRestuarants.Category_CategoryIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCuisine_CuisineIdNull() {
+                return this.IsNull(this.tableRestuarants.Cuisine_CuisineIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCuisine_CuisineIdNull() {
+                this[this.tableRestuarants.Cuisine_CuisineIdColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsLocation_LocationIdNull() {
-                return this.IsNull(this.tableLaumi_Restuarant.Location_LocationIdColumn);
+                return this.IsNull(this.tableRestuarants.Location_LocationIdColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetLocation_LocationIdNull() {
-                this[this.tableLaumi_Restuarant.Location_LocationIdColumn] = global::System.Convert.DBNull;
+                this[this.tableRestuarants.Location_LocationIdColumn] = global::System.Convert.DBNull;
             }
         }
         
         /// <summary>
-        ///Row event argument class
+        ///Represents strongly named DataRow class.
         ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class CuisinesRowChangeEvent : global::System.EventArgs {
+        public partial class American_RestuarantRow : global::System.Data.DataRow {
             
-            private CuisinesRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
+            private American_RestuarantDataTable tableAmerican_Restuarant;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CuisinesRowChangeEvent(CuisinesRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
+            internal American_RestuarantRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableAmerican_Restuarant = ((American_RestuarantDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CuisinesRow Row {
+            public int American_RestuarantId {
                 get {
-                    return this.eventRow;
+                    return ((int)(this[this.tableAmerican_Restuarant.American_RestuarantIdColumn]));
+                }
+                set {
+                    this[this.tableAmerican_Restuarant.American_RestuarantIdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
+            public string Name {
                 get {
-                    return this.eventAction;
+                    try {
+                        return ((string)(this[this.tableAmerican_Restuarant.NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'American_Restuarant\' is DBNull.", e);
+                    }
                 }
+                set {
+                    this[this.tableAmerican_Restuarant.NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Description {
+                get {
+                    try {
+                        return ((string)(this[this.tableAmerican_Restuarant.DescriptionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'American_Restuarant\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAmerican_Restuarant.DescriptionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Perks {
+                get {
+                    try {
+                        return ((string)(this[this.tableAmerican_Restuarant.PerksColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Perks\' in table \'American_Restuarant\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAmerican_Restuarant.PerksColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Phone {
+                get {
+                    try {
+                        return ((string)(this[this.tableAmerican_Restuarant.PhoneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Phone\' in table \'American_Restuarant\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAmerican_Restuarant.PhoneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Expiration {
+                get {
+                    try {
+                        return ((string)(this[this.tableAmerican_Restuarant.ExpirationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Expiration\' in table \'American_Restuarant\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAmerican_Restuarant.ExpirationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public byte[] Image {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableAmerican_Restuarant.ImageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Image\' in table \'American_Restuarant\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAmerican_Restuarant.ImageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int RankingsSum {
+                get {
+                    return ((int)(this[this.tableAmerican_Restuarant.RankingsSumColumn]));
+                }
+                set {
+                    this[this.tableAmerican_Restuarant.RankingsSumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int RankningUsersSum {
+                get {
+                    return ((int)(this[this.tableAmerican_Restuarant.RankningUsersSumColumn]));
+                }
+                set {
+                    this[this.tableAmerican_Restuarant.RankningUsersSumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Location_LocationId {
+                get {
+                    try {
+                        return ((int)(this[this.tableAmerican_Restuarant.Location_LocationIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Location_LocationId\' in table \'American_Restuarant\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableAmerican_Restuarant.Location_LocationIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public LocationsRow LocationsRow {
+                get {
+                    return ((LocationsRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.American_Restuarant_dbo.Locations_Location_LocationId"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.American_Restuarant_dbo.Locations_Location_LocationId"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNameNull() {
+                return this.IsNull(this.tableAmerican_Restuarant.NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNameNull() {
+                this[this.tableAmerican_Restuarant.NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDescriptionNull() {
+                return this.IsNull(this.tableAmerican_Restuarant.DescriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDescriptionNull() {
+                this[this.tableAmerican_Restuarant.DescriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPerksNull() {
+                return this.IsNull(this.tableAmerican_Restuarant.PerksColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPerksNull() {
+                this[this.tableAmerican_Restuarant.PerksColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPhoneNull() {
+                return this.IsNull(this.tableAmerican_Restuarant.PhoneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPhoneNull() {
+                this[this.tableAmerican_Restuarant.PhoneColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsExpirationNull() {
+                return this.IsNull(this.tableAmerican_Restuarant.ExpirationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetExpirationNull() {
+                this[this.tableAmerican_Restuarant.ExpirationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsImageNull() {
+                return this.IsNull(this.tableAmerican_Restuarant.ImageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetImageNull() {
+                this[this.tableAmerican_Restuarant.ImageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLocation_LocationIdNull() {
+                return this.IsNull(this.tableAmerican_Restuarant.Location_LocationIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLocation_LocationIdNull() {
+                this[this.tableAmerican_Restuarant.Location_LocationIdColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3757,6 +4560,40 @@ namespace ParseData {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CategoriesRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class CuisinesRowChangeEvent : global::System.EventArgs {
+            
+            private CuisinesRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CuisinesRowChangeEvent(CuisinesRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CuisinesRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3809,22 +4646,22 @@ namespace ParseData {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class RestuarantsRowChangeEvent : global::System.EventArgs {
+        public class Laumi_RestuarantRowChangeEvent : global::System.EventArgs {
             
-            private RestuarantsRow eventRow;
+            private Laumi_RestuarantRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RestuarantsRowChangeEvent(RestuarantsRow row, global::System.Data.DataRowAction action) {
+            public Laumi_RestuarantRowChangeEvent(Laumi_RestuarantRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RestuarantsRow Row {
+            public Laumi_RestuarantRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3877,22 +4714,56 @@ namespace ParseData {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class Laumi_RestuarantRowChangeEvent : global::System.EventArgs {
+        public class RestuarantsRowChangeEvent : global::System.EventArgs {
             
-            private Laumi_RestuarantRow eventRow;
+            private RestuarantsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Laumi_RestuarantRowChangeEvent(Laumi_RestuarantRow row, global::System.Data.DataRowAction action) {
+            public RestuarantsRowChangeEvent(RestuarantsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Laumi_RestuarantRow Row {
+            public RestuarantsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class American_RestuarantRowChangeEvent : global::System.EventArgs {
+            
+            private American_RestuarantRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public American_RestuarantRowChangeEvent(American_RestuarantRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public American_RestuarantRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3910,308 +4781,6 @@ namespace ParseData {
 }
 namespace ParseData.DataSet1TableAdapters {
     
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class CuisinesTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public CuisinesTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Cuisines";
-            tableMapping.ColumnMappings.Add("CuisineId", "CuisineId");
-            tableMapping.ColumnMappings.Add("Name", "Name");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Cuisines] WHERE (([CuisineId] = @Original_CuisineId))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CuisineId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Cuisines] ([Name]) VALUES (@Name);\r\nSELECT CuisineId, Name FRO" +
-                "M Cuisines WHERE (CuisineId = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Cuisines] SET [Name] = @Name WHERE (([CuisineId] = @Original_Cuisin" +
-                "eId));\r\nSELECT CuisineId, Name FROM Cuisines WHERE (CuisineId = @CuisineId)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CuisineId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CuisineId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CuisineId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ParseData.Properties.Settings.Default.aspnet_MyCards_20160227033058ConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT CuisineId, Name FROM dbo.Cuisines";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSet1.CuisinesDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSet1.CuisinesDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSet1.CuisinesDataTable dataTable = new DataSet1.CuisinesDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet1.CuisinesDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet1 dataSet) {
-            return this.Adapter.Update(dataSet, "Cuisines");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_CuisineId) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_CuisineId));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Name) {
-            if ((Name == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Name));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, int Original_CuisineId, int CuisineId) {
-            if ((Name == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Name));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_CuisineId));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(CuisineId));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, int Original_CuisineId) {
-            return this.Update(Name, Original_CuisineId, Original_CuisineId);
-        }
-    }
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -4525,6 +5094,308 @@ namespace ParseData.DataSet1TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class CuisinesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public CuisinesTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Cuisines";
+            tableMapping.ColumnMappings.Add("CuisineId", "CuisineId");
+            tableMapping.ColumnMappings.Add("Name", "Name");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Cuisines] WHERE (([CuisineId] = @Original_CuisineId))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CuisineId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Cuisines] ([Name]) VALUES (@Name);\r\nSELECT CuisineId, Name FRO" +
+                "M Cuisines WHERE (CuisineId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Cuisines] SET [Name] = @Name WHERE (([CuisineId] = @Original_Cuisin" +
+                "eId));\r\nSELECT CuisineId, Name FROM Cuisines WHERE (CuisineId = @CuisineId)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CuisineId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CuisineId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CuisineId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::ParseData.Properties.Settings.Default.aspnet_MyCards_20160227033058ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT CuisineId, Name FROM dbo.Cuisines";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DataSet1.CuisinesDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DataSet1.CuisinesDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSet1.CuisinesDataTable dataTable = new DataSet1.CuisinesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DataSet1.CuisinesDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DataSet1 dataSet) {
+            return this.Adapter.Update(dataSet, "Cuisines");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_CuisineId) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_CuisineId));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string Name) {
+            if ((Name == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Name));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string Name, int Original_CuisineId, int CuisineId) {
+            if ((Name == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Name));
+            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_CuisineId));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(CuisineId));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string Name, int Original_CuisineId) {
+            return this.Update(Name, Original_CuisineId, Original_CuisineId);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class Groupun_RestuarantTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -4646,22 +5517,26 @@ namespace ParseData.DataSet1TableAdapters {
             tableMapping.ColumnMappings.Add("Hours", "Hours");
             tableMapping.ColumnMappings.Add("PhoneAndContent", "PhoneAndContent");
             tableMapping.ColumnMappings.Add("Image", "Image");
+            tableMapping.ColumnMappings.Add("RankingsSum", "RankingsSum");
+            tableMapping.ColumnMappings.Add("RankningUsersSum", "RankningUsersSum");
             tableMapping.ColumnMappings.Add("Category_CategoryId", "Category_CategoryId");
             tableMapping.ColumnMappings.Add("Location_LocationId", "Location_LocationId");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Groupun_Restuarant] WHERE (([Groupun_RestuarantId] = @Original_Groupun_RestuarantId) AND ((@IsNull_Category_CategoryId = 1 AND [Category_CategoryId] IS NULL) OR ([Category_CategoryId] = @Original_Category_CategoryId)) AND ((@IsNull_Location_LocationId = 1 AND [Location_LocationId] IS NULL) OR ([Location_LocationId] = @Original_Location_LocationId)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Groupun_Restuarant] WHERE (([Groupun_RestuarantId] = @Original_Groupun_RestuarantId) AND ([RankingsSum] = @Original_RankingsSum) AND ([RankningUsersSum] = @Original_RankningUsersSum) AND ((@IsNull_Category_CategoryId = 1 AND [Category_CategoryId] IS NULL) OR ([Category_CategoryId] = @Original_Category_CategoryId)) AND ((@IsNull_Location_LocationId = 1 AND [Location_LocationId] IS NULL) OR ([Location_LocationId] = @Original_Location_LocationId)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Groupun_RestuarantId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Groupun_RestuarantId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RankingsSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankingsSum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RankningUsersSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankningUsersSum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Groupun_Restuarant] ([Name], [Description], [CopunDescription], [Kosher], [Expiration], [Hours], [PhoneAndContent], [Image], [Category_CategoryId], [Location_LocationId]) VALUES (@Name, @Description, @CopunDescription, @Kosher, @Expiration, @Hours, @PhoneAndContent, @Image, @Category_CategoryId, @Location_LocationId);
-SELECT Groupun_RestuarantId, Name, Description, CopunDescription, Kosher, Expiration, Hours, PhoneAndContent, Image, Category_CategoryId, Location_LocationId FROM Groupun_Restuarant WHERE (Groupun_RestuarantId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Groupun_Restuarant] ([Name], [Description], [CopunDescription], [Kosher], [Expiration], [Hours], [PhoneAndContent], [Image], [RankingsSum], [RankningUsersSum], [Category_CategoryId], [Location_LocationId]) VALUES (@Name, @Description, @CopunDescription, @Kosher, @Expiration, @Hours, @PhoneAndContent, @Image, @RankingsSum, @RankningUsersSum, @Category_CategoryId, @Location_LocationId);
+SELECT Groupun_RestuarantId, Name, Description, CopunDescription, Kosher, Expiration, Hours, PhoneAndContent, Image, RankingsSum, RankningUsersSum, Category_CategoryId, Location_LocationId FROM Groupun_Restuarant WHERE (Groupun_RestuarantId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4671,12 +5546,14 @@ SELECT Groupun_RestuarantId, Name, Description, CopunDescription, Kosher, Expira
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hours", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hours", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PhoneAndContent", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneAndContent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RankingsSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankingsSum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RankningUsersSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankningUsersSum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Groupun_Restuarant] SET [Name] = @Name, [Description] = @Description, [CopunDescription] = @CopunDescription, [Kosher] = @Kosher, [Expiration] = @Expiration, [Hours] = @Hours, [PhoneAndContent] = @PhoneAndContent, [Image] = @Image, [Category_CategoryId] = @Category_CategoryId, [Location_LocationId] = @Location_LocationId WHERE (([Groupun_RestuarantId] = @Original_Groupun_RestuarantId) AND ((@IsNull_Category_CategoryId = 1 AND [Category_CategoryId] IS NULL) OR ([Category_CategoryId] = @Original_Category_CategoryId)) AND ((@IsNull_Location_LocationId = 1 AND [Location_LocationId] IS NULL) OR ([Location_LocationId] = @Original_Location_LocationId)));
-SELECT Groupun_RestuarantId, Name, Description, CopunDescription, Kosher, Expiration, Hours, PhoneAndContent, Image, Category_CategoryId, Location_LocationId FROM Groupun_Restuarant WHERE (Groupun_RestuarantId = @Groupun_RestuarantId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Groupun_Restuarant] SET [Name] = @Name, [Description] = @Description, [CopunDescription] = @CopunDescription, [Kosher] = @Kosher, [Expiration] = @Expiration, [Hours] = @Hours, [PhoneAndContent] = @PhoneAndContent, [Image] = @Image, [RankingsSum] = @RankingsSum, [RankningUsersSum] = @RankningUsersSum, [Category_CategoryId] = @Category_CategoryId, [Location_LocationId] = @Location_LocationId WHERE (([Groupun_RestuarantId] = @Original_Groupun_RestuarantId) AND ([RankingsSum] = @Original_RankingsSum) AND ([RankningUsersSum] = @Original_RankningUsersSum) AND ((@IsNull_Category_CategoryId = 1 AND [Category_CategoryId] IS NULL) OR ([Category_CategoryId] = @Original_Category_CategoryId)) AND ((@IsNull_Location_LocationId = 1 AND [Location_LocationId] IS NULL) OR ([Location_LocationId] = @Original_Location_LocationId)));
+SELECT Groupun_RestuarantId, Name, Description, CopunDescription, Kosher, Expiration, Hours, PhoneAndContent, Image, RankingsSum, RankningUsersSum, Category_CategoryId, Location_LocationId FROM Groupun_Restuarant WHERE (Groupun_RestuarantId = @Groupun_RestuarantId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4686,9 +5563,13 @@ SELECT Groupun_RestuarantId, Name, Description, CopunDescription, Kosher, Expira
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hours", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hours", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PhoneAndContent", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneAndContent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RankingsSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankingsSum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RankningUsersSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankningUsersSum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Groupun_RestuarantId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Groupun_RestuarantId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RankingsSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankingsSum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RankningUsersSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankningUsersSum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -4710,8 +5591,8 @@ SELECT Groupun_RestuarantId, Name, Description, CopunDescription, Kosher, Expira
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Groupun_RestuarantId, Name, Description, CopunDescription, Kosher, Expirat" +
-                "ion, Hours, PhoneAndContent, Image, Category_CategoryId, Location_LocationId FRO" +
-                "M dbo.Groupun_Restuarant";
+                "ion, Hours, PhoneAndContent, Image, RankingsSum, RankningUsersSum, Category_Cate" +
+                "goryId, Location_LocationId FROM dbo.Groupun_Restuarant";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4772,23 +5653,25 @@ SELECT Groupun_RestuarantId, Name, Description, CopunDescription, Kosher, Expira
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Groupun_RestuarantId, global::System.Nullable<int> Original_Category_CategoryId, global::System.Nullable<int> Original_Location_LocationId) {
+        public virtual int Delete(int Original_Groupun_RestuarantId, int Original_RankingsSum, int Original_RankningUsersSum, global::System.Nullable<int> Original_Category_CategoryId, global::System.Nullable<int> Original_Location_LocationId) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Groupun_RestuarantId));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_RankingsSum));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_RankningUsersSum));
             if ((Original_Category_CategoryId.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Category_CategoryId.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Location_LocationId.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Location_LocationId.Value));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Category_CategoryId.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Location_LocationId.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_Location_LocationId.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4810,7 +5693,7 @@ SELECT Groupun_RestuarantId, Name, Description, CopunDescription, Kosher, Expira
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Name, string Description, string CopunDescription, string Kosher, string Expiration, string Hours, string PhoneAndContent, byte[] Image, global::System.Nullable<int> Category_CategoryId, global::System.Nullable<int> Location_LocationId) {
+        public virtual int Insert(string Name, string Description, string CopunDescription, string Kosher, string Expiration, string Hours, string PhoneAndContent, byte[] Image, int RankingsSum, int RankningUsersSum, global::System.Nullable<int> Category_CategoryId, global::System.Nullable<int> Location_LocationId) {
             if ((Name == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -4859,17 +5742,19 @@ SELECT Groupun_RestuarantId, Name, Description, CopunDescription, Kosher, Expira
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = ((byte[])(Image));
             }
+            this.Adapter.InsertCommand.Parameters[8].Value = ((int)(RankingsSum));
+            this.Adapter.InsertCommand.Parameters[9].Value = ((int)(RankningUsersSum));
             if ((Category_CategoryId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(Category_CategoryId.Value));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((int)(Category_CategoryId.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((Location_LocationId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((int)(Location_LocationId.Value));
+                this.Adapter.InsertCommand.Parameters[11].Value = ((int)(Location_LocationId.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4891,7 +5776,25 @@ SELECT Groupun_RestuarantId, Name, Description, CopunDescription, Kosher, Expira
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Description, string CopunDescription, string Kosher, string Expiration, string Hours, string PhoneAndContent, byte[] Image, global::System.Nullable<int> Category_CategoryId, global::System.Nullable<int> Location_LocationId, int Original_Groupun_RestuarantId, global::System.Nullable<int> Original_Category_CategoryId, global::System.Nullable<int> Original_Location_LocationId, int Groupun_RestuarantId) {
+        public virtual int Update(
+                    string Name, 
+                    string Description, 
+                    string CopunDescription, 
+                    string Kosher, 
+                    string Expiration, 
+                    string Hours, 
+                    string PhoneAndContent, 
+                    byte[] Image, 
+                    int RankingsSum, 
+                    int RankningUsersSum, 
+                    global::System.Nullable<int> Category_CategoryId, 
+                    global::System.Nullable<int> Location_LocationId, 
+                    int Original_Groupun_RestuarantId, 
+                    int Original_RankingsSum, 
+                    int Original_RankningUsersSum, 
+                    global::System.Nullable<int> Original_Category_CategoryId, 
+                    global::System.Nullable<int> Original_Location_LocationId, 
+                    int Groupun_RestuarantId) {
             if ((Name == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -4940,36 +5843,40 @@ SELECT Groupun_RestuarantId, Name, Description, CopunDescription, Kosher, Expira
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((byte[])(Image));
             }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(RankingsSum));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(RankningUsersSum));
             if ((Category_CategoryId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Category_CategoryId.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Category_CategoryId.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((Location_LocationId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Location_LocationId.Value));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Location_LocationId.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Groupun_RestuarantId));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_Groupun_RestuarantId));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_RankingsSum));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_RankningUsersSum));
             if ((Original_Category_CategoryId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_Category_CategoryId.Value));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_Category_CategoryId.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             if ((Original_Location_LocationId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_Location_LocationId.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_Location_LocationId.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Groupun_RestuarantId));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Groupun_RestuarantId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4990,8 +5897,25 @@ SELECT Groupun_RestuarantId, Name, Description, CopunDescription, Kosher, Expira
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Description, string CopunDescription, string Kosher, string Expiration, string Hours, string PhoneAndContent, byte[] Image, global::System.Nullable<int> Category_CategoryId, global::System.Nullable<int> Location_LocationId, int Original_Groupun_RestuarantId, global::System.Nullable<int> Original_Category_CategoryId, global::System.Nullable<int> Original_Location_LocationId) {
-            return this.Update(Name, Description, CopunDescription, Kosher, Expiration, Hours, PhoneAndContent, Image, Category_CategoryId, Location_LocationId, Original_Groupun_RestuarantId, Original_Category_CategoryId, Original_Location_LocationId, Original_Groupun_RestuarantId);
+        public virtual int Update(
+                    string Name, 
+                    string Description, 
+                    string CopunDescription, 
+                    string Kosher, 
+                    string Expiration, 
+                    string Hours, 
+                    string PhoneAndContent, 
+                    byte[] Image, 
+                    int RankingsSum, 
+                    int RankningUsersSum, 
+                    global::System.Nullable<int> Category_CategoryId, 
+                    global::System.Nullable<int> Location_LocationId, 
+                    int Original_Groupun_RestuarantId, 
+                    int Original_RankingsSum, 
+                    int Original_RankningUsersSum, 
+                    global::System.Nullable<int> Original_Category_CategoryId, 
+                    global::System.Nullable<int> Original_Location_LocationId) {
+            return this.Update(Name, Description, CopunDescription, Kosher, Expiration, Hours, PhoneAndContent, Image, RankingsSum, RankningUsersSum, Category_CategoryId, Location_LocationId, Original_Groupun_RestuarantId, Original_RankingsSum, Original_RankningUsersSum, Original_Category_CategoryId, Original_Location_LocationId, Original_Groupun_RestuarantId);
         }
     }
     
@@ -5004,7 +5928,7 @@ SELECT Groupun_RestuarantId, Name, Description, CopunDescription, Kosher, Expira
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class RestuarantsTableAdapter : global::System.ComponentModel.Component {
+    public partial class Laumi_RestuarantTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -5018,7 +5942,7 @@ SELECT Groupun_RestuarantId, Name, Description, CopunDescription, Kosher, Expira
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public RestuarantsTableAdapter() {
+        public Laumi_RestuarantTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -5115,75 +6039,58 @@ SELECT Groupun_RestuarantId, Name, Description, CopunDescription, Kosher, Expira
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Restuarants";
-            tableMapping.ColumnMappings.Add("RestuarantId", "RestuarantId");
+            tableMapping.DataSetTable = "Laumi_Restuarant";
+            tableMapping.ColumnMappings.Add("Laumi_RestuarantId", "Laumi_RestuarantId");
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("Description", "Description");
-            tableMapping.ColumnMappings.Add("Kosher", "Kosher");
+            tableMapping.ColumnMappings.Add("Perks", "Perks");
             tableMapping.ColumnMappings.Add("Phone", "Phone");
-            tableMapping.ColumnMappings.Add("HandicapAccessibility", "HandicapAccessibility");
-            tableMapping.ColumnMappings.Add("OpeningHours", "OpeningHours");
-            tableMapping.ColumnMappings.Add("Category_CategoryId", "Category_CategoryId");
-            tableMapping.ColumnMappings.Add("Cuisine_CuisineId", "Cuisine_CuisineId");
-            tableMapping.ColumnMappings.Add("Location_LocationId", "Location_LocationId");
             tableMapping.ColumnMappings.Add("Image", "Image");
-            tableMapping.ColumnMappings.Add("Score", "Score");
+            tableMapping.ColumnMappings.Add("RankingsSum", "RankingsSum");
+            tableMapping.ColumnMappings.Add("RankningUsersSum", "RankningUsersSum");
+            tableMapping.ColumnMappings.Add("Location_LocationId", "Location_LocationId");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Restuarants] WHERE (([RestuarantId] = @Original_RestuarantId) AND ([HandicapAccessibility] = @Original_HandicapAccessibility) AND ((@IsNull_Category_CategoryId = 1 AND [Category_CategoryId] IS NULL) OR ([Category_CategoryId] = @Original_Category_CategoryId)) AND ((@IsNull_Cuisine_CuisineId = 1 AND [Cuisine_CuisineId] IS NULL) OR ([Cuisine_CuisineId] = @Original_Cuisine_CuisineId)) AND ((@IsNull_Location_LocationId = 1 AND [Location_LocationId] IS NULL) OR ([Location_LocationId] = @Original_Location_LocationId)) AND ([Score] = @Original_Score))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Laumi_Restuarant] WHERE (([Laumi_RestuarantId] = @Original_Laumi_RestuarantId) AND ([RankingsSum] = @Original_RankingsSum) AND ([RankningUsersSum] = @Original_RankningUsersSum) AND ((@IsNull_Location_LocationId = 1 AND [Location_LocationId] IS NULL) OR ([Location_LocationId] = @Original_Location_LocationId)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RestuarantId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RestuarantId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HandicapAccessibility", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HandicapAccessibility", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Cuisine_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cuisine_CuisineId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cuisine_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cuisine_CuisineId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Laumi_RestuarantId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Laumi_RestuarantId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RankingsSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankingsSum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RankningUsersSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankningUsersSum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Score", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Score", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Restuarants] ([Name], [Description], [Kosher], [Phone], [HandicapAccessibility], [OpeningHours], [Category_CategoryId], [Cuisine_CuisineId], [Location_LocationId], [Image], [Score]) VALUES (@Name, @Description, @Kosher, @Phone, @HandicapAccessibility, @OpeningHours, @Category_CategoryId, @Cuisine_CuisineId, @Location_LocationId, @Image, @Score);
-SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, OpeningHours, Category_CategoryId, Cuisine_CuisineId, Location_LocationId, Image, Score FROM Restuarants WHERE (RestuarantId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Laumi_Restuarant] ([Name], [Description], [Perks], [Phone], [Image], [RankingsSum], [RankningUsersSum], [Location_LocationId]) VALUES (@Name, @Description, @Perks, @Phone, @Image, @RankingsSum, @RankningUsersSum, @Location_LocationId);
+SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, RankingsSum, RankningUsersSum, Location_LocationId FROM Laumi_Restuarant WHERE (Laumi_RestuarantId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kosher", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kosher", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Perks", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Perks", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HandicapAccessibility", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HandicapAccessibility", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OpeningHours", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OpeningHours", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cuisine_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cuisine_CuisineId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Score", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Score", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RankingsSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankingsSum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RankningUsersSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankningUsersSum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Restuarants] SET [Name] = @Name, [Description] = @Description, [Kosher] = @Kosher, [Phone] = @Phone, [HandicapAccessibility] = @HandicapAccessibility, [OpeningHours] = @OpeningHours, [Category_CategoryId] = @Category_CategoryId, [Cuisine_CuisineId] = @Cuisine_CuisineId, [Location_LocationId] = @Location_LocationId, [Image] = @Image, [Score] = @Score WHERE (([RestuarantId] = @Original_RestuarantId) AND ([HandicapAccessibility] = @Original_HandicapAccessibility) AND ((@IsNull_Category_CategoryId = 1 AND [Category_CategoryId] IS NULL) OR ([Category_CategoryId] = @Original_Category_CategoryId)) AND ((@IsNull_Cuisine_CuisineId = 1 AND [Cuisine_CuisineId] IS NULL) OR ([Cuisine_CuisineId] = @Original_Cuisine_CuisineId)) AND ((@IsNull_Location_LocationId = 1 AND [Location_LocationId] IS NULL) OR ([Location_LocationId] = @Original_Location_LocationId)) AND ([Score] = @Original_Score));
-SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, OpeningHours, Category_CategoryId, Cuisine_CuisineId, Location_LocationId, Image, Score FROM Restuarants WHERE (RestuarantId = @RestuarantId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Laumi_Restuarant] SET [Name] = @Name, [Description] = @Description, [Perks] = @Perks, [Phone] = @Phone, [Image] = @Image, [RankingsSum] = @RankingsSum, [RankningUsersSum] = @RankningUsersSum, [Location_LocationId] = @Location_LocationId WHERE (([Laumi_RestuarantId] = @Original_Laumi_RestuarantId) AND ([RankingsSum] = @Original_RankingsSum) AND ([RankningUsersSum] = @Original_RankningUsersSum) AND ((@IsNull_Location_LocationId = 1 AND [Location_LocationId] IS NULL) OR ([Location_LocationId] = @Original_Location_LocationId)));
+SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, RankingsSum, RankningUsersSum, Location_LocationId FROM Laumi_Restuarant WHERE (Laumi_RestuarantId = @Laumi_RestuarantId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kosher", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kosher", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Perks", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Perks", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HandicapAccessibility", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HandicapAccessibility", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OpeningHours", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OpeningHours", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cuisine_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cuisine_CuisineId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Score", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Score", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RestuarantId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RestuarantId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HandicapAccessibility", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HandicapAccessibility", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Cuisine_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cuisine_CuisineId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cuisine_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cuisine_CuisineId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RankingsSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankingsSum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RankningUsersSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankningUsersSum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Laumi_RestuarantId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Laumi_RestuarantId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RankingsSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankingsSum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RankningUsersSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankningUsersSum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Score", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Score", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RestuarantId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RestuarantId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Laumi_RestuarantId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Laumi_RestuarantId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5199,9 +6106,8 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Ope" +
-                "ningHours, Category_CategoryId, Cuisine_CuisineId, Location_LocationId, Image, S" +
-                "core FROM dbo.Restuarants";
+            this._commandCollection[0].CommandText = "SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, RankingsSum, R" +
+                "ankningUsersSum, Location_LocationId FROM dbo.Laumi_Restuarant";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5209,7 +6115,7 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSet1.RestuarantsDataTable dataTable) {
+        public virtual int Fill(DataSet1.Laumi_RestuarantDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5222,9 +6128,9 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSet1.RestuarantsDataTable GetData() {
+        public virtual DataSet1.Laumi_RestuarantDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSet1.RestuarantsDataTable dataTable = new DataSet1.RestuarantsDataTable();
+            DataSet1.Laumi_RestuarantDataTable dataTable = new DataSet1.Laumi_RestuarantDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5232,7 +6138,7 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet1.RestuarantsDataTable dataTable) {
+        public virtual int Update(DataSet1.Laumi_RestuarantDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -5240,7 +6146,7 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(DataSet1 dataSet) {
-            return this.Adapter.Update(dataSet, "Restuarants");
+            return this.Adapter.Update(dataSet, "Laumi_Restuarant");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5262,34 +6168,18 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_RestuarantId, bool Original_HandicapAccessibility, global::System.Nullable<int> Original_Category_CategoryId, global::System.Nullable<int> Original_Cuisine_CuisineId, global::System.Nullable<int> Original_Location_LocationId, int Original_Score) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_RestuarantId));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((bool)(Original_HandicapAccessibility));
-            if ((Original_Category_CategoryId.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_Category_CategoryId.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Cuisine_CuisineId.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_Cuisine_CuisineId.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
+        public virtual int Delete(int Original_Laumi_RestuarantId, int Original_RankingsSum, int Original_RankningUsersSum, global::System.Nullable<int> Original_Location_LocationId) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Laumi_RestuarantId));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_RankingsSum));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_RankningUsersSum));
             if ((Original_Location_LocationId.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_Location_LocationId.Value));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Location_LocationId.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_Score));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5310,7 +6200,7 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Name, string Description, string Kosher, string Phone, bool HandicapAccessibility, string OpeningHours, global::System.Nullable<int> Category_CategoryId, global::System.Nullable<int> Cuisine_CuisineId, global::System.Nullable<int> Location_LocationId, byte[] Image, int Score) {
+        public virtual int Insert(string Name, string Description, string Perks, string Phone, byte[] Image, int RankingsSum, int RankningUsersSum, global::System.Nullable<int> Location_LocationId) {
             if ((Name == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -5323,11 +6213,11 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Description));
             }
-            if ((Kosher == null)) {
+            if ((Perks == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Kosher));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Perks));
             }
             if ((Phone == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
@@ -5335,38 +6225,20 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Phone));
             }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((bool)(HandicapAccessibility));
-            if ((OpeningHours == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            if ((Image == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(OpeningHours));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((byte[])(Image));
             }
-            if ((Category_CategoryId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(Category_CategoryId.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Cuisine_CuisineId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(Cuisine_CuisineId.Value));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(RankingsSum));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(RankningUsersSum));
+            if ((Location_LocationId.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(Location_LocationId.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Location_LocationId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(Location_LocationId.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((Image == null)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((byte[])(Image));
-            }
-            this.Adapter.InsertCommand.Parameters[10].Value = ((int)(Score));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5387,25 +6259,7 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string Name, 
-                    string Description, 
-                    string Kosher, 
-                    string Phone, 
-                    bool HandicapAccessibility, 
-                    string OpeningHours, 
-                    global::System.Nullable<int> Category_CategoryId, 
-                    global::System.Nullable<int> Cuisine_CuisineId, 
-                    global::System.Nullable<int> Location_LocationId, 
-                    byte[] Image, 
-                    int Score, 
-                    int Original_RestuarantId, 
-                    bool Original_HandicapAccessibility, 
-                    global::System.Nullable<int> Original_Category_CategoryId, 
-                    global::System.Nullable<int> Original_Cuisine_CuisineId, 
-                    global::System.Nullable<int> Original_Location_LocationId, 
-                    int Original_Score, 
-                    int RestuarantId) {
+        public virtual int Update(string Name, string Description, string Perks, string Phone, byte[] Image, int RankingsSum, int RankningUsersSum, global::System.Nullable<int> Location_LocationId, int Original_Laumi_RestuarantId, int Original_RankingsSum, int Original_RankningUsersSum, global::System.Nullable<int> Original_Location_LocationId, int Laumi_RestuarantId) {
             if ((Name == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -5418,11 +6272,11 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Description));
             }
-            if ((Kosher == null)) {
+            if ((Perks == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Kosher));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Perks));
             }
             if ((Phone == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
@@ -5430,66 +6284,32 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Phone));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((bool)(HandicapAccessibility));
-            if ((OpeningHours == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            if ((Image == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(OpeningHours));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((byte[])(Image));
             }
-            if ((Category_CategoryId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Category_CategoryId.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Cuisine_CuisineId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Cuisine_CuisineId.Value));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(RankingsSum));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(RankningUsersSum));
+            if ((Location_LocationId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Location_LocationId.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Location_LocationId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Location_LocationId.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((Image == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((byte[])(Image));
-            }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Score));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_RestuarantId));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((bool)(Original_HandicapAccessibility));
-            if ((Original_Category_CategoryId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_Category_CategoryId.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Cuisine_CuisineId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_Cuisine_CuisineId.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Laumi_RestuarantId));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_RankingsSum));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_RankningUsersSum));
             if ((Original_Location_LocationId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_Location_LocationId.Value));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_Location_LocationId.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_Score));
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(RestuarantId));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Laumi_RestuarantId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5510,25 +6330,8 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string Name, 
-                    string Description, 
-                    string Kosher, 
-                    string Phone, 
-                    bool HandicapAccessibility, 
-                    string OpeningHours, 
-                    global::System.Nullable<int> Category_CategoryId, 
-                    global::System.Nullable<int> Cuisine_CuisineId, 
-                    global::System.Nullable<int> Location_LocationId, 
-                    byte[] Image, 
-                    int Score, 
-                    int Original_RestuarantId, 
-                    bool Original_HandicapAccessibility, 
-                    global::System.Nullable<int> Original_Category_CategoryId, 
-                    global::System.Nullable<int> Original_Cuisine_CuisineId, 
-                    global::System.Nullable<int> Original_Location_LocationId, 
-                    int Original_Score) {
-            return this.Update(Name, Description, Kosher, Phone, HandicapAccessibility, OpeningHours, Category_CategoryId, Cuisine_CuisineId, Location_LocationId, Image, Score, Original_RestuarantId, Original_HandicapAccessibility, Original_Category_CategoryId, Original_Cuisine_CuisineId, Original_Location_LocationId, Original_Score, Original_RestuarantId);
+        public virtual int Update(string Name, string Description, string Perks, string Phone, byte[] Image, int RankingsSum, int RankningUsersSum, global::System.Nullable<int> Location_LocationId, int Original_Laumi_RestuarantId, int Original_RankingsSum, int Original_RankningUsersSum, global::System.Nullable<int> Original_Location_LocationId) {
+            return this.Update(Name, Description, Perks, Phone, Image, RankingsSum, RankningUsersSum, Location_LocationId, Original_Laumi_RestuarantId, Original_RankingsSum, Original_RankningUsersSum, Original_Location_LocationId, Original_Laumi_RestuarantId);
         }
     }
     
@@ -5875,7 +6678,7 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Laumi_RestuarantTableAdapter : global::System.ComponentModel.Component {
+    public partial class RestuarantsTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -5889,7 +6692,7 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public Laumi_RestuarantTableAdapter() {
+        public RestuarantsTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -5986,50 +6789,80 @@ SELECT RestuarantId, Name, Description, Kosher, Phone, HandicapAccessibility, Op
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Laumi_Restuarant";
-            tableMapping.ColumnMappings.Add("Laumi_RestuarantId", "Laumi_RestuarantId");
+            tableMapping.DataSetTable = "Restuarants";
+            tableMapping.ColumnMappings.Add("RestuarantId", "RestuarantId");
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("Description", "Description");
-            tableMapping.ColumnMappings.Add("Perks", "Perks");
+            tableMapping.ColumnMappings.Add("RankingsSum", "RankingsSum");
+            tableMapping.ColumnMappings.Add("RankningUsersSum", "RankningUsersSum");
+            tableMapping.ColumnMappings.Add("Kosher", "Kosher");
             tableMapping.ColumnMappings.Add("Phone", "Phone");
+            tableMapping.ColumnMappings.Add("HandicapAccessibility", "HandicapAccessibility");
             tableMapping.ColumnMappings.Add("Image", "Image");
+            tableMapping.ColumnMappings.Add("OpeningHours", "OpeningHours");
+            tableMapping.ColumnMappings.Add("Category_CategoryId", "Category_CategoryId");
+            tableMapping.ColumnMappings.Add("Cuisine_CuisineId", "Cuisine_CuisineId");
             tableMapping.ColumnMappings.Add("Location_LocationId", "Location_LocationId");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Laumi_Restuarant] WHERE (([Laumi_RestuarantId] = @Original_Lau" +
-                "mi_RestuarantId) AND ((@IsNull_Location_LocationId = 1 AND [Location_LocationId]" +
-                " IS NULL) OR ([Location_LocationId] = @Original_Location_LocationId)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Restuarants] WHERE (([RestuarantId] = @Original_RestuarantId) AND ([RankingsSum] = @Original_RankingsSum) AND ([RankningUsersSum] = @Original_RankningUsersSum) AND ([HandicapAccessibility] = @Original_HandicapAccessibility) AND ((@IsNull_Category_CategoryId = 1 AND [Category_CategoryId] IS NULL) OR ([Category_CategoryId] = @Original_Category_CategoryId)) AND ((@IsNull_Cuisine_CuisineId = 1 AND [Cuisine_CuisineId] IS NULL) OR ([Cuisine_CuisineId] = @Original_Cuisine_CuisineId)) AND ((@IsNull_Location_LocationId = 1 AND [Location_LocationId] IS NULL) OR ([Location_LocationId] = @Original_Location_LocationId)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Laumi_RestuarantId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Laumi_RestuarantId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RestuarantId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RestuarantId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RankingsSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankingsSum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RankningUsersSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankningUsersSum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HandicapAccessibility", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HandicapAccessibility", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Cuisine_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cuisine_CuisineId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cuisine_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cuisine_CuisineId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Laumi_Restuarant] ([Name], [Description], [Perks], [Phone], [Image], [Location_LocationId]) VALUES (@Name, @Description, @Perks, @Phone, @Image, @Location_LocationId);
-SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_LocationId FROM Laumi_Restuarant WHERE (Laumi_RestuarantId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Restuarants] ([Name], [Description], [RankingsSum], [RankningUsersSum], [Kosher], [Phone], [HandicapAccessibility], [Image], [OpeningHours], [Category_CategoryId], [Cuisine_CuisineId], [Location_LocationId]) VALUES (@Name, @Description, @RankingsSum, @RankningUsersSum, @Kosher, @Phone, @HandicapAccessibility, @Image, @OpeningHours, @Category_CategoryId, @Cuisine_CuisineId, @Location_LocationId);
+SELECT RestuarantId, Name, Description, RankingsSum, RankningUsersSum, Kosher, Phone, HandicapAccessibility, Image, OpeningHours, Category_CategoryId, Cuisine_CuisineId, Location_LocationId FROM Restuarants WHERE (RestuarantId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Perks", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Perks", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RankingsSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankingsSum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RankningUsersSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankningUsersSum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kosher", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kosher", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HandicapAccessibility", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HandicapAccessibility", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OpeningHours", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OpeningHours", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cuisine_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cuisine_CuisineId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Laumi_Restuarant] SET [Name] = @Name, [Description] = @Description, [Perks] = @Perks, [Phone] = @Phone, [Image] = @Image, [Location_LocationId] = @Location_LocationId WHERE (([Laumi_RestuarantId] = @Original_Laumi_RestuarantId) AND ((@IsNull_Location_LocationId = 1 AND [Location_LocationId] IS NULL) OR ([Location_LocationId] = @Original_Location_LocationId)));
-SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_LocationId FROM Laumi_Restuarant WHERE (Laumi_RestuarantId = @Laumi_RestuarantId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Restuarants] SET [Name] = @Name, [Description] = @Description, [RankingsSum] = @RankingsSum, [RankningUsersSum] = @RankningUsersSum, [Kosher] = @Kosher, [Phone] = @Phone, [HandicapAccessibility] = @HandicapAccessibility, [Image] = @Image, [OpeningHours] = @OpeningHours, [Category_CategoryId] = @Category_CategoryId, [Cuisine_CuisineId] = @Cuisine_CuisineId, [Location_LocationId] = @Location_LocationId WHERE (([RestuarantId] = @Original_RestuarantId) AND ([RankingsSum] = @Original_RankingsSum) AND ([RankningUsersSum] = @Original_RankningUsersSum) AND ([HandicapAccessibility] = @Original_HandicapAccessibility) AND ((@IsNull_Category_CategoryId = 1 AND [Category_CategoryId] IS NULL) OR ([Category_CategoryId] = @Original_Category_CategoryId)) AND ((@IsNull_Cuisine_CuisineId = 1 AND [Cuisine_CuisineId] IS NULL) OR ([Cuisine_CuisineId] = @Original_Cuisine_CuisineId)) AND ((@IsNull_Location_LocationId = 1 AND [Location_LocationId] IS NULL) OR ([Location_LocationId] = @Original_Location_LocationId)));
+SELECT RestuarantId, Name, Description, RankingsSum, RankningUsersSum, Kosher, Phone, HandicapAccessibility, Image, OpeningHours, Category_CategoryId, Cuisine_CuisineId, Location_LocationId FROM Restuarants WHERE (RestuarantId = @RestuarantId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Perks", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Perks", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RankingsSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankingsSum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RankningUsersSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankningUsersSum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kosher", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kosher", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HandicapAccessibility", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HandicapAccessibility", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OpeningHours", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OpeningHours", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cuisine_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cuisine_CuisineId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Laumi_RestuarantId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Laumi_RestuarantId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RestuarantId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RestuarantId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RankingsSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankingsSum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RankningUsersSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankningUsersSum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HandicapAccessibility", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HandicapAccessibility", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Category_CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category_CategoryId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Cuisine_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cuisine_CuisineId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cuisine_CuisineId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cuisine_CuisineId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Laumi_RestuarantId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Laumi_RestuarantId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RestuarantId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RestuarantId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6045,8 +6878,9 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Locat" +
-                "ionId FROM dbo.Laumi_Restuarant";
+            this._commandCollection[0].CommandText = "SELECT RestuarantId, Name, Description, RankingsSum, RankningUsersSum, Kosher, Ph" +
+                "one, HandicapAccessibility, Image, OpeningHours, Category_CategoryId, Cuisine_Cu" +
+                "isineId, Location_LocationId FROM dbo.Restuarants";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6054,7 +6888,7 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSet1.Laumi_RestuarantDataTable dataTable) {
+        public virtual int Fill(DataSet1.RestuarantsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6067,9 +6901,9 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSet1.Laumi_RestuarantDataTable GetData() {
+        public virtual DataSet1.RestuarantsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSet1.Laumi_RestuarantDataTable dataTable = new DataSet1.Laumi_RestuarantDataTable();
+            DataSet1.RestuarantsDataTable dataTable = new DataSet1.RestuarantsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -6077,7 +6911,7 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet1.Laumi_RestuarantDataTable dataTable) {
+        public virtual int Update(DataSet1.RestuarantsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -6085,7 +6919,7 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(DataSet1 dataSet) {
-            return this.Adapter.Update(dataSet, "Laumi_Restuarant");
+            return this.Adapter.Update(dataSet, "Restuarants");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6107,15 +6941,34 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Laumi_RestuarantId, global::System.Nullable<int> Original_Location_LocationId) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Laumi_RestuarantId));
-            if ((Original_Location_LocationId.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Location_LocationId.Value));
+        public virtual int Delete(int Original_RestuarantId, int Original_RankingsSum, int Original_RankningUsersSum, bool Original_HandicapAccessibility, global::System.Nullable<int> Original_Category_CategoryId, global::System.Nullable<int> Original_Cuisine_CuisineId, global::System.Nullable<int> Original_Location_LocationId) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_RestuarantId));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_RankingsSum));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_RankningUsersSum));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((bool)(Original_HandicapAccessibility));
+            if ((Original_Category_CategoryId.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_Category_CategoryId.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Cuisine_CuisineId.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_Cuisine_CuisineId.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Location_LocationId.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_Location_LocationId.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6137,7 +6990,521 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Name, string Description, string Perks, string Phone, byte[] Image, global::System.Nullable<int> Location_LocationId) {
+        public virtual int Insert(string Name, string Description, int RankingsSum, int RankningUsersSum, string Kosher, string Phone, bool HandicapAccessibility, byte[] Image, string OpeningHours, global::System.Nullable<int> Category_CategoryId, global::System.Nullable<int> Cuisine_CuisineId, global::System.Nullable<int> Location_LocationId) {
+            if ((Name == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Name));
+            }
+            if ((Description == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Description));
+            }
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(RankingsSum));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(RankningUsersSum));
+            if ((Kosher == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Kosher));
+            }
+            if ((Phone == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Phone));
+            }
+            this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(HandicapAccessibility));
+            if ((Image == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((byte[])(Image));
+            }
+            if ((OpeningHours == null)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(OpeningHours));
+            }
+            if ((Category_CategoryId.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((int)(Category_CategoryId.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((Cuisine_CuisineId.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((int)(Cuisine_CuisineId.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Location_LocationId.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((int)(Location_LocationId.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string Name, 
+                    string Description, 
+                    int RankingsSum, 
+                    int RankningUsersSum, 
+                    string Kosher, 
+                    string Phone, 
+                    bool HandicapAccessibility, 
+                    byte[] Image, 
+                    string OpeningHours, 
+                    global::System.Nullable<int> Category_CategoryId, 
+                    global::System.Nullable<int> Cuisine_CuisineId, 
+                    global::System.Nullable<int> Location_LocationId, 
+                    int Original_RestuarantId, 
+                    int Original_RankingsSum, 
+                    int Original_RankningUsersSum, 
+                    bool Original_HandicapAccessibility, 
+                    global::System.Nullable<int> Original_Category_CategoryId, 
+                    global::System.Nullable<int> Original_Cuisine_CuisineId, 
+                    global::System.Nullable<int> Original_Location_LocationId, 
+                    int RestuarantId) {
+            if ((Name == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Name));
+            }
+            if ((Description == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Description));
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(RankingsSum));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(RankningUsersSum));
+            if ((Kosher == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Kosher));
+            }
+            if ((Phone == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Phone));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(HandicapAccessibility));
+            if ((Image == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((byte[])(Image));
+            }
+            if ((OpeningHours == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(OpeningHours));
+            }
+            if ((Category_CategoryId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Category_CategoryId.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((Cuisine_CuisineId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Cuisine_CuisineId.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Location_LocationId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Location_LocationId.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_RestuarantId));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_RankingsSum));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_RankningUsersSum));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((bool)(Original_HandicapAccessibility));
+            if ((Original_Category_CategoryId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_Category_CategoryId.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Cuisine_CuisineId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_Cuisine_CuisineId.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Location_LocationId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_Location_LocationId.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(RestuarantId));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string Name, 
+                    string Description, 
+                    int RankingsSum, 
+                    int RankningUsersSum, 
+                    string Kosher, 
+                    string Phone, 
+                    bool HandicapAccessibility, 
+                    byte[] Image, 
+                    string OpeningHours, 
+                    global::System.Nullable<int> Category_CategoryId, 
+                    global::System.Nullable<int> Cuisine_CuisineId, 
+                    global::System.Nullable<int> Location_LocationId, 
+                    int Original_RestuarantId, 
+                    int Original_RankingsSum, 
+                    int Original_RankningUsersSum, 
+                    bool Original_HandicapAccessibility, 
+                    global::System.Nullable<int> Original_Category_CategoryId, 
+                    global::System.Nullable<int> Original_Cuisine_CuisineId, 
+                    global::System.Nullable<int> Original_Location_LocationId) {
+            return this.Update(Name, Description, RankingsSum, RankningUsersSum, Kosher, Phone, HandicapAccessibility, Image, OpeningHours, Category_CategoryId, Cuisine_CuisineId, Location_LocationId, Original_RestuarantId, Original_RankingsSum, Original_RankningUsersSum, Original_HandicapAccessibility, Original_Category_CategoryId, Original_Cuisine_CuisineId, Original_Location_LocationId, Original_RestuarantId);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class American_RestuarantTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public American_RestuarantTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "American_Restuarant";
+            tableMapping.ColumnMappings.Add("American_RestuarantId", "American_RestuarantId");
+            tableMapping.ColumnMappings.Add("Name", "Name");
+            tableMapping.ColumnMappings.Add("Description", "Description");
+            tableMapping.ColumnMappings.Add("Perks", "Perks");
+            tableMapping.ColumnMappings.Add("Phone", "Phone");
+            tableMapping.ColumnMappings.Add("Expiration", "Expiration");
+            tableMapping.ColumnMappings.Add("Image", "Image");
+            tableMapping.ColumnMappings.Add("RankingsSum", "RankingsSum");
+            tableMapping.ColumnMappings.Add("RankningUsersSum", "RankningUsersSum");
+            tableMapping.ColumnMappings.Add("Location_LocationId", "Location_LocationId");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[American_Restuarant] WHERE (([American_RestuarantId] = @Original_American_RestuarantId) AND ([RankingsSum] = @Original_RankingsSum) AND ([RankningUsersSum] = @Original_RankningUsersSum) AND ((@IsNull_Location_LocationId = 1 AND [Location_LocationId] IS NULL) OR ([Location_LocationId] = @Original_Location_LocationId)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_American_RestuarantId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "American_RestuarantId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RankingsSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankingsSum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RankningUsersSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankningUsersSum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[American_Restuarant] ([Name], [Description], [Perks], [Phone], [Expiration], [Image], [RankingsSum], [RankningUsersSum], [Location_LocationId]) VALUES (@Name, @Description, @Perks, @Phone, @Expiration, @Image, @RankingsSum, @RankningUsersSum, @Location_LocationId);
+SELECT American_RestuarantId, Name, Description, Perks, Phone, Expiration, Image, RankingsSum, RankningUsersSum, Location_LocationId FROM American_Restuarant WHERE (American_RestuarantId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Perks", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Perks", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Expiration", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Expiration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RankingsSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankingsSum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RankningUsersSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankningUsersSum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[American_Restuarant] SET [Name] = @Name, [Description] = @Description, [Perks] = @Perks, [Phone] = @Phone, [Expiration] = @Expiration, [Image] = @Image, [RankingsSum] = @RankingsSum, [RankningUsersSum] = @RankningUsersSum, [Location_LocationId] = @Location_LocationId WHERE (([American_RestuarantId] = @Original_American_RestuarantId) AND ([RankingsSum] = @Original_RankingsSum) AND ([RankningUsersSum] = @Original_RankningUsersSum) AND ((@IsNull_Location_LocationId = 1 AND [Location_LocationId] IS NULL) OR ([Location_LocationId] = @Original_Location_LocationId)));
+SELECT American_RestuarantId, Name, Description, Perks, Phone, Expiration, Image, RankingsSum, RankningUsersSum, Location_LocationId FROM American_Restuarant WHERE (American_RestuarantId = @American_RestuarantId)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Perks", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Perks", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Expiration", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Expiration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RankingsSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankingsSum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RankningUsersSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankningUsersSum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_American_RestuarantId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "American_RestuarantId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RankingsSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankingsSum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RankningUsersSum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RankningUsersSum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Location_LocationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location_LocationId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@American_RestuarantId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "American_RestuarantId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::ParseData.Properties.Settings.Default.aspnet_MyCards_20160227033058ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT American_RestuarantId, Name, Description, Perks, Phone, Expiration, Image," +
+                " RankingsSum, RankningUsersSum, Location_LocationId FROM dbo.American_Restuarant" +
+                "";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DataSet1.American_RestuarantDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DataSet1.American_RestuarantDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSet1.American_RestuarantDataTable dataTable = new DataSet1.American_RestuarantDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DataSet1.American_RestuarantDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DataSet1 dataSet) {
+            return this.Adapter.Update(dataSet, "American_Restuarant");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_American_RestuarantId, int Original_RankingsSum, int Original_RankningUsersSum, global::System.Nullable<int> Original_Location_LocationId) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_American_RestuarantId));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_RankingsSum));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_RankningUsersSum));
+            if ((Original_Location_LocationId.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Location_LocationId.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string Name, string Description, string Perks, string Phone, string Expiration, byte[] Image, int RankingsSum, int RankningUsersSum, global::System.Nullable<int> Location_LocationId) {
             if ((Name == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -6162,17 +7529,25 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Phone));
             }
-            if ((Image == null)) {
+            if ((Expiration == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((byte[])(Image));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Expiration));
             }
-            if ((Location_LocationId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(Location_LocationId.Value));
+            if ((Image == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[5].Value = ((byte[])(Image));
+            }
+            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(RankingsSum));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((int)(RankningUsersSum));
+            if ((Location_LocationId.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(Location_LocationId.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6194,7 +7569,7 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Description, string Perks, string Phone, byte[] Image, global::System.Nullable<int> Location_LocationId, int Original_Laumi_RestuarantId, global::System.Nullable<int> Original_Location_LocationId, int Laumi_RestuarantId) {
+        public virtual int Update(string Name, string Description, string Perks, string Phone, string Expiration, byte[] Image, int RankingsSum, int RankningUsersSum, global::System.Nullable<int> Location_LocationId, int Original_American_RestuarantId, int Original_RankingsSum, int Original_RankningUsersSum, global::System.Nullable<int> Original_Location_LocationId, int American_RestuarantId) {
             if ((Name == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -6219,28 +7594,38 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Phone));
             }
-            if ((Image == null)) {
+            if ((Expiration == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((byte[])(Image));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Expiration));
             }
-            if ((Location_LocationId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Location_LocationId.Value));
-            }
-            else {
+            if ((Image == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Laumi_RestuarantId));
-            if ((Original_Location_LocationId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Location_LocationId.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((byte[])(Image));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(RankingsSum));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(RankningUsersSum));
+            if ((Location_LocationId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Location_LocationId.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Laumi_RestuarantId));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_American_RestuarantId));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_RankingsSum));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_RankningUsersSum));
+            if ((Original_Location_LocationId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_Location_LocationId.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(American_RestuarantId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6261,8 +7646,8 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Description, string Perks, string Phone, byte[] Image, global::System.Nullable<int> Location_LocationId, int Original_Laumi_RestuarantId, global::System.Nullable<int> Original_Location_LocationId) {
-            return this.Update(Name, Description, Perks, Phone, Image, Location_LocationId, Original_Laumi_RestuarantId, Original_Location_LocationId, Original_Laumi_RestuarantId);
+        public virtual int Update(string Name, string Description, string Perks, string Phone, string Expiration, byte[] Image, int RankingsSum, int RankningUsersSum, global::System.Nullable<int> Location_LocationId, int Original_American_RestuarantId, int Original_RankingsSum, int Original_RankningUsersSum, global::System.Nullable<int> Original_Location_LocationId) {
+            return this.Update(Name, Description, Perks, Phone, Expiration, Image, RankingsSum, RankningUsersSum, Location_LocationId, Original_American_RestuarantId, Original_RankingsSum, Original_RankningUsersSum, Original_Location_LocationId, Original_American_RestuarantId);
         }
     }
     
@@ -6278,17 +7663,19 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
         
         private UpdateOrderOption _updateOrder;
         
-        private CuisinesTableAdapter _cuisinesTableAdapter;
-        
         private CategoriesTableAdapter _categoriesTableAdapter;
+        
+        private CuisinesTableAdapter _cuisinesTableAdapter;
         
         private Groupun_RestuarantTableAdapter _groupun_RestuarantTableAdapter;
         
-        private RestuarantsTableAdapter _restuarantsTableAdapter;
+        private Laumi_RestuarantTableAdapter _laumi_RestuarantTableAdapter;
         
         private LocationsTableAdapter _locationsTableAdapter;
         
-        private Laumi_RestuarantTableAdapter _laumi_RestuarantTableAdapter;
+        private RestuarantsTableAdapter _restuarantsTableAdapter;
+        
+        private American_RestuarantTableAdapter _american_RestuarantTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -6302,20 +7689,6 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public CuisinesTableAdapter CuisinesTableAdapter {
-            get {
-                return this._cuisinesTableAdapter;
-            }
-            set {
-                this._cuisinesTableAdapter = value;
             }
         }
         
@@ -6338,6 +7711,20 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
+        public CuisinesTableAdapter CuisinesTableAdapter {
+            get {
+                return this._cuisinesTableAdapter;
+            }
+            set {
+                this._cuisinesTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
         public Groupun_RestuarantTableAdapter Groupun_RestuarantTableAdapter {
             get {
                 return this._groupun_RestuarantTableAdapter;
@@ -6352,12 +7739,12 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public RestuarantsTableAdapter RestuarantsTableAdapter {
+        public Laumi_RestuarantTableAdapter Laumi_RestuarantTableAdapter {
             get {
-                return this._restuarantsTableAdapter;
+                return this._laumi_RestuarantTableAdapter;
             }
             set {
-                this._restuarantsTableAdapter = value;
+                this._laumi_RestuarantTableAdapter = value;
             }
         }
         
@@ -6380,12 +7767,26 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public Laumi_RestuarantTableAdapter Laumi_RestuarantTableAdapter {
+        public RestuarantsTableAdapter RestuarantsTableAdapter {
             get {
-                return this._laumi_RestuarantTableAdapter;
+                return this._restuarantsTableAdapter;
             }
             set {
-                this._laumi_RestuarantTableAdapter = value;
+                this._restuarantsTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public American_RestuarantTableAdapter American_RestuarantTableAdapter {
+            get {
+                return this._american_RestuarantTableAdapter;
+            }
+            set {
+                this._american_RestuarantTableAdapter = value;
             }
         }
         
@@ -6408,29 +7809,33 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._cuisinesTableAdapter != null) 
-                            && (this._cuisinesTableAdapter.Connection != null))) {
-                    return this._cuisinesTableAdapter.Connection;
-                }
                 if (((this._categoriesTableAdapter != null) 
                             && (this._categoriesTableAdapter.Connection != null))) {
                     return this._categoriesTableAdapter.Connection;
+                }
+                if (((this._cuisinesTableAdapter != null) 
+                            && (this._cuisinesTableAdapter.Connection != null))) {
+                    return this._cuisinesTableAdapter.Connection;
                 }
                 if (((this._groupun_RestuarantTableAdapter != null) 
                             && (this._groupun_RestuarantTableAdapter.Connection != null))) {
                     return this._groupun_RestuarantTableAdapter.Connection;
                 }
-                if (((this._restuarantsTableAdapter != null) 
-                            && (this._restuarantsTableAdapter.Connection != null))) {
-                    return this._restuarantsTableAdapter.Connection;
+                if (((this._laumi_RestuarantTableAdapter != null) 
+                            && (this._laumi_RestuarantTableAdapter.Connection != null))) {
+                    return this._laumi_RestuarantTableAdapter.Connection;
                 }
                 if (((this._locationsTableAdapter != null) 
                             && (this._locationsTableAdapter.Connection != null))) {
                     return this._locationsTableAdapter.Connection;
                 }
-                if (((this._laumi_RestuarantTableAdapter != null) 
-                            && (this._laumi_RestuarantTableAdapter.Connection != null))) {
-                    return this._laumi_RestuarantTableAdapter.Connection;
+                if (((this._restuarantsTableAdapter != null) 
+                            && (this._restuarantsTableAdapter.Connection != null))) {
+                    return this._restuarantsTableAdapter.Connection;
+                }
+                if (((this._american_RestuarantTableAdapter != null) 
+                            && (this._american_RestuarantTableAdapter.Connection != null))) {
+                    return this._american_RestuarantTableAdapter.Connection;
                 }
                 return null;
             }
@@ -6445,22 +7850,25 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._cuisinesTableAdapter != null)) {
+                if ((this._categoriesTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._categoriesTableAdapter != null)) {
+                if ((this._cuisinesTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._groupun_RestuarantTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._restuarantsTableAdapter != null)) {
+                if ((this._laumi_RestuarantTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._locationsTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._laumi_RestuarantTableAdapter != null)) {
+                if ((this._restuarantsTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._american_RestuarantTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -6474,21 +7882,21 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._cuisinesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Cuisines.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._cuisinesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._categoriesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Categories.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._categoriesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._cuisinesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Cuisines.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._cuisinesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -6510,6 +7918,15 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._laumi_RestuarantTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Laumi_Restuarant.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._laumi_RestuarantTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._restuarantsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Restuarants.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -6519,12 +7936,12 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._laumi_RestuarantTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Laumi_Restuarant.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._american_RestuarantTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.American_Restuarant.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._laumi_RestuarantTableAdapter.Update(updatedRows));
+                    result = (result + this._american_RestuarantTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -6538,19 +7955,19 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._cuisinesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Cuisines.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._cuisinesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._categoriesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Categories.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._categoriesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._cuisinesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Cuisines.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._cuisinesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -6570,6 +7987,14 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._laumi_RestuarantTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Laumi_Restuarant.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._laumi_RestuarantTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._restuarantsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Restuarants.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -6578,11 +8003,11 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._laumi_RestuarantTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Laumi_Restuarant.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._american_RestuarantTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.American_Restuarant.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._laumi_RestuarantTableAdapter.Update(addedRows));
+                    result = (result + this._american_RestuarantTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -6596,11 +8021,11 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._laumi_RestuarantTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Laumi_Restuarant.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._american_RestuarantTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.American_Restuarant.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._laumi_RestuarantTableAdapter.Update(deletedRows));
+                    result = (result + this._american_RestuarantTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -6609,6 +8034,14 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._restuarantsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._laumi_RestuarantTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Laumi_Restuarant.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._laumi_RestuarantTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -6628,19 +8061,19 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._categoriesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Categories.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._categoriesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._cuisinesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Cuisines.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._cuisinesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._categoriesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Categories.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._categoriesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -6683,13 +8116,13 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._cuisinesTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._cuisinesTableAdapter.Connection) == false))) {
+            if (((this._categoriesTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._categoriesTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._categoriesTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._categoriesTableAdapter.Connection) == false))) {
+            if (((this._cuisinesTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._cuisinesTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -6698,8 +8131,8 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._restuarantsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._restuarantsTableAdapter.Connection) == false))) {
+            if (((this._laumi_RestuarantTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._laumi_RestuarantTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -6708,8 +8141,13 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._laumi_RestuarantTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._laumi_RestuarantTableAdapter.Connection) == false))) {
+            if (((this._restuarantsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._restuarantsTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._american_RestuarantTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._american_RestuarantTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -6745,15 +8183,6 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._cuisinesTableAdapter != null)) {
-                    revertConnections.Add(this._cuisinesTableAdapter, this._cuisinesTableAdapter.Connection);
-                    this._cuisinesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._cuisinesTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._cuisinesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._cuisinesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._cuisinesTableAdapter.Adapter);
-                    }
-                }
                 if ((this._categoriesTableAdapter != null)) {
                     revertConnections.Add(this._categoriesTableAdapter, this._categoriesTableAdapter.Connection);
                     this._categoriesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -6761,6 +8190,15 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
                     if (this._categoriesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._categoriesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._categoriesTableAdapter.Adapter);
+                    }
+                }
+                if ((this._cuisinesTableAdapter != null)) {
+                    revertConnections.Add(this._cuisinesTableAdapter, this._cuisinesTableAdapter.Connection);
+                    this._cuisinesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._cuisinesTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._cuisinesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._cuisinesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._cuisinesTableAdapter.Adapter);
                     }
                 }
                 if ((this._groupun_RestuarantTableAdapter != null)) {
@@ -6772,13 +8210,13 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
                         adaptersWithAcceptChangesDuringUpdate.Add(this._groupun_RestuarantTableAdapter.Adapter);
                     }
                 }
-                if ((this._restuarantsTableAdapter != null)) {
-                    revertConnections.Add(this._restuarantsTableAdapter, this._restuarantsTableAdapter.Connection);
-                    this._restuarantsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._restuarantsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._restuarantsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._restuarantsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._restuarantsTableAdapter.Adapter);
+                if ((this._laumi_RestuarantTableAdapter != null)) {
+                    revertConnections.Add(this._laumi_RestuarantTableAdapter, this._laumi_RestuarantTableAdapter.Connection);
+                    this._laumi_RestuarantTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._laumi_RestuarantTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._laumi_RestuarantTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._laumi_RestuarantTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._laumi_RestuarantTableAdapter.Adapter);
                     }
                 }
                 if ((this._locationsTableAdapter != null)) {
@@ -6790,13 +8228,22 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
                         adaptersWithAcceptChangesDuringUpdate.Add(this._locationsTableAdapter.Adapter);
                     }
                 }
-                if ((this._laumi_RestuarantTableAdapter != null)) {
-                    revertConnections.Add(this._laumi_RestuarantTableAdapter, this._laumi_RestuarantTableAdapter.Connection);
-                    this._laumi_RestuarantTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._laumi_RestuarantTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._laumi_RestuarantTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._laumi_RestuarantTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._laumi_RestuarantTableAdapter.Adapter);
+                if ((this._restuarantsTableAdapter != null)) {
+                    revertConnections.Add(this._restuarantsTableAdapter, this._restuarantsTableAdapter.Connection);
+                    this._restuarantsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._restuarantsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._restuarantsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._restuarantsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._restuarantsTableAdapter.Adapter);
+                    }
+                }
+                if ((this._american_RestuarantTableAdapter != null)) {
+                    revertConnections.Add(this._american_RestuarantTableAdapter, this._american_RestuarantTableAdapter.Connection);
+                    this._american_RestuarantTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._american_RestuarantTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._american_RestuarantTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._american_RestuarantTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._american_RestuarantTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -6857,29 +8304,33 @@ SELECT Laumi_RestuarantId, Name, Description, Perks, Phone, Image, Location_Loca
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._cuisinesTableAdapter != null)) {
-                    this._cuisinesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._cuisinesTableAdapter]));
-                    this._cuisinesTableAdapter.Transaction = null;
-                }
                 if ((this._categoriesTableAdapter != null)) {
                     this._categoriesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._categoriesTableAdapter]));
                     this._categoriesTableAdapter.Transaction = null;
+                }
+                if ((this._cuisinesTableAdapter != null)) {
+                    this._cuisinesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._cuisinesTableAdapter]));
+                    this._cuisinesTableAdapter.Transaction = null;
                 }
                 if ((this._groupun_RestuarantTableAdapter != null)) {
                     this._groupun_RestuarantTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._groupun_RestuarantTableAdapter]));
                     this._groupun_RestuarantTableAdapter.Transaction = null;
                 }
-                if ((this._restuarantsTableAdapter != null)) {
-                    this._restuarantsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._restuarantsTableAdapter]));
-                    this._restuarantsTableAdapter.Transaction = null;
+                if ((this._laumi_RestuarantTableAdapter != null)) {
+                    this._laumi_RestuarantTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._laumi_RestuarantTableAdapter]));
+                    this._laumi_RestuarantTableAdapter.Transaction = null;
                 }
                 if ((this._locationsTableAdapter != null)) {
                     this._locationsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._locationsTableAdapter]));
                     this._locationsTableAdapter.Transaction = null;
                 }
-                if ((this._laumi_RestuarantTableAdapter != null)) {
-                    this._laumi_RestuarantTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._laumi_RestuarantTableAdapter]));
-                    this._laumi_RestuarantTableAdapter.Transaction = null;
+                if ((this._restuarantsTableAdapter != null)) {
+                    this._restuarantsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._restuarantsTableAdapter]));
+                    this._restuarantsTableAdapter.Transaction = null;
+                }
+                if ((this._american_RestuarantTableAdapter != null)) {
+                    this._american_RestuarantTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._american_RestuarantTableAdapter]));
+                    this._american_RestuarantTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

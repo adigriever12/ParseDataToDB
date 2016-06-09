@@ -8,7 +8,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.Collections.ObjectModel;
 using System.Net;
-using ParseData.CloudTableAdapters;
+using ParseData.DataSet1TableAdapters;
 using System.Data;
 using System.Xml.Linq;
 
@@ -18,9 +18,9 @@ namespace ParseData
     {
         public ParseGrouponSelenium()
         {
-            Cloud.CategoriesDataTable categoriesDataTable = new Cloud.CategoriesDataTable();
-            Cloud.LocationsDataTable locationsDataTable = new Cloud.LocationsDataTable();
-            Cloud.Groupun_RestuarantDataTable groupunRrestuarantsDataTable = new Cloud.Groupun_RestuarantDataTable();
+            DataSet1.CategoriesDataTable categoriesDataTable = new DataSet1.CategoriesDataTable();
+            DataSet1.LocationsDataTable locationsDataTable = new DataSet1.LocationsDataTable();
+            DataSet1.Groupun_RestuarantDataTable groupunRrestuarantsDataTable = new DataSet1.Groupun_RestuarantDataTable();
 
             CategoriesTableAdapter categoriesAdapter = new CategoriesTableAdapter();
             LocationsTableAdapter locationsAdapter = new LocationsTableAdapter();
@@ -82,13 +82,13 @@ namespace ParseData
                     var imageSrc = driver.FindElementByCssSelector(".gallery-featured img").GetAttribute("src");
 
                     // category
-                    Cloud.CategoriesRow categoryRow = categoriesDataTable.NewCategoriesRow();
+                    DataSet1.CategoriesRow categoryRow = categoriesDataTable.NewCategoriesRow();
                     categoryRow.Name = category;
                     categoriesDataTable.Rows.Add(categoryRow);
                     categoriesAdapter.Update(categoriesDataTable);
 
                     // location
-                    Cloud.LocationsRow addressRow = locationsDataTable.NewLocationsRow();
+                    DataSet1.LocationsRow addressRow = locationsDataTable.NewLocationsRow();
                     addressRow.Address = String.Join(" ", addresses);
 
                     if (!ExtractGeoLocation(addressRow, addresses.ToList()))
@@ -99,7 +99,7 @@ namespace ParseData
                     locationsDataTable.Rows.Add(addressRow);
                     locationsAdapter.Update(locationsDataTable);
 
-                    Cloud.Groupun_RestuarantRow resRow = groupunRrestuarantsDataTable.NewGroupun_RestuarantRow();
+                    DataSet1.Groupun_RestuarantRow resRow = groupunRrestuarantsDataTable.NewGroupun_RestuarantRow();
 
                     resRow.Name = name;
                     resRow.Category_CategoryId = categoryRow.CategoryId;
@@ -111,6 +111,9 @@ namespace ParseData
                     resRow.Expiration = smallDetails.ContainsKey("expiration") ? smallDetails["expiration"] : "";
                     resRow.Hours = smallDetails.ContainsKey("hours") ? smallDetails["hours"] : "";
                     resRow.PhoneAndContent = smallDetails.ContainsKey("phone") ? smallDetails["phone"] : "";
+                    resRow.RankningUsersSum = 0;
+                    resRow.RankingsSum = 0;
+
 
                     groupunRrestuarantsDataTable.Rows.Add(resRow);
                     groupubRestuarantsAdapter.Update(groupunRrestuarantsDataTable);
@@ -189,12 +192,12 @@ namespace ParseData
             return "";
         }
 
-        private static void IntializeDBAdapters(out Cloud.LocationsDataTable locationsDataTable, out LocationsTableAdapter locationsAdapter)
+        private static void IntializeDBAdapters(out DataSet1.LocationsDataTable locationsDataTable, out LocationsTableAdapter locationsAdapter)
         {
-            Cloud.CategoriesDataTable categoriesDataTable = new Cloud.CategoriesDataTable();
-            Cloud.CuisinesDataTable cuisinesDataTable = new Cloud.CuisinesDataTable();
-            locationsDataTable = new Cloud.LocationsDataTable();
-            Cloud.RestuarantsDataTable restuarantsDataTable = new Cloud.RestuarantsDataTable();
+            DataSet1.CategoriesDataTable categoriesDataTable = new DataSet1.CategoriesDataTable();
+            DataSet1.CuisinesDataTable cuisinesDataTable = new DataSet1.CuisinesDataTable();
+            locationsDataTable = new DataSet1.LocationsDataTable();
+            DataSet1.RestuarantsDataTable restuarantsDataTable = new DataSet1.RestuarantsDataTable();
 
             CategoriesTableAdapter categoriesAdapter = new CategoriesTableAdapter();
             CuisinesTableAdapter cuisineAadapter = new CuisinesTableAdapter();
@@ -202,7 +205,7 @@ namespace ParseData
             RestuarantsTableAdapter restuarantsAdapter = new RestuarantsTableAdapter();
         }
 
-        public static bool ExtractGeoLocation(Cloud.LocationsRow addressRow, List<string> addresses)
+        public static bool ExtractGeoLocation(DataSet1.LocationsRow addressRow, List<string> addresses)
         {
             string address = string.Join(" ", addresses);
             bool success = false;
