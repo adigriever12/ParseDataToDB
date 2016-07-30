@@ -14,7 +14,7 @@ namespace ParseData
     {
         public ParseLaumi()
         {
-            DataSet1.LocationsDataTable locationsDataTable = new DataSet1.LocationsDataTable();
+           /* DataSet1.LocationsDataTable locationsDataTable = new DataSet1.LocationsDataTable();
             DataSet1.Laumi_RestuarantDataTable laumiRrestuarantsDataTable = new DataSet1.Laumi_RestuarantDataTable();
             
             LocationsTableAdapter locationsAdapter = new LocationsTableAdapter();
@@ -125,7 +125,7 @@ namespace ParseData
                 laumiRrestuarantsDataTable.Rows.Add(resRow);
                 laumiRestuarantsAdapter.Update(laumiRrestuarantsDataTable);
 
-            }
+            }*/
         }
         
     }
